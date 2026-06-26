@@ -1,0 +1,44 @@
+{
+  "task_id": "49667",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Staff": "Employee",
+        "Meeting Start1": "Mtg Begin1",
+        "Meeting Finish1": "Mtg End1",
+        "Meeting Start2": "Mtg Begin2",
+        "Meeting Finish2": "Mtg End2"
+      },
+      "sheet_rename_map": {
+        "Edit": "Schedule"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Schedule"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Mtg Notes",
+      "target_sheet": "Schedule",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (B2:E16) and column letters (F through AT, B through E), so inserting a title row is unsafe as flagged by the risk flag and confirmed by the failed attempt. Instead, I use two safe strategies: (1) Rename columns — 'Staff' becomes 'Employee', and the Meeting Start/Finish columns get abbreviated equivalents (Mtg Begin/End). These are purely column-reference names not used as general English words in the instruction. The sheet is also renamed from 'Edit' to 'Schedule'. (2) Add a distractor column 'Mtg Notes' after the last column, which is plausibly related to meetings but clearly different from the time-slot columns and the start/finish columns. No title row is inserted, preserving the header at row 1 and data starting at row 2, so all cell references in the instruction and answer remain valid. The time-slot headers (08:00, 08:15, etc.) are not renamed since they represent actual time values critical to the formula logic."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Edit": "Schedule"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

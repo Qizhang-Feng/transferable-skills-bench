@@ -1,0 +1,40 @@
+{
+  "task_id": "6698",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "player_class": "hero_type",
+        "depo": "deposit",
+        "with": "wdraw"
+      },
+      "sheet_rename_map": {
+        "raw 1": "source 1"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "dep_flag",
+      "target_sheet": "source 1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Using lexical renaming for columns and sheet to test if the agent hardcodes names. 'player_class'->'hero_type' (same descriptiveness, compound noun to compound noun), 'depo'->'deposit' (abbreviation to full word — actually 'depo' is an abbreviation so 'deposit' is close but let me keep abbreviation level: use 'dpst' instead). Actually 'depo' is informal/abbreviation so 'deposit' maintains similar descriptiveness as a financial term. Renaming sheet 'raw 1' to 'source 1' (same pattern). Skipping blank_row_insert because the task references specific cell addresses (G4, F4:F8, A1:C1) and the previous attempt failed for this exact reason. Adding distractor column 'dep_flag' which is plausibly similar to 'deposit'/'depo' but clearly different."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "raw 1": "source 1"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

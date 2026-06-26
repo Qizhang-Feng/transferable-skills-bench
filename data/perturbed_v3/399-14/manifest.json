@@ -1,0 +1,39 @@
+{
+  "task_id": "399-14",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "insert_position": "after_row_3",
+        "note": "Insert a blank row at row 4 (well above the header at row 6), shifting nothing meaningful. This tests whether the model hardcodes row positions for non-header content above the data area."
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "HRS",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction explicitly references Column N, Column O, and specific cell addresses like N12 and O12. Renaming columns or inserting title rows would break these hardcoded references (flagged as risk). Instead, I use two safe perturbation types: (1) A blank row inserted at row 4, which is above the header row (row 6) and data region, so it shifts the header and data down by one row. This tests whether the model can adapt to the new positions (header now at row 7, data at rows 8-24, answer at N8:O24). However, since the task references 'Column N' (letter-based) rather than row-specific ranges in the instruction, this is safe — the column letters don't change. The blank row shifts row numbers but the instruction's example (N12) is illustrative, not prescriptive. (2) A distractor column 'HRS' placed after the last column. This is plausibly similar to the hours-related columns (REG, OT) but clearly different, testing whether the model incorrectly writes data there. No column or sheet renames are applied because the instruction directly references column headers like 'REG' and 'OT' by their exact names in the context of Column N/O, and renaming them could conflict with the hardcoded column letter references in the instruction."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

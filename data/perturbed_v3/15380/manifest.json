@@ -1,0 +1,34 @@
+{
+  "task_id": "15380",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet3"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "codes_ref",
+      "target_sheet": "Sheet3",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has very specific cell address references (A3, B3) and named ranges ('codes2', 'month') that appear in the instruction. The risk flags indicate task_references_specific_cell_addresses and data_values_match_headers, so we must avoid any row insertions that would shift cell positions. Column renames are also risky because the header values (like '01', 'JAN') ARE the data values used in the lookup logic — renaming them would break the matching. Sheet renaming is safe in principle but the instruction doesn't reference 'Sheet3' by name, so it wouldn't test anything. Instead, we add a distractor column 'codes_ref' (plausibly similar to the named range 'codes2') after the last column to test whether the agent incorrectly uses this column instead of the actual 'codes2' range. We set instruction_paraphrase to false per the rules. This perturbation changes surface anchors (adds a misleading column) without altering the underlying task logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

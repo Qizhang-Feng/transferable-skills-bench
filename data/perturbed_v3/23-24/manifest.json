@@ -1,0 +1,37 @@
+{
+  "task_id": "23-24",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "insert_after": "I",
+        "column_name": "NOTES"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "NOTES",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has risk flags 'task_deletes_or_inserts_rows' and 'task_depends_on_blank_row_positions', which means inserting blank rows (especially at the top) is dangerous — as demonstrated by the failed Attempt 1 where a blank row at row 1 disrupted the sequential row-deletion logic. The safe anchor types are positional_blank_row, distractor_column, and instruction_paraphrase. Given the risk flags, positional_blank_row is too risky (the task deletes rows and depends on blank row positions — any inserted blank row could be incorrectly processed or cause off-by-one errors). So I use distractor_column (inserting an empty column J after column I) to test whether the agent hardcodes the number of columns or correctly identifies column I as the lookup column regardless of extra columns. The distractor column 'NOTES' is plausibly similar to metadata columns but clearly different from the actual data columns. I do not rename any columns because the header names (ATALAYAS, 37105, AAAALSTY, BALADINE) are not referenced by name in the instruction — the instruction references columns by letter (A, B, C, D, E, I), so renaming headers would not test any surface anchor the agent might rely on. The instruction references column letters which remain unchanged. instruction_paraphrase is set to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

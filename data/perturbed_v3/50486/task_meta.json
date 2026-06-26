@@ -1,0 +1,5 @@
+{
+  "id": "50486",
+  "instruction": "Configure column A in Excel to display the text 'Chep' or 'Loscam' based on which of the two corresponding columns (CHEP QTY or LOSCAM QTY) contains numeric values.",
+  "answer_position": "A3:A6"
+}

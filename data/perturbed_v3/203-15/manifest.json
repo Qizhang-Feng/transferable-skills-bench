@@ -1,0 +1,49 @@
+{
+  "task_id": "203-15",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "staff no.": "emp no.",
+        "Department": "Division",
+        "Location": "Site",
+        "Name": "Full Name",
+        "Position": "Job Title",
+        "Gender": "Sex",
+        "Nationality": "Citizenship",
+        "Description": "Allowance Type",
+        "Amount": "Value",
+        "Currency": "Curr."
+      },
+      "sheet_rename_map": {
+        "Main": "Staff Data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Staff Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Remarks",
+      "target_sheet": "Staff Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references absolute row/column positions (row 1, columns A to J, column H) and creates a new sheet. Inserting blank rows is risky because the instruction explicitly references 'headers in row 1' and 'A1 to G1' — the previous attempt failed for this reason. Instead, I use lexical renames (column headers and sheet name) plus a distractor column. Column renames maintain the same descriptiveness level (abbreviations stay abbreviations, full words stay full words). The sheet rename from 'Main' to 'Staff Data' tests whether the agent hardcodes the sheet name. The distractor column 'Remarks' after column J (now K) tests whether the agent hardcodes the column count (was 10, now 11). I do NOT rename 'Output Required' sheet since that is the target sheet the macro must create — renaming it would change the task logic. The instruction references 'Description' as the column containing allowance names (column H), renamed to 'Allowance Type' which is equally descriptive. No data_value_renames needed since no header names appear as data values in the cells."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Main": "Staff Data"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

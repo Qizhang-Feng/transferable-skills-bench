@@ -1,0 +1,42 @@
+{
+  "task_id": "56419",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Type": "Category",
+        "Quantity": "Amount",
+        "Unique List": "Filtered List"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Volume",
+      "target_sheet": "DataSheet",
+      "position": "after_col_B"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references 'Quantity' and 'Type' as column names and uses cell references like A, B, G, H columns. I renamed 'Type' to 'Category', 'Quantity' to 'Amount', and 'Unique List' to 'Filtered List' — all at the same descriptiveness level (full word to full word). The sheet is renamed from 'Sheet1' to 'DataSheet'. A distractor column 'Volume' is inserted after column B, which is plausibly similar to 'Amount' (the renamed Quantity) but clearly different. This tests whether the agent hardcodes column names or sheet names. The instruction mentions 'Quantity' and 'Type' which now need to be mapped to the new names. Risk flags note that the task references specific cell addresses (like A, G2, H2:H27) — I do NOT change column positions of the key columns A and B, and the distractor is inserted after B which shifts later columns but the instruction already references specific columns by letter. The distractor column insertion after B will shift columns, but since the task references columns A, B, G, and H by letter/address, the agent must adapt to the new layout where the distractor pushes columns right. No data_value_renames needed since Type/Quantity don't appear as data values in the referenced ranges."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

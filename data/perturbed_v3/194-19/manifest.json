@@ -1,0 +1,39 @@
+{
+  "task_id": "194-19",
+  "spec": {
+    "anchor_types_used": [
+      "lexical"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "ID": "Seq",
+        "Mon": "Mth",
+        "Tab": "Idx",
+        "x1": "z1",
+        "Track": "Venue",
+        "Top": "Best",
+        "Rank": "Place"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references specific column letters on both Sheet1 (H, I) and Sheet2 (D, H, I, J, K, L, M) and a specific cell (I8). Previous attempts failed because distractor column insertions shifted column letters, breaking these references. Therefore, I only apply lexical renames to columns whose names are not used as English words in the instruction. 'ID'→'Seq', 'Mon'→'Mth', 'Tab'→'Idx', 'x1'→'z1' are abbreviation-to-abbreviation renames. 'Track'→'Venue' and 'Top'→'Best' and 'Rank'→'Place' are short-word-to-short-word renames. I avoid renaming 'Meet', 'Race#', 'Date', 'Year', 'Day' as they appear in or closely relate to instruction text. No distractor columns or layout changes are applied to avoid shifting column positions."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

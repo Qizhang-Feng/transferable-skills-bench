@@ -1,0 +1,43 @@
+{
+  "task_id": "191-40",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "MIDNIGHT JAMBOREE": "EVENING ROUNDUP"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {
+        "position": "after_last_column"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The previous attempt failed because the distractor column was inserted BEFORE the data columns, shifting D/E/F and making the instruction's references to column D invalid. This time the distractor column is placed strictly after the last existing column (after column H), so columns A–H remain in their original positions and all column-letter references in the instruction stay correct. Column A header is renamed from 'MIDNIGHT JAMBOREE' to 'EVENING ROUNDUP' (same style: all-caps two-word phrase). Sheet1 is renamed to 'DataSheet'. The instruction references 'Sheet1' and 'column D' etc. — since the distractor goes after column H, columns D–F are untouched. The instruction must be updated to reference 'DataSheet' instead of 'Sheet1'. The distractor column 'Notes' is plausibly related but clearly not part of the numeric data. Risk flags note blank-row dependence and row insertion/deletion, so we avoid blank_row_insert and title_row_insert. No data_value_renames needed since 'MIDNIGHT JAMBOREE' only appears as the header in row 1."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

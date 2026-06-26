@@ -1,0 +1,48 @@
+{
+  "task_id": "52917",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Day": "DD",
+        "Month": "MM",
+        "Year": "YYYY",
+        "Date": "Full Date"
+      },
+      "sheet_rename_map": {
+        "whole date": "combined date"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "combined date"
+      ],
+      "params": {
+        "title_text": "Date Combination Worksheet"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Timestamp",
+      "target_sheet": "combined date",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references columns A, B, and C by letter and by name (day, month, year). Since the instruction uses specific cell addresses (columns A, B, C, and J), the title_row_insert shifts the header from row 1 to row 2 and data rows down by 1, which tests whether the model hardcodes row numbers. The answer position J2:J9 must be updated to J3:J10 accordingly. Column renames (Day→DD, Month→MM, Year→YYYY, Date→Full Date) are semantically equivalent abbreviations/expansions that test hardcoded header matching. The sheet rename from 'whole date' to 'combined date' tests sheet name dependency. A distractor column 'Timestamp' is plausibly related to date data but clearly different from the actual columns. Note: 'day', 'month', and 'year' appear in the instruction as general English words describing the data, but they also serve as column name references. The renames to DD/MM/YYYY are standard date-format abbreviations that preserve meaning while breaking exact string matching."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "whole date": "combined date"
+    },
+    "row_shifts": {
+      "combined date": 1
+    },
+    "col_inserts": {}
+  }
+}

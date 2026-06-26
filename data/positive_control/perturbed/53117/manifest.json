@@ -1,0 +1,24 @@
+{
+  "task_id": "53117",
+  "opaque_col_map": {
+    "Customer": "Medium",
+    "Total": "Interval",
+    "Output Need": "Score"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Registry"
+  },
+  "primary_distractor": "Customer",
+  "old_anchors": [
+    "Customer",
+    "Total",
+    "Output Need",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Medium",
+    "Interval",
+    "Score",
+    "Registry"
+  ]
+}

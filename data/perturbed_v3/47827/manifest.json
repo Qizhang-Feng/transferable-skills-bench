@@ -1,0 +1,55 @@
+{
+  "task_id": "47827",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "seq_no": "num_id",
+        "strai_1": "str_1",
+        "strai_2": "str_2",
+        "strai_3": "str_3",
+        "straight": "straight_val",
+        "box_1": "bx_1",
+        "box_2": "bx_2",
+        "box_3": "bx_3"
+      },
+      "sheet_rename_map": {
+        "3 straights to 3 boxed": "3 str to 3 bxd",
+        "boxed": "bxd"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "bxd"
+      ],
+      "params": {
+        "row_index": 1,
+        "count": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "combo",
+      "target_sheet": "3 str to 3 bxd",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Lexical perturbation: Renamed columns and sheets to semantically equivalent abbreviations (seq_no→num_id, strai_1→str_1, etc., sheet names shortened). The instruction references 'column G' and 'boxed' as a concept rather than a column header name, so renaming the 'boxed' column header is safe. The word 'boxed' in the instruction refers to the general concept of boxed values, not the column header directly, and the answer column G retains its position. A blank row is inserted in the secondary 'bxd' sheet (not the answer sheet) to perturb positional assumptions without affecting the task. A distractor column 'combo' is added after the last column in the main sheet—plausibly related to combining numbers but clearly different from existing columns. Risk flag multi_sheet_references is respected: we do not insert title rows that would shift cell references across sheets, and the blank row is only in the non-answer sheet."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "3 straights to 3 boxed": "3 str to 3 bxd",
+      "boxed": "bxd"
+    },
+    "row_shifts": {
+      "bxd": 1
+    },
+    "col_inserts": {}
+  }
+}

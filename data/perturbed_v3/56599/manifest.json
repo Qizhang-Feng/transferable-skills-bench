@@ -1,0 +1,39 @@
+{
+  "task_id": "56599",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Slip fm": "Slip From",
+        "slip to": "Slip To",
+        "total slips in book": "Total Slips Per Book",
+        "BookNo": "Book Number"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Slip Status",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (B2, M5) so we cannot insert blank rows or title rows as that would shift cell positions and break the references. Instead, we use two safe perturbation strategies: (1) Rename columns — changing 'Slip fm' to 'Slip From', 'slip to' to 'Slip To', 'total slips in book' to 'Total Slips Per Book', and 'BookNo' to 'Book Number'. These maintain the same descriptiveness level (abbreviations become full words consistently, all still clearly describe the same data). The instruction mentions 'Book Number' and 'Slip number' as general English concepts, not as exact column name references, so renaming the headers tests whether the agent can still identify the correct columns by understanding their role rather than relying on exact header text. (2) Add a distractor column 'Slip Status' after the last column — this is plausibly related to slips but clearly different from the actual lookup columns, testing whether the agent incorrectly incorporates it into the formula. No blank rows are inserted, preserving all cell address references (B2, M5, G5, H5, etc.)."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

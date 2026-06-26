@@ -1,0 +1,54 @@
+{
+  "task_id": "374-31",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Name": "Label",
+        "Address1": "Location1"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "DataSheet",
+          "range": "B4",
+          "find": "Name",
+          "replace": "Label"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "C4",
+          "find": "Address1",
+          "replace": "Location1"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts all failed because a distractor column inserted content into column D which is within the answer range A1:D5. The original data only has 3 headers but the answer spans 4 columns, so any distractor at column D corrupts the answer. I avoid distractor columns entirely. I rename 'Name' to 'Label' and 'Address1' to 'Location1' (same descriptiveness level). I do NOT rename 'Code' because it appears as a literal search term in the instruction ('text Code in column A'). Sheet renamed from Sheet1 to DataSheet. Data value renames handle the header-data overlap at B4 and C4."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

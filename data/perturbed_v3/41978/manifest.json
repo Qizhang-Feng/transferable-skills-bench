@@ -1,0 +1,42 @@
+{
+  "task_id": "41978",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Last Name": "Surname",
+        "First Name": "Given Name",
+        "Violation": "Offense"
+      },
+      "sheet_rename_map": {
+        "Cumulative": "Aggregate"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Aggregate"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Outcome",
+      "target_sheet": "Aggregate",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references absolute cell addresses (G14:G185, J14:J185, I2:I11) and the header is not in row 1 in the traditional sense (row 1 has formulas/merged cells, with data starting at row 14). This makes title_row_insert and column_reorder risky since they could shift the referenced ranges or columns. Instead, I use safe perturbations: (1) Lexical renames of columns not referenced in the instruction — 'Last Name', 'First Name', and 'Violation' are not mentioned in the instruction text, so renaming them is safe. 'Year' and 'Resolution' appear in the instruction so they must stay. The sheet is renamed from 'Cumulative' to 'Aggregate' since the sheet name isn't referenced in the instruction. (2) A distractor column 'Outcome' is added after the last column — it's plausibly similar to 'Resolution' (the column the task checks for 'open') but clearly different, which could mislead models that pattern-match on semantically similar column names."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Cumulative": "Aggregate"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

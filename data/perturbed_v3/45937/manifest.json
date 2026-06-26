@@ -1,0 +1,42 @@
+{
+  "task_id": "45937",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Number": "Seq",
+        "kms": "dist"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": [
+        {
+          "sheet": "Current",
+          "range": "H17",
+          "find": "kms",
+          "replace": "dist"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Rate",
+      "target_sheet": "Current",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because blank_row_insert and distractor_column insertions shifted data, breaking the many absolute cell references in the instruction. Since risk flags indicate instruction_references_absolute_rows and task_references_specific_cell_addresses, any row/column shifting layout is unsafe. I use 'skip' for layout to avoid shifting. I rename 'Number' to 'Seq' and 'kms' to 'dist' (both abbreviation-level descriptiveness). 'kms' also appears as a data value in H17, so I include a data_value_rename. I add a distractor column 'Rate' after the last column, which won't shift any existing columns. I avoid renaming 'Category' and '%' since they appear as common English words in the instruction."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

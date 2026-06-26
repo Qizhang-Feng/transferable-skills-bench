@@ -1,0 +1,41 @@
+{
+  "task_id": "32562",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Item": "Item",
+        "Count Of Item": "Count Of Item"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet2"
+      ],
+      "params": {
+        "title_text": "Item Frequency Summary"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Item Description",
+      "target_sheet": "Sheet2",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction mentions 'Column A', 'column B', 'Item', and 'Count Of Item'. The word 'Item' appears directly in the instruction context ('each unique number in Column A') and 'Count' is closely tied to the instruction's language ('counting its order of occurrences'), so renaming these columns risks changing meaning or violating Rule 6. Instead, I use two safe perturbation strategies: (1) title_row_insert — inserting a title row at row 1 of Sheet2 shifts all data down by one row, which tests whether the agent hardcodes header position at row 1 and answer range at B2:B21 (the answer range shifts to B3:B22 in the perturbed sheet, but the task definition stays the same logically); (2) distractor_column — adding 'Item Description' as column C, which is plausibly related to 'Item' but clearly different, testing whether the agent gets confused by extra columns. No columns are renamed since their names appear as meaningful English words in the instruction."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet2": 1
+    },
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "task_id": "48969",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Source": "Origin",
+        "Result": "Output"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "DataSheet",
+          "range": "B1:N1",
+          "find": "Source",
+          "replace": "Origin"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "B1:N1",
+          "find": "Result",
+          "replace": "Output"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Reference",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Two safe anchor types are used: (1) lexical — renaming 'Source' to 'Origin' and 'Result' to 'Output' (same descriptiveness, full word to full word), and renaming 'Sheet1' to 'DataSheet' to break hardcoded sheet name assumptions; (2) distractor_column — adding a 'Reference' column after the last column, which is plausibly related to a lookup/match task but is clearly distinct from 'Origin' and 'Output'. The instruction mentions 'result' and 'source' as general English words describing data sources and outcomes, but in this context they are used as column header references (the instruction says 'two separate data sources' and 'get a result' generically, while the actual headers are 'Source' and 'Result'). Since the instruction uses these words generically and not as direct column references in a formula-like sense, renaming is acceptable. The answer position J3:N5 is unaffected since the distractor column is added after the last column (col 14 → col 15, i.e., column O). No instruction paraphrase is applied to avoid meaning drift."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

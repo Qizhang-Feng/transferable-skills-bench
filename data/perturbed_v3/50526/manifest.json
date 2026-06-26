@@ -1,0 +1,66 @@
+{
+  "task_id": "50526",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Blue": "Cyan",
+        "Green": "Lime",
+        "Yellow": "Amber",
+        "Black": "Onyx",
+        "Orange": "Peach",
+        "Red": "Scarlet"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": [
+        {
+          "sheet": "Sheet1",
+          "range": "B9:B10",
+          "find": "Black",
+          "replace": "Onyx"
+        },
+        {
+          "sheet": "Sheet1",
+          "range": "B9:B10",
+          "find": "Red",
+          "replace": "Scarlet"
+        },
+        {
+          "sheet": "Sheet1",
+          "range": "B9:B10",
+          "find": "Yellow",
+          "replace": "Amber"
+        },
+        {
+          "sheet": "Sheet1",
+          "range": "B9:B10",
+          "find": "Orange",
+          "replace": "Peach"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Coral",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references header names as data values in the instruction (e.g., 'Black', 'Red', 'Yellow', 'Orange'). Since these header names also appear as data values in the answer range and in the instruction's examples, I rename all color headers to new color-like names of similar descriptiveness (single-word color names). The instruction mentions 'Black', 'Red', 'Yellow', 'Orange' as example output values — these correspond to header names that also serve as data values. The data_value_renames ensure the answer cells reflect the new names. I also add a distractor column 'Coral' (a plausible color name, clearly different from existing ones) after the last column to test whether the agent hardcodes column ranges. I avoid blank_row_insert because the task references specific cell addresses (B9, B6) and 'column headers in row 1' — inserting a blank row would shift these and break the task, as noted in the failed attempt. I do NOT use instruction_paraphrase per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "task_id": "227-40",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Worker5",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references absolute cell addresses A14:E17, and the risk flags explicitly warn about instruction_references_absolute_rows and task_references_specific_cell_addresses. Previous attempts failed because blank_row_insert shifted data rows without updating the instruction's absolute references. Therefore, I avoid any row-shifting layout changes (no blank_row_insert, no title_row_insert). Instead, I use a distractor_column strategy: adding a 'Worker5' column after column E (in column F). This is plausibly similar to the existing Worker1-Worker4 columns but clearly distinct. It does not affect the answer range A14:E17 since the output columns remain A through E. The distractor column tests whether the model incorrectly extends its formula range to include the extra column. I do not rename columns because the header names (Worker1, Worker2, etc.) also appear as data values in row 9 (the 'Result I'm after' section headers), and renaming them would require careful coordination. The instruction_paraphrase is set to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

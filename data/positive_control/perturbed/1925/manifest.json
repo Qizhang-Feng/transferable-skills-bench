@@ -1,0 +1,21 @@
+{
+  "task_id": "1925",
+  "opaque_col_map": {
+    "A": "Sector"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Metrics",
+    "Sheet2": "Dashboard"
+  },
+  "primary_distractor": "A",
+  "old_anchors": [
+    "A",
+    "Sheet1",
+    "Sheet2"
+  ],
+  "new_anchors": [
+    "Sector",
+    "Metrics",
+    "Dashboard"
+  ]
+}

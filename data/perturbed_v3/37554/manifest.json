@@ -1,0 +1,34 @@
+{
+  "task_id": "37554",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Account Count",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (F2:F17) and column names that also appear in formulas (=A1, =B1), making renaming and blank row insertion risky. Previous attempt #1 failed because a blank row insert shifted F2 down to F3, breaking the cell reference in the instruction. Since the risk flag 'task_references_specific_cell_addresses' is present, we avoid any layout changes that shift rows. Instead, we use a distractor column ('Account Count') inserted after the last column. This name is plausibly similar to the existing 'Accounts' column but clearly different, which could mislead a model that pattern-matches on column names. We skip column/sheet renames because: (1) 'TYPE' and 'Accounts' appear as data-bearing columns referenced by formulas (=A1, =B1), renaming them could break formula references; (2) '% of Total' is descriptive and not purely a column reference in the instruction. We set instruction_paraphrase to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

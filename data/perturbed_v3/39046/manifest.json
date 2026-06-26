@@ -1,0 +1,38 @@
+{
+  "task_id": "39046",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Reference Cancellation Tracker"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "SUBCOUNT",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction explicitly references columns by letter (B, D, E, F), so inserting a title row shifts the header from row 1 to row 2 and all data rows down by one, testing whether the model hardcodes row numbers. The answer position F2:F6 already accounts for the original layout; after the title row insert it becomes F3:F7 — but since we are only perturbing the spreadsheet (not the answer), the model must adapt. I did NOT rename any columns because the instruction refers to columns B, D, E, F by letter rather than by header name, and several header names like 'REF', 'STATUS', 'SUBREFS' closely echo words used semantically in the instruction ('reference', 'subreferences'), making renaming risky per Rule 6. A distractor column 'SUBCOUNT' is added after the last column — it is plausibly similar to 'No. Subs' / 'Subs?' but clearly different, testing whether the model confuses it with the real target columns."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

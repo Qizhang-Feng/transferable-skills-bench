@@ -1,0 +1,6 @@
+{
+  "id": "55049",
+  "instruction": "How can I create a formula in Excel that allows me to sum values across three columns based on a single criterion? I've attempted to use SUMPRODUCT with the formula =SUMPRODUCT(Archive!A:A=Registry!A3)*Archive!H:J, but it seems like there might be a mistake because it isn't functioning as expected. SUMIF does not seem to be an option since the sum range spans multiple columns. What would be the correct formula to achieve this result?\nMy current formula is:SUMPRODUCT(Archive!A:A=Registry!A3)*Archive!H:J",
+  "answer_position": "'Registry'!B3:B23",
+  "instruction_type": "Cell-Level Manipulation"
+}

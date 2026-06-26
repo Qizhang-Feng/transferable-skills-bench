@@ -1,0 +1,42 @@
+{
+  "task_id": "36191",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Name": "Label",
+        "Employee": "Staff Member",
+        "Result Should Be": "Expected Output"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "EmployeeData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "EmployeeData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Department",
+      "target_sheet": "EmployeeData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (B2) in the formula, so blank_row_insert and title_row_insert are risky — the previous attempt failed exactly because blank_row_insert shifted data rows without updating the B2 reference in the instruction. Instead, I use two safe anchor types: (1) lexical — renaming all three columns and the sheet. 'Name' → 'Label', 'Employee' → 'Staff Member', 'Result Should Be' → 'Expected Output'. The instruction says 'Column B' and 'Result should be column', which still maps correctly since column positions don't change. The instruction references 'Result should be' as a column name, and the rename to 'Expected Output' is semantically equivalent. 'Employee' → 'Staff Member' is same descriptiveness level. 'Name' → 'Label' is same level (single word to single word). (2) distractor_column — adding a 'Department' column after the last column, which is plausibly related to employee data but clearly different from existing columns. This does not affect column B's position or the answer position C2:C3. No data_value_renames needed since column names don't appear as data values."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "EmployeeData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

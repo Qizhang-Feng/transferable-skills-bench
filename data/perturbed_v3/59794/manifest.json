@@ -1,0 +1,39 @@
+{
+  "task_id": "59794",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "SOURCE"
+      ],
+      "params": {
+        "position": "after_header",
+        "row_index": 2
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "NOTES / COMMENTS",
+      "target_sheet": "SOURCE",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task has a risk flag for row insertion/deletion, so title_row_insert is avoided. Instead, a blank row is inserted after the header (row 2), which shifts data rows down by one. This tests whether the model hardcodes row references (e.g., assuming data starts at row 2). The answer position shifts from C3:M5 to C4:M6. A distractor column 'NOTES / COMMENTS' is added after the last column to test whether the model incorrectly uses it or gets confused by the extra column. No column renames are applied because the header names in this task are referenced directly in the instruction ('INITIAL INFORMATION Column1' and 'FINAL INFORMATION'), and renaming them would risk changing the task meaning or violating rule 6."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "SOURCE": 1
+    },
+    "col_inserts": {}
+  }
+}

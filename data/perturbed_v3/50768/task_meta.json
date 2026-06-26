@@ -1,0 +1,5 @@
+{
+  "id": "50768",
+  "instruction": "How can I automatically plot each RiskID from a Risk Assessment table, which includes an Impact and a Probability number for each risk, into a corresponding position on a matrix table based on these values? For instance, if a RiskID has an Impact of 1 and a Probability of 1, it should be placed in the bottom left box of a 3x3 matrix. If multiple RiskIDs share the same Impact and Probability numbers, they need to be displayed in the same box, separated by commas. I need guidance on how to automate this process in Excel.",
+  "answer_position": "F12:H14"
+}

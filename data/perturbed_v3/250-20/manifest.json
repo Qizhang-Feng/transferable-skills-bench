@@ -1,0 +1,47 @@
+{
+  "task_id": "250-20",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "NUMBER": "ORDER_NUM",
+        "LINE NO": "LINE_ID",
+        "MATCHED_QTY": "MATCHED_AMT",
+        "EMAIL ADDRESS": "EMAIL_ADDR",
+        "PCR_USR_FLD_04": "PCR_USR_FLD_07"
+      },
+      "sheet_rename_map": {
+        "RNM": "DATA_SRC",
+        "Desired outcome": "Expected Result"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DATA_SRC",
+        "Expected Result"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "MATCHED_REF",
+      "target_sheet": "DATA_SRC",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task groups by columns B & C and sums column J, then deletes duplicate rows. Since the task deletes/inserts rows (risk flag), we avoid title_row_insert. We apply lexical perturbation by renaming columns that are referenced purely as column identifiers (NUMBER→ORDER_NUM, LINE NO→LINE_ID, MATCHED_QTY→MATCHED_AMT, EMAIL ADDRESS→EMAIL_ADDR, PCR_USR_FLD_04→PCR_USR_FLD_07) — all at the same descriptiveness level (abbreviation to abbreviation). We also rename both sheets (RNM→DATA_SRC, Desired outcome→Expected Result). A distractor column 'MATCHED_REF' is added after the last column on the source sheet, which is plausibly similar to MATCHED_AMT but clearly different. The instruction references columns B, C, and J by position, and the sheet name 'RNM' by name — renaming the sheet and column headers tests whether the agent hardcodes these names. No data values need renaming since column names don't appear as data values. The underlying logic (group by B&C, sum J, delete duplicates) and difficulty remain unchanged."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "RNM": "DATA_SRC",
+      "Desired outcome": "Expected Result"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

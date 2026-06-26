@@ -1,0 +1,34 @@
+{
+  "task_id": "42198",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Status",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references specific absolute row numbers (C2:C7, row 2, rows 2 through 3, etc.) and specific column letters (column A, column B), making both title_row_insert and blank_row_insert unsafe as they shift row positions. Column reorder is also risky since the instruction explicitly references column A and column B by letter. The safest perturbation is adding a distractor column. I add a column called 'Status' after column C — it is plausibly similar to 'State' (column B) but clearly different, which could confuse a model that pattern-matches on similar column names. I cannot rename 'State' because the instruction references column B by letter rather than by name, and 'Fruit' and 'Result' are similarly referenced by position. No column or sheet renames are needed. No data value renames are needed. instruction_paraphrase is set to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

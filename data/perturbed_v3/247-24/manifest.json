@@ -1,0 +1,54 @@
+{
+  "task_id": "247-24",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Company": "Firm",
+        "Location": "Region",
+        "Employee ID": "Staff ID",
+        "Employee Name": "Staff Name",
+        "Department": "Division",
+        "Project": "Assignment",
+        "Bill Rate of Resource": "Resource Billing Rate",
+        "Worked Hours": "Hours Logged",
+        "Resource Bill To client": "Client Resource Charge",
+        "Intercompany Billing Rate Of Resource": "Intercompany Resource Rate",
+        "Actual Bill To Client": "Client Actual Charge",
+        "Profit": "Margin",
+        "Lookup For Working Weeks": "Working Weeks Lookup",
+        "Working Weeks": "Active Weeks"
+      },
+      "sheet_rename_map": {
+        "Main": "Data",
+        "Lookup": "Reference"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Billing Period",
+      "target_sheet": "Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task deletes and inserts rows, so blank_row_insert and title_row_insert are risky and avoided. Instead, I use lexical renames across all columns and both sheets to break hardcoded column/sheet name references. Column names are renamed at the same descriptiveness level (full words to full words). 'Company' becomes 'Firm', 'Location' becomes 'Region', 'Employee ID' becomes 'Staff ID', etc. Both sheets are renamed: 'Main' → 'Data', 'Lookup' → 'Reference'. I checked the instruction body: words like 'Company', 'Location', 'Bill Rate of Resource', 'Employee Ids', 'working Weeks' are used as column references (not general English), so renaming them is safe — the instruction will need to be updated to reflect the new names. A distractor column 'Billing Period' is added after the last column on the Data sheet to test whether the agent incorrectly expands its working range. No data_value_renames are needed since the renamed headers don't appear as data values (company names like 'Motorcycle', 'Ahmed Sons', 'National TV' are not being renamed)."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Main": "Data",
+      "Lookup": "Reference"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

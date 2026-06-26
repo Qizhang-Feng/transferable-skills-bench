@@ -1,0 +1,34 @@
+{
+  "task_id": "52233",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Company BK",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task references specific absolute cell addresses (B3:B5, A7, $B$2:$Z$2) and specific row numbers throughout the instruction, making both blank_row_insert and title_row_insert extremely risky — as demonstrated by the failed Attempt 1. The risk flags explicitly warn about instruction_references_absolute_rows and task_references_specific_cell_addresses. Column renaming is also risky because the header names (Company A, Company EF, Company EG, Company H) appear as data values in A7:A10 and in the header row B2:E2, and the formula uses $B$2:$Z$2 to MATCH against those headers — renaming them in headers but not updating the instruction's formula example could cause confusion. The safest perturbation is adding a distractor column ('Company BK') after the last column. This adds a plausibly similar but clearly different column (following the naming pattern of existing companies) without affecting any cell references, row positions, or formula logic. The $B$2:$Z$2 range in the formula will naturally encompass this new column but since no lookup value matches 'Company BK', it won't affect results."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "task_id": "38985",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Table 1:": "Dataset A:",
+        "Table 2:": "Dataset B:"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "column_name": "Category",
+        "position": "after_col_D",
+        "fill_value": ""
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "Sheet1",
+      "position": "after_col_D"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves lookup/merge between two tables labeled 'Table 1:' and 'Table 2:' in header row 4. I apply two safe perturbation strategies: (1) Renaming the positional title headers from 'Table 1:'/'Table 2:' to 'Dataset A:'/'Dataset B:' — these are section labels at the same descriptiveness level (short descriptive label to short descriptive label). The instruction refers to 'table 1' and 'table 2' generically as English descriptions of the concept, but the actual cell headers use 'Table 1:' and 'Table 2:' with colons as structural labels. Since the instruction uses 'table 1'/'table 2' as general English references rather than exact column name references, and these headers overlap with data (risk flag: data_values_match_headers), I rename them. However, since these are section title headers in row 4 (not data values repeated elsewhere), no data_value_renames are needed. (2) Inserting a distractor column 'Category' after column D in Sheet1, which is plausibly related to the data context but clearly different from existing columns. This tests whether the agent hardcodes column positions. The answer position D8:D11 remains unaffected since the distractor is inserted after column D (shifting columns to the right of D but not D itself)."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

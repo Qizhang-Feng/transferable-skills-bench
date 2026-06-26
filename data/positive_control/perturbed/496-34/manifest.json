@@ -1,0 +1,24 @@
+{
+  "task_id": "496-34",
+  "opaque_col_map": {
+    "ID": "Origin",
+    "Date en Time": "Weight",
+    "Amount": "Vendor"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Dashboard"
+  },
+  "primary_distractor": "ID",
+  "old_anchors": [
+    "ID",
+    "Date en Time",
+    "Amount",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Origin",
+    "Weight",
+    "Vendor",
+    "Dashboard"
+  ]
+}

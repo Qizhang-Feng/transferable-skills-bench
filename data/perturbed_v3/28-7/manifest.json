@@ -1,0 +1,42 @@
+{
+  "task_id": "28-7",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "400-12345-W": "400-12345-W",
+        "A-123": "A-123",
+        "A-235": "A-235"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "PartData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "PartData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "A-340",
+      "target_sheet": "PartData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task has risk flags 'task_deletes_or_inserts_rows' and 'task_depends_on_blank_row_positions', so we must NOT insert blank rows or a title row (which would shift row positions and break the deletion logic that depends on blank row positions). The safe anchors are positional_title_row, distractor_column, and instruction_paraphrase. Since title_row_insert is risky for row-deleting tasks, we skip actual title row insertion. We use distractor_column (inserting an empty column 'A-340' after the last column, which is plausibly similar to existing headers like 'A-123' and 'A-235' but clearly different). We also rename the sheet from 'Sheet1' to 'PartData' to break hardcoded sheet references. We do NOT rename the column headers because they are part numbers that appear as data values throughout the spreadsheet and are central to the pattern-matching logic in the instruction (the '400-' prefix pattern). Renaming them would risk breaking the task logic or requiring complex cascading data value renames across the entire dataset. The distractor column plus sheet rename provides sufficient surface anchor perturbation without altering task logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "PartData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

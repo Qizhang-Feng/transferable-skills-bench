@@ -1,0 +1,5 @@
+{
+  "id": "47827",
+  "instruction": "How to assemble three numbers into a three-digit number, with the numbers arranged in order from smallest to largest. Complete column G, bold and fill all bxd values with the color #EBF1DE",
+  "answer_position": "'3 str to 3 bxd'!G2:G16"
+}

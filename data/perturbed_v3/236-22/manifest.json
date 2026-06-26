@@ -1,0 +1,134 @@
+{
+  "task_id": "236-22",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Account": "Acct",
+        "TransType": "TxnType",
+        "Reference": "Ref",
+        "Other": "Misc"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "DataSheet",
+          "range": "B5",
+          "find": "Account",
+          "replace": "Acct"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "C5",
+          "find": "TransType",
+          "replace": "TxnType"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "D5",
+          "find": "Reference",
+          "replace": "Ref"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "E5",
+          "find": "Other",
+          "replace": "Misc"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "C8",
+          "find": "TransType",
+          "replace": "TxnType"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "D8",
+          "find": "Reference",
+          "replace": "Ref"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "E8",
+          "find": "Other",
+          "replace": "Misc"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "B12",
+          "find": "Account",
+          "replace": "Acct"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "C12",
+          "find": "TransType",
+          "replace": "TxnType"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "D12",
+          "find": "Reference",
+          "replace": "Ref"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "E12",
+          "find": "Other",
+          "replace": "Misc"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "B15",
+          "find": "Account",
+          "replace": "Acct"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "C15",
+          "find": "TransType",
+          "replace": "TxnType"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "D15",
+          "find": "Reference",
+          "replace": "Ref"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "E15",
+          "find": "Other",
+          "replace": "Misc"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flags indicate the task references absolute rows, deletes/inserts rows, depends on blank row positions, and has data values matching headers. Therefore: (1) We skip blank_row_insert since the task logic depends on blank row positions and deletes rows — inserting blank rows would change the semantics. (2) We skip title_row_insert per the risk flag for row deletion tasks. (3) We rename columns (Account→Acct, TransType→TxnType, Reference→Ref, Other→Misc) at the same descriptiveness level (abbreviation→abbreviation). We do NOT rename 'Line No' because the instruction explicitly references 'Line No' as a semantic keyword used in the macro logic (rows containing the term 'Line No'). Renaming it would require changing the instruction's core logic description. (4) We rename Sheet1→DataSheet (full word→full word). (5) We add a distractor column 'Notes' after the last column to test hardcoded column counts. (6) All data_value_renames cover cells where header names appear as data values, using the new sheet name 'DataSheet'. (7) instruction_paraphrase is false to avoid meaning drift — the instruction still references 'Line No' in column A, sheet 'BR1', rows 2 & 9, and range A1:E16, all of which remain correct since we only renamed non-Line-No columns and added a distractor column after E."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

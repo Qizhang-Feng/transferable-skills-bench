@@ -1,0 +1,45 @@
+{
+  "task_id": "13-1",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "S.N": "S.NO",
+        "SN": "S.NO.",
+        "BATCH": "LOT",
+        "AMOUNTS": "AMT"
+      },
+      "sheet_rename_map": {
+        "RANGES": "SOURCES",
+        "LISTS": "SUMMARY"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "SOURCES"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "NOTES",
+      "target_sheet": "SOURCES",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "We rename columns and sheets to break hardcoded references. S.N -> S.NO in RANGES and SN -> S.NO. in LISTS (both abbreviations, but distinct from each other so no collision). BATCH -> LOT (synonym, same descriptiveness). AMOUNTS -> AMT (abbreviation to abbreviation) applied to both sheets. DATE and REF are explicitly referenced in the instruction as matching keys ('DATE' and 'REF' columns), so we keep them unchanged to avoid altering task semantics. Sheet names RANGES -> SOURCES and LISTS -> SUMMARY are renamed at the same descriptiveness level. A distractor column 'NOTES' is added to the SOURCES sheet after the last column to test whether the agent assumes fixed column positions. The instruction must be updated to reflect new sheet names. No title_row_insert is used because the task deletes/inserts rows (risk flag). No blank_row_insert because task depends on blank row positions (risk flag)."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "RANGES": "SOURCES",
+      "LISTS": "SUMMARY"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

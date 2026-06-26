@@ -1,0 +1,39 @@
+{
+  "task_id": "55468",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "row_position": 1,
+        "note": "Insert a blank row at the very top (row 1), pushing all existing content down by one row. This shifts the header row from row 2 to row 3, and all data/formula references shift accordingly. Since the task instruction references specific cell addresses (e.g., C5:Z10, AE4, A5:A10, etc.), the agent must recognize the new positions rather than blindly using the old addresses."
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Qty Threshold",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task heavily references specific cell addresses in its formula (C5:Z10, AE4, A5:A10, B5:B10, C4:Z4, C3:Z3, etc.). The risk flag 'task_references_specific_cell_addresses' confirms this. Inserting a blank row at the top shifts all content down by one row, which tests whether the agent can adapt to the new cell positions rather than hardcoding the original addresses. The blank row insertion is a positional perturbation that doesn't change the logic or difficulty — the same INDEX/MATCH formula structure applies, just with shifted references. Adding a distractor column 'Qty Threshold' (plausibly related to the quantity-based pricing ranges like 200-499, 500-999, etc.) tests whether the agent incorrectly incorporates irrelevant data. I avoided renaming columns because the header names (200-499, 500-999, etc.) appear as data values in the merged header cells and are integral to the matching criteria — renaming them risks breaking the lookup logic given the complex merged-cell structure. I also avoided instruction paraphrasing per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

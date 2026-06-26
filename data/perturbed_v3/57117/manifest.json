@@ -1,0 +1,34 @@
+{
+  "task_id": "57117",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Degree Level",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses D2 and F2, which means we cannot insert blank rows (would shift rows) or insert distractor columns before column F (would shift the target column). Previous attempts failed because: (1) blank_row_insert shifted D2/F2 references without updating the instruction, (2) inserting a distractor column before F shifted the answer column. The safe approach is to add a distractor column AFTER the last column (position I), which does not shift any existing columns. The distractor column 'Degree Level' is plausibly similar to the 'BA/MA' column (both relate to degree information) but clearly different. This tests whether the model is distracted by a semantically similar column without changing any cell addresses or the task logic. No column renames are applied because the instruction references 'BA' and 'MA' as data values and the column 'BA/MA' by its cell address F, not by name. No blank row insert is used due to the risk flag about specific cell addresses. instruction_paraphrase is set to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

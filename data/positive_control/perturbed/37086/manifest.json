@@ -1,0 +1,24 @@
+{
+  "task_id": "37086",
+  "opaque_col_map": {
+    "Column2": "Channel",
+    "Column3": "Tag",
+    "Total": "Flag"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Tracker"
+  },
+  "primary_distractor": "Column2",
+  "old_anchors": [
+    "Column2",
+    "Column3",
+    "Total",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Channel",
+    "Tag",
+    "Flag",
+    "Tracker"
+  ]
+}

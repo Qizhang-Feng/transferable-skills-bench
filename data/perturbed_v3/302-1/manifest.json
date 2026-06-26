@@ -1,0 +1,53 @@
+{
+  "task_id": "302-1",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "S.N": "NO.",
+        "ITEM": "PRODUCT"
+      },
+      "sheet_rename_map": {
+        "ITEMS": "MASTER",
+        "SHEET1": "DATA1",
+        "SHEET2": "DATA2",
+        "result sheet1": "result data1",
+        "result sheet2": "result data2"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "MASTER"
+      ],
+      "params": {
+        "column_name": "CATEGORY",
+        "position": "after_last_column",
+        "fill_value": ""
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "CATEGORY",
+      "target_sheet": "MASTER",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Lexical perturbation: Renamed all sheets and both column headers across all sheets consistently. 'S.N' → 'NO.' (abbreviation to abbreviation), 'ITEM' → 'PRODUCT' (full word to full word). Sheet names: 'ITEMS' → 'MASTER', 'SHEET1' → 'DATA1', 'SHEET2' → 'DATA2', and result sheets updated accordingly. The column name alignment relationship is preserved (all sheets get the same rename). Distractor column: Added a 'CATEGORY' column to the MASTER (source) sheet to test whether the agent incorrectly tries to use it. The column name is plausibly related to product data but clearly different from 'PRODUCT'. The task references specific cell addresses (column B) which remain unchanged since we only added a column after the last existing column, preserving column B's position. No instruction paraphrase to avoid meaning changes."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "ITEMS": "MASTER",
+      "SHEET1": "DATA1",
+      "SHEET2": "DATA2",
+      "result sheet1": "result data1",
+      "result sheet2": "result data2"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

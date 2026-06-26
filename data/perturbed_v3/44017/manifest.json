@@ -1,0 +1,49 @@
+{
+  "task_id": "44017",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Old Rates": "Previous Rates",
+        "New Rates": "Updated Rates",
+        "Annually": "Yearly"
+      },
+      "sheet_rename_map": {
+        "Data": "Pricing"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "Pricing",
+          "range": "I6:I42",
+          "find": "Annually",
+          "replace": "Yearly"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Pricing"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Rate Adjustment Notes",
+      "target_sheet": "Pricing",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I chose lexical renames and a distractor column placed after the last column. The distractor column is inserted AFTER the last column (column 76+) so it does NOT shift any referenced columns (AD-AO, W, L, J, M-P). This avoids the failure from Attempt 1 where the distractor was inserted within the referenced range. The lexical renames change 'Old Rates' to 'Previous Rates', 'New Rates' to 'Updated Rates', and 'Annually' to 'Yearly' — all semantically equivalent at the same descriptiveness level. Since 'Annually' appears as data values in column I, I include data_value_renames. The sheet is renamed from 'Data' to 'Pricing'. None of these renames affect the instruction text since the instruction references columns by letter/position rather than by header name. The distractor column 'Rate Adjustment Notes' is plausibly related to the pricing domain but clearly different from existing columns."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Data": "Pricing"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

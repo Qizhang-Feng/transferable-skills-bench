@@ -1,0 +1,38 @@
+{
+  "task_id": "32293",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Sheet1": "Contracts"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Contracts"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Margin",
+      "target_sheet": "Contracts",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction explicitly references MNQ, MES, NQ, ES and 0.56 as data values, so renaming headers would risk changing task meaning (Rule 6). Instead, I apply a sheet rename (Sheet1 -> Contracts) to test whether the agent hardcodes sheet names, and insert a distractor column 'Margin' after the last column to test whether the agent is confused by extra columns. No row insertions are made because the task references absolute row numbers (risk flag). No column renames are needed since all header names appear as meaningful terms in the instruction body."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Contracts"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

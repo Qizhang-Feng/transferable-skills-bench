@@ -1,0 +1,36 @@
+{
+  "task_id": "379-36",
+  "spec": {
+    "anchor_types_used": [
+      "lexical"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "account": "acct_id",
+        "state": "region",
+        "Date": "Trans_Date",
+        "Check": "Check_No"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts with title_row_insert and distractor_column all failed because the instruction references columns E, F, and H by letter, and any column insertion shifts those positions. Title row insert shifts row numbers. The risk flag data_values_match_headers means 'Georgia Its Tax' appears as both a column K header and data values in column E - this text is explicitly referenced in the instruction so it cannot be renamed (Rule 6). The safest perturbation is lexical-only: renaming columns not referenced in the instruction (account→acct_id, state→region, Date→Trans_Date, Check→Check_No). These are same-level renames (abbreviation to abbreviation, full word to full word). Layout is skipped to avoid breaking column/row position references."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

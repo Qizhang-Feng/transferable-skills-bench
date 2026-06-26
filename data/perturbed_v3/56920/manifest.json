@@ -1,0 +1,40 @@
+{
+  "task_id": "56920",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "String Extraction Worksheet",
+        "new_header_row": 3,
+        "new_answer_range": "C4:C9"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Extraction Notes",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (C3:C8) and header_row is at row 2, meaning there is already a non-standard layout. Inserting a title row at row 1 pushes the header from row 2 to row 3 and data from rows 3-8 to rows 4-9, shifting the answer range from C3:C8 to C4:C9. This tests whether the model hardcodes the original row references or adapts to the new layout. The instruction mentions 'Column C' which remains valid since we don't reorder columns. A distractor column 'Extraction Notes' is added after the last column — it is plausibly related to the extraction task but clearly different from 'Description' and 'Expected Result'. Column names are not renamed because 'Description' appears as a general English word that could be interpreted in the instruction context, and the instruction explicitly references 'Column C' by letter rather than by header name, so renaming headers provides minimal perturbation value compared to the layout shift."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

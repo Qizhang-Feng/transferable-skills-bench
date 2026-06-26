@@ -1,0 +1,38 @@
+{
+  "task_id": "11842",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "A - ABSENT": "A - AWAY",
+        "L - LEAVE": "L - LEAVE OF ABSENCE",
+        "CO - COMP. OFF": "CO - COMPENSATORY OFF",
+        "ML - MEDICAL. LEAVE": "ML - MEDICAL ABSENCE",
+        "ODK - WORK AT KARAI": "ODK - DUTY AT KARAI"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "OT - OVERTIME",
+      "target_sheet": "Jan",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task references specific cell addresses ('O3', 'M5:M12') and has headers not in row 1, so any row insertion is extremely risky (as shown by the failed attempt). Instead, I use two safe strategies: (1) Lexical rename of attendance category column headers across all monthly sheets — renaming abbreviation-style headers to similarly descriptive abbreviation-style names (e.g., 'A - ABSENT' to 'A - AWAY', 'ML - MEDICAL. LEAVE' to 'ML - MEDICAL ABSENCE'). These names don't appear as general English words in the instruction. I avoid renaming 'WO - WEEKLY OFF' and 'PH - PUBLIC HOLIDAY' since those are straightforward and less likely to be hardcoded. The renames test whether the agent hardcodes column header strings. (2) A distractor column 'OT - OVERTIME' added after the last column in the 'Jan' sheet — plausibly similar to attendance categories but clearly different, testing whether the agent incorrectly includes it in aggregation. No sheet renames are done because the instruction explicitly references sheet names like 'Total' and monthly sheet names, and the monthly sheet names (Jan, Feb, etc.) are integral to the COUNTIFS logic across 12 sheets. No blank row insertion is done due to the risk flag about specific cell addresses."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

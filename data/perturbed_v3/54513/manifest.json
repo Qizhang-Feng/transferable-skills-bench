@@ -1,0 +1,60 @@
+{
+  "task_id": "54513",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Quantity": "Qty",
+        "Wholesale": "Bulk Price"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "PricingData"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "PricingData",
+          "range": "B3",
+          "find": "Quantity",
+          "replace": "Qty"
+        },
+        {
+          "sheet": "PricingData",
+          "range": "D3",
+          "find": "Wholesale",
+          "replace": "Bulk Price"
+        }
+      ]
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "PricingData"
+      ],
+      "params": {
+        "title_text": "Product Pricing Worksheet",
+        "insert_at_row": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Markup",
+      "target_sheet": "PricingData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references 'discount' and 'price' as general English words describing the task, not as column references, so the 'Discount' column is left unchanged. 'Quantity' and 'Wholesale' are not mentioned in the instruction at all, so they are safe to rename. 'Quantity' → 'Qty' (abbreviation to abbreviation-level shortening) and 'Wholesale' → 'Bulk Price' (full word to full word equivalent). Sheet renamed from 'Sheet1' to 'PricingData' to break hardcoded sheet references. A title row insert shifts the header from row 3 to row 4 and the answer from F8 to F9, testing positional assumptions. A distractor column 'Markup' is added after the last column — it is plausibly related to pricing/discount context but clearly different from existing columns. Since 'Quantity' and 'Wholesale' appear as both headers and data values (data_header_overlaps), data_value_renames are included for those cells using the new sheet name."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "PricingData"
+    },
+    "row_shifts": {
+      "PricingData": 1
+    },
+    "col_inserts": {}
+  }
+}

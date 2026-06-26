@@ -1,0 +1,56 @@
+{
+  "task_id": "80-42",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date": "Entry Date",
+        "Name": "Node Name",
+        "Description": "Node Description",
+        "Parent Node": "Parent Code",
+        "Parent Description": "Parent Desc",
+        "CC External Code": "CC Ext Code",
+        "Available in CORE": "CORE Availability",
+        "OAL CC Type": "OAL CC Category",
+        "CC Default for LOB": "CC LOB Default",
+        "CC Fiscal Recharge Owner": "Fiscal Recharge Owner",
+        "Ancestor List": "Ancestor Path",
+        "Sheet Name": "Source Sheet",
+        "Hierarchy Name": "Hierarchy Label",
+        "Available in FAH": "FAH Availability",
+        "Available in EBS": "EBS Availability",
+        "Enabled": "Is Enabled",
+        "Start Date": "Effective Start",
+        "End Date": "Effective End",
+        "Allow Posting": "Posting Allowed"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Jack",
+        "Henry",
+        "Richard"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Audit Flag",
+      "target_sheet": "all_source_sheets",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Two anchor types used: lexical (column renames) and distractor_column. All column renames are applied consistently across all sheets where the same header appears, preserving the alignment relationship between source sheets and Consolidate_ALL. For example, 'Date' becomes 'Entry Date' everywhere it appears, 'Name' becomes 'Node Name' everywhere, etc. The distractor column 'Audit Flag' is inserted AFTER the last column in each source sheet (Jack, Henry, Richard), so it does not shift any existing column positions — this is critical given the risk flag about column mapping. The yellow-highlighted columns remain in their original positions. No sheet renames are done since the instruction explicitly references sheet names 'Jack', 'Henry', 'Richard', and 'Consolidated_ALL' — renaming those would change the instruction meaning. The distractor tests whether the agent incorrectly includes the extra column when consolidating. Column names like 'Date' and 'Description' and 'Name' appear in the instruction but only as column/sheet references, not as general English words in context, so renaming them is acceptable."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

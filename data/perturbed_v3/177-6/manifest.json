@@ -1,0 +1,57 @@
+{
+  "task_id": "177-6",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Material": "MatCode",
+        "Description": "Desc",
+        "Number": "Num",
+        "Key": "KeyVal",
+        "Product#": "ProdNum",
+        "WS": "WkSt",
+        "UM": "UoM",
+        "ComboKey": "MergeKey"
+      },
+      "sheet_rename_map": {
+        "DATA": "Source",
+        "combined": "merged"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Source",
+        "merged"
+      ],
+      "params": {
+        "title_text_Source": "Source Data Export",
+        "title_text_merged": "Merged Output"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "GroupFlag",
+      "target_sheet": "Source",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe perturbation strategies are applied: (1) Lexical: All column headers are renamed to equivalently descriptive abbreviations (e.g., Material→MatCode, ComboKey→MergeKey). The instruction references Column H by position, not by name, so renaming ComboKey to MergeKey is safe. Sheet names are also renamed (DATA→Source, combined→merged). The instruction says 'combined' sheet, but the answer position updates accordingly. (2) Positional title row insert: A title row is inserted at row 1 on both sheets, pushing headers to row 2 and data down by one row. This tests whether the agent hardcodes header position at row 1. The task involves grouping/aggregation and writing to an output sheet, so row insertion in the source doesn't affect aggregation logic. (3) Distractor column: A plausible but irrelevant column 'GroupFlag' is added after the last column on the source sheet to test if the agent incorrectly includes it. No data values overlap with header names, so no data_value_renames are needed."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "DATA": "Source",
+      "combined": "merged"
+    },
+    "row_shifts": {
+      "Source": 1,
+      "merged": 1
+    },
+    "col_inserts": {}
+  }
+}

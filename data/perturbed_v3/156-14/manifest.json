@@ -1,0 +1,37 @@
+{
+  "task_id": "156-14",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Ref": "Code",
+        "Invoice": "Bill",
+        "Amount": "Sum",
+        "Transaction Number": "Trans No"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "all",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Attempt 1 failed because 'Status' was renamed, but 'Status' is semantically referenced in the instruction via the filtering logic (column F / 'to be processed' / 'Accepted' text). The instruction also references column F positionally and the VBA code filters on column 6 for '*Accepted*', so renaming Status could cause confusion. I keep 'Status' and 'Type' unchanged since 'Type' is a common English word that could appear contextually. I rename only columns whose names are purely structural references: Ref→Code, Invoice→Bill, Amount→Sum, Transaction Number→Trans No. All renames preserve descriptiveness level (abbreviation→abbreviation, short→short). Sheet names are NOT renamed because the instruction explicitly references sheet names '99250', '99251', '99252' as part of the VBA code snippet, and the task logic depends on operating on those exact sheets — renaming them would require updating the VBA code in the instruction which risks changing meaning. Instead I add a distractor column 'Notes' after the last column on all three sheets to test whether the agent hardcodes column count. No blank row insertion is used because the risk flags indicate the task deletes/inserts rows and references absolute row numbers (header at row 5, data from row 6), and inserting blank rows above would shift the header row and break the answer position alignment. The distractor column is safe since it's empty and after the data range."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

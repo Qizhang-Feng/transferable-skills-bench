@@ -1,0 +1,6 @@
+{
+  "id": "49300",
+  "instruction": "I'm attempting to retrieve a value from a table in Excel using two criteria with INDEX and MATCH functions, but my formula isn\u2019t working and returns an error. I have included an example in the attached Excel file for reference. I use =INDEX(Snapshot!C3:AY4,MATCH(1,(Inventory!A2=Snapshot!B3:B4)*(Inventory!B2=Snapshot!C2:AY2),0)). Using the corrected formula, get the value from the table in the \u2018Snapshot\u2019 sheet to column C of sheet1, corresponding to the values in column A and B. Present the output values as numbers and retain the order of the sheets same as the input file.",
+  "answer_position": "\u00a0'Inventory'!C2:C3",
+  "instruction_type": "Cell-Level Manipulation"
+}

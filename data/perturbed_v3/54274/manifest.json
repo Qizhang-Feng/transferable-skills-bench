@@ -1,0 +1,47 @@
+{
+  "task_id": "54274",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Weight": "Weighting",
+        "Points": "Score"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Metrics"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Metrics"
+      ],
+      "params": {
+        "title_text": "Performance Scorecard",
+        "insert_at_row": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Benchmark",
+      "target_sheet": "Metrics",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I selected three safe anchor types. Lexical: 'Weight' is renamed to 'Weighting' and 'Points' is renamed to 'Score' — these are columns referenced in the instruction ('points cell'), but 'points' in the instruction is used as a column reference so renaming it tests whether the model can adapt. 'Target', 'Stretch', 'Over Stretch', and 'Total' are NOT renamed because they appear as common English words throughout the instruction body (e.g., 'total is less or equal to target', 'less than stretch'), so renaming them would violate Rule 6. The sheet is renamed from 'Sheet1' to 'Metrics'. Positional_title_row: A title row is inserted at row 1, pushing the header from row 3 to row 4 and data accordingly, which shifts the answer position from G4 to G5 — this tests hardcoded row references. Distractor_column: 'Benchmark' is added after the last column as a plausibly related but clearly different column name, testing whether the model incorrectly references it."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Metrics"
+    },
+    "row_shifts": {
+      "Metrics": 1
+    },
+    "col_inserts": {}
+  }
+}

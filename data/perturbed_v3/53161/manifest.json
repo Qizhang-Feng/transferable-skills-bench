@@ -1,0 +1,41 @@
+{
+  "task_id": "53161",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "row_index": 0,
+        "content": [
+          "Schedule Summary Dashboard"
+        ]
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category 10",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The risk flag 'data_values_match_headers' means that header names like 'Category 1', 'Agent' etc. also appear as data values in column E. Renaming these would require careful coordination across multiple locations. Instead, I chose two safer perturbations: (1) A title row insertion at the top of Sheet1, which shifts all rows down by 1 and tests whether the agent hardcodes row references like 'F22:AE29' or dynamically finds the correct data regions. The answer position would shift to F23:AE30. (2) A distractor column 'Category 10' inserted after the last column, which tests whether the agent incorrectly includes this empty/irrelevant column in its calculations. The name is plausibly similar to the existing Category 1-9 columns but clearly distinct. These perturbations change surface anchors (row positions, column count) without altering the underlying logic or difficulty of the lookup/merge task."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

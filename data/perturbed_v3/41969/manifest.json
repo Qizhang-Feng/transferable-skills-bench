@@ -1,0 +1,34 @@
+{
+  "task_id": "41969",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "10",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task references specific cell addresses (A3:C3, D3:F3, G3:I3, A6:C6) and depends on blank row positions, so we cannot insert blank rows or title rows (as the failed attempt showed). Column reorder is also unsafe because the instruction explicitly references column letters A through I. The safest perturbation is adding a distractor column after the last existing column (column J, named '10' to be plausibly similar to the existing numeric headers like '8', '9'). This changes the surface appearance of the spreadsheet without affecting any referenced cells or the task logic. No renaming is done since the headers are simple numbers that don't conflict with instruction text, and renaming them could confuse the cell address references."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

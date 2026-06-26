@@ -1,0 +1,129 @@
+{
+  "task_id": "547-43",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "seqno": "sno",
+        "Empno": "Empid",
+        "ename": "empname",
+        "Jobid": "Jobcd",
+        "Comp1": "Pay1",
+        "2_comp": "2_pay",
+        "dept1": "div1",
+        "avg sal": "avg pay",
+        "hike": "raise",
+        "Variable": "Varname",
+        "Category": "Grp",
+        "Subcategory": "SubGrp",
+        "Value": "Amount"
+      },
+      "sheet_rename_map": {
+        "Emp": "Staff",
+        "Lookup": "RefTable",
+        "Expected": "Result"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "RefTable",
+          "range": "A2:A8",
+          "find": "Comp1",
+          "replace": "Pay1"
+        },
+        {
+          "sheet": "RefTable",
+          "range": "A2:A8",
+          "find": "2_comp",
+          "replace": "2_pay"
+        },
+        {
+          "sheet": "RefTable",
+          "range": "A2:A8",
+          "find": "dept1",
+          "replace": "div1"
+        },
+        {
+          "sheet": "RefTable",
+          "range": "A2:A8",
+          "find": "avg sal",
+          "replace": "avg pay"
+        },
+        {
+          "sheet": "RefTable",
+          "range": "A2:A8",
+          "find": "hike",
+          "replace": "raise"
+        },
+        {
+          "sheet": "RefTable",
+          "range": "A2:A8",
+          "find": "performance",
+          "replace": "performance"
+        },
+        {
+          "sheet": "Result",
+          "range": "E2:E19",
+          "find": "Comp1",
+          "replace": "Pay1"
+        },
+        {
+          "sheet": "Result",
+          "range": "E2:E19",
+          "find": "2_comp",
+          "replace": "2_pay"
+        },
+        {
+          "sheet": "Result",
+          "range": "E2:E19",
+          "find": "dept1",
+          "replace": "div1"
+        },
+        {
+          "sheet": "Result",
+          "range": "E2:E19",
+          "find": "avg sal",
+          "replace": "avg pay"
+        },
+        {
+          "sheet": "Result",
+          "range": "E2:E19",
+          "find": "hike",
+          "replace": "raise"
+        },
+        {
+          "sheet": "Result",
+          "range": "E2:E19",
+          "find": "performance",
+          "replace": "performance"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Staff"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "bonus_pct",
+      "target_sheet": "Staff",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Renaming columns and sheets to test whether the agent hardcodes surface names. Column renames maintain the same abbreviation/descriptiveness level (seqno→sno, Empno→Empid, ename→empname, Jobid→Jobcd, Comp1→Pay1, 2_comp→2_pay, dept1→div1, avg sal→avg pay, hike→raise, Variable→Varname, Category→Grp, Subcategory→SubGrp, Value→Amount). Sheet renames follow the same principle (Emp→Staff, Lookup→RefTable, Expected→Result). Critically, the column names that appear as data values in the Lookup and Expected sheets (the variable names like Comp1, 2_comp, dept1, avg sal, hike) are also renamed in those data cells so the matching logic remains consistent. The 'performance' column is NOT renamed because the instruction uses 'performance' as part of the range description 'Comp1-performance', and renaming it would require changing the instruction text which we avoid. A distractor column 'bonus_pct' is added after the last column in Staff to test whether the agent correctly identifies data boundaries. The instruction references 'Pay1-performance' range which now correctly spans from Pay1 through performance columns in the renamed Staff sheet."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Emp": "Staff",
+      "Lookup": "RefTable",
+      "Expected": "Result"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

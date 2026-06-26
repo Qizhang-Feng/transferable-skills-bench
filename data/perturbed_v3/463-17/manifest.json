@@ -1,0 +1,47 @@
+{
+  "task_id": "463-17",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Company Name": "Firm Name",
+        "Count": "Frequency",
+        "Required link this": "Expanded List"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Data"
+      ],
+      "params": {
+        "title_text": "Company Repetition Report"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used. (1) Lexical: 'Company Name' → 'Firm Name', 'Count' → 'Frequency', 'Required link this' → 'Expanded List', and sheet 'Sheet1' → 'Data'. These are semantically equivalent renames at the same descriptiveness level. The instruction mentions 'company names' and 'counts' as general English words describing the data, but the actual header labels 'Company Name' and 'Count' are being used as column references in the schema, so renaming them tests whether the model hardcodes header names. (2) Positional title row insert: inserting a title row pushes the header from row 1 to row 2 and data down by one row, shifting the answer position from D2:D46 to D3:D47. This tests whether the model hardcodes row numbers. The task does not delete/insert rows itself, so this is safe per the risk flags (task_depends_on_blank_row_positions is flagged but title_row_insert only adds at the top and doesn't affect blank row positions within data). (3) Distractor column 'Category' is plausibly related to company data but clearly different from existing columns, testing whether the model gets confused by extra columns."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data"
+    },
+    "row_shifts": {
+      "Data": 1
+    },
+    "col_inserts": {}
+  }
+}

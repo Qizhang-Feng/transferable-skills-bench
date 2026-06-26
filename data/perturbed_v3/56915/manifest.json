@@ -1,0 +1,40 @@
+{
+  "task_id": "56915",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "COVER": "SUMMARY",
+        "DATA": "SOURCE",
+        "LIST": "OPTIONS"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "SOURCE",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific sheet names (COVER, DATA, LIST) throughout the instruction and cell references. Renaming all three sheets tests whether the agent hardcodes sheet names or dynamically resolves them. COVER→SUMMARY and DATA→SOURCE maintain the same descriptiveness level (short descriptive words). LIST→OPTIONS similarly. A distractor column 'Notes' is added after the last column on the SOURCE (formerly DATA) sheet to test whether the agent assumes fixed column positions. No blank row insertion is done because the task references absolute rows (row 13, row 12, rows 18-23) and the risk flags indicate instruction_references_absolute_rows, so shifting rows would break the task. The headers in DATA are mostly blank spaces so renaming them is not meaningful. No data_value_renames are needed since the sheet names don't appear as data values in cells."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "COVER": "SUMMARY",
+      "DATA": "SOURCE",
+      "LIST": "OPTIONS"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

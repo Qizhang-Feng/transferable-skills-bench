@@ -1,0 +1,24 @@
+{
+  "task_id": "51586",
+  "opaque_col_map": {
+    "Store Name": "Interval",
+    "City": "Impact",
+    "Formula Required to check if 2nd part of Store Name does not equal City": "Source"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Registry"
+  },
+  "primary_distractor": "Store Name",
+  "old_anchors": [
+    "Store Name",
+    "City",
+    "Formula Required to check if 2nd part of Store Name does not equal City",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Interval",
+    "Impact",
+    "Source",
+    "Registry"
+  ]
+}

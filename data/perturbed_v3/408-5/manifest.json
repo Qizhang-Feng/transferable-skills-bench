@@ -1,0 +1,44 @@
+{
+  "task_id": "408-5",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date": "Trans Date",
+        "Branch": "Office",
+        "Reference": "Ref Code",
+        "Amount": "Value",
+        "Match Ref and Val": "Ref & Val Check"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Ledger"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Ledger"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Val Status",
+      "target_sheet": "Ledger",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task deletes blank lines and inserts/deletes rows, so blank_row_insert is risky (as shown in Attempt 1 failure). Instead, I use lexical renames and a distractor column. All five columns are renamed: Date→Trans Date, Branch→Office, Reference→Ref Code, Amount→Value, Match Ref and Val→Ref & Val Check. These maintain the same descriptiveness level. The instruction references 'Column D', 'Column E', 'Column C', and 'BR1 Sales' — these are positional references and data values, not header names, so the renames don't conflict with instruction text. The instruction does not use any of the header names as general English words. A distractor column 'Val Status' is added after the last column to test whether the agent hardcodes column count. No blank rows are inserted because the task explicitly deletes blank lines and the risk flags indicate task_depends_on_blank_row_positions. No instruction paraphrase to avoid meaning drift. Attempt 2 failed because the column rename in the spec didn't match what was actually in the file — this time I use a consistent rename map where 'Match Ref and Val' maps to 'Ref & Val Check' and the instruction still references 'Column E' positionally, so no mismatch."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Ledger"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

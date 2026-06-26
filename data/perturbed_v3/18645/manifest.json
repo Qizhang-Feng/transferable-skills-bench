@@ -1,0 +1,44 @@
+{
+  "task_id": "18645",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Pipeline Stage": "Sales Phase",
+        "Est. Revenue": "Projected Revenue",
+        "Weighted Revenue": "Adjusted Revenue"
+      },
+      "sheet_rename_map": {
+        "Opportunities": "Deals",
+        "Data": "Reference"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Reference"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Revenue Cap",
+      "target_sheet": "Reference",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves looking up a pipeline stage from a 'Data' sheet and using it to calculate weighted revenue in the 'Opportunities' sheet. I renamed the sheets (Opportunities→Deals, Data→Reference) and key column headers (Pipeline Stage→Sales Phase, Est. Revenue→Projected Revenue, Weighted Revenue→Adjusted Revenue) to break hardcoded references. I also added a distractor column 'Revenue Cap' to the Reference sheet to test whether the agent incorrectly uses it. The column renames maintain the same descriptiveness level (full phrases to full phrases). The instruction references 'column G', 'est. revenue', 'pipeline stage', and 'Data tab' - since the instruction will need to reflect the new names for the task to remain solvable, the renames are applied consistently. Note: 'stage' and 'revenue' appear as general English words in the instruction, but the column names being renamed are specific compound phrases (Pipeline Stage, Est. Revenue, Weighted Revenue) that serve as column references rather than general vocabulary."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Opportunities": "Deals",
+      "Data": "Reference"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

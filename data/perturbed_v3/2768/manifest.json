@@ -1,0 +1,42 @@
+{
+  "task_id": "2768",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Line": "Order Line",
+        "Order issued Date": "Issue Date",
+        "Request del date": "Req Delivery Date",
+        "Order Qty": "Ordered Qty",
+        "Expected outcome": "Allocation Result",
+        "Incoming Qty": "Available Stock Qty",
+        "Item code": "Part No"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Shipment Status",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I chose lexical renames and a distractor column. Column renames change surface anchors: 'Line' → 'Order Line', 'Order issued Date' → 'Issue Date', 'Request del date' → 'Req Delivery Date', 'Order Qty' → 'Ordered Qty', 'Expected outcome' → 'Allocation Result', 'Incoming Qty' → 'Available Stock Qty', and 'Item code' → 'Part No'. These are semantically equivalent at the same descriptiveness level. I did NOT rename 'Order No' or 'Item' because both appear as common English words/phrases heavily used in the instruction body (e.g., 'Order No. 1001-A', 'same item'). Sheet names are kept unchanged to avoid the multi_sheet_references risk flag — the instruction explicitly references 'Sheet1' and 'Sheet2', and renaming them would require updating the instruction text (which we avoid since instruction_paraphrase is false). No blank row insert is used because the previous attempt failed due to shifting Sheet2 data and breaking cross-sheet lookups. Instead, a distractor column 'Shipment Status' is added after the last column on Sheet1, which is plausibly related to an orders report but clearly distinct from any existing column."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "task_id": "279-23",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Parentheses Extraction Table",
+        "merge_range": "A1:B1"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task has a risk flag 'task_depends_on_blank_row_positions', but title_row_insert only shifts all rows down uniformly (inserting a new row 1 as a title), which preserves the relative positions of blank rows and data rows. The instruction references 'column B' explicitly, and since column B stays in place (no column reorder), the task logic is preserved. The header row moves from row 3 to row 4, and the answer position shifts from A3:B26 to A4:B27, but the underlying structure and blank-row pattern remain identical. I avoided column renaming because the headers ('1' and '(tig) this is good') are data-like values that the task operates on directly — renaming them could alter expected outputs. A distractor column 'Notes' is added after column B to test whether the model incorrectly writes results there instead of column B. No instruction paraphrase is applied to avoid meaning drift."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

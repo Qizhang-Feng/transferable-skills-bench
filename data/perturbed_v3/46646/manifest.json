@@ -1,0 +1,44 @@
+{
+  "task_id": "46646",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Employee Name": "Staff Name",
+        "Jhon Smith": "Jhon Smith"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": [
+        {
+          "sheet": "Sheet1",
+          "range": "A5:A19",
+          "find": "Employee Name",
+          "replace": "Staff Name"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Day Shift Ratio",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references 'row 11' explicitly in the instruction and answer position, so any blank_row_insert or title_row_insert would shift rows and break the task (as seen in the failed Attempt 1). Instead, I use two safe perturbation strategies: (1) Renaming 'Employee Name' to 'Staff Name' — this is a semantically equivalent rename at the same descriptiveness level. The header 'Employee Name' appears as both a header and a data value in A5, so a data_value_rename is included. I do NOT rename 'Jhon Smith' since it also appears as a header and data overlap, and the instruction doesn't reference it. (2) Adding a distractor column 'Day Shift Ratio' after the last column — this is plausibly related to the night shift percentage task but clearly different, testing whether the model gets confused by a similar-sounding column. The instruction says 'row 11' and 'B11:M11' which remain valid since no rows or relevant columns are shifted. I set instruction_paraphrase to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

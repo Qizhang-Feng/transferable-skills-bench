@@ -1,0 +1,42 @@
+{
+  "task_id": "59595",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Reporting": "Date",
+        "Points": "Score",
+        "Rolling Last ": "7-Day Total"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "TrackingData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "TrackingData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Cumulative Score",
+      "target_sheet": "TrackingData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction refers to columns A, B, and C by letter and uses generic English words 'dates' and 'points' — not the header names 'Reporting' or 'Points' as column references. However, 'Points' appears both as a header and as a word in the instruction ('points recorded for each date'). Per Rule 6, we should not rename a column if its name appears as a common English word in the instruction body. But 'points' in the instruction is used as a general English noun describing the data concept, while 'Points' is the header. Since the instruction says 'column B with points', the word 'points' is used descriptively, not as a header reference. The instruction references columns by letter (A, B, C), not by name, so renaming headers won't conflict with instruction text. Renaming 'Points' to 'Score' is safe because the instruction never says 'the Points column' — it says 'column B with points'. The distractor column 'Cumulative Score' is plausibly similar to the rolling sum concept but clearly different (cumulative vs. rolling 7-day). Sheet rename from 'Sheet1' to 'TrackingData' tests hardcoded sheet name assumptions."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "TrackingData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,3 @@
+[submodule "vendor/SpreadsheetBench"]
+	path = vendor/SpreadsheetBench
+	url = git@github.com:RUCKBReasoning/SpreadsheetBench.git

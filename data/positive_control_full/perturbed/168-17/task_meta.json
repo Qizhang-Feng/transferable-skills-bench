@@ -1,0 +1,6 @@
+{
+  "id": "168-17",
+  "instruction": "How can I write a macro in Excel to locate the first instance of 'Score' in column A on the 'Records' sheet and delete all preceding rows, ensuring that the first instance of 'Score' appears in cell A1 after running the macro?",
+  "answer_position": "'Records'!A2:E12",
+  "instruction_type": "Sheet-Level Manipulation"
+}

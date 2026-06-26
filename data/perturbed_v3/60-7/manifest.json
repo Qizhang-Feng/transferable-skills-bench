@@ -1,0 +1,42 @@
+{
+  "task_id": "60-7",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Category": "Division",
+        "Activity Name": "Task Name",
+        "AU": "BU",
+        "Frequency": "Cadence",
+        "Team Member": "Assignee"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Existing Task",
+        "Additions",
+        "Retired"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Priority Level",
+      "target_sheet": "Existing Task",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I use two safe anchor types: lexical (column renames) and distractor_column. All five shared column headers across the three source sheets and the Consolidated Tracker output are renamed consistently (Category→Division, Activity Name→Task Name, AU→BU, Frequency→Cadence, Team Member→Assignee) to break hardcoded column name assumptions while preserving the same descriptiveness level (full word to full word, abbreviation to abbreviation). None of these column names appear as general English words in the instruction body — the instruction uses 'Existing Task', 'Additions', 'Retired', 'Consolidated Tracker', 'activities', 'rows' etc., not the column names themselves. I do not rename sheets because the instruction explicitly references sheet names like 'Existing Task', 'Additions', 'Retired', and 'Consolidated Tracker', and renaming them would require paraphrasing the instruction which is disallowed. A distractor column 'Priority Level' is added after the last column in the 'Existing Task' sheet — it is plausibly related to task tracking but clearly different from existing columns. I avoid blank_row_insert since the previous attempt failed due to blank rows causing layout impact issues with row-based consolidation logic. No data_value_renames are needed since the renamed columns don't appear as data values in cells."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

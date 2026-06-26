@@ -1,0 +1,40 @@
+{
+  "task_id": "254-34",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Before": "Source",
+        "After": "Result",
+        "Sheet3": "Sheet3"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Source",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references sheet names 'Before' and 'After' explicitly in the instruction and answer position. Renaming these to 'Source' and 'Result' (same descriptiveness level — short descriptive English words) tests whether the agent hardcodes sheet names. Sheet3 is kept as-is since the task deletes it anyway. The header '22704' is a numeric value that doesn't appear as a word in the instruction, but it's also a data value used as a header — since the task logic revolves around numerical values in column A and the header is just a number, renaming it could risk changing data semantics, so I leave it. A distractor column 'Notes' is added after the last column on the 'Source' sheet to test whether the agent hardcodes column boundaries. I avoid blank_row_insert because the risk flag 'task_deletes_or_inserts_rows' is present (the task deletes Sheet3, and blank rows could interfere with the subset-sum logic that scans data ranges). I also avoid title_row_insert for the same reason. The instruction must be updated to replace 'Before' with 'Source' and 'After' with 'Result', and the answer position changes to 'Source'!C2."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Before": "Source",
+      "After": "Result",
+      "Sheet3": "Sheet3"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

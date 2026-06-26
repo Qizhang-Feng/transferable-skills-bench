@@ -1,0 +1,6 @@
+{
+  "id": "47827",
+  "instruction": "How to assemble three numbers into a three-digit number, with the numbers arranged in order from smallest to largest. Complete column G, bold and fill all Roster values with the color #EBF1DE",
+  "answer_position": "'Registry'!G2:G16",
+  "instruction_type": "Cell-Level Manipulation"
+}

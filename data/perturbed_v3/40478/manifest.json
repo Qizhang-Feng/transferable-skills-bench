@@ -1,0 +1,34 @@
+{
+  "task_id": "40478",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Extracted Name",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has no traditional header row — Row 1 IS the data (the risk flag 'data_values_match_headers' confirms headers and data overlap). A title_row_insert would corrupt the data range since formulas applied to column A would hit the inserted title row text. Column renames are also risky because the 'header' names are actually data values that the formula must parse. Instead, we add a distractor column 'Extracted Name' after column B. This column name is plausibly similar to the task's purpose (extracting text) but is clearly different from the existing columns. It sits in column C and does not interfere with the A or B columns referenced by the instruction and answer. The distractor column is empty and simply tests whether the model is confused by an extra column that looks task-relevant. We set instruction_paraphrase to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "task_id": "56921",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "DATI",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task references very specific cell addresses (C15, C3:N3, $A$3:$A$10, B15) and relies on a column-position-based MOD formula (every 4th column). Previous attempts failed because: (1) inserting blank rows shifted all data rows, breaking the cell address references in the instruction; (2) inserting a distractor column within the data range shifted columns and broke the MOD(COLUMN()...) logic. The safe approach is to add a distractor column AFTER the last existing column (column O or beyond). This does not shift any existing columns, does not affect the C3:N3 data range, does not change the MOD/COLUMN logic, and does not move the formula in C15. The distractor column 'Notes' is plausibly related to a data sheet but clearly not part of the numeric data pattern. No blank rows are inserted (skip layout) to avoid shifting rows and breaking cell references. No column renames are applied since the headers are numeric values and abbreviations that are integral to the data pattern. This perturbation changes the surface appearance of the sheet (an extra column exists) without affecting any task logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

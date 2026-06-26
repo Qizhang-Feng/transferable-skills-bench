@@ -1,0 +1,33 @@
+{
+  "task_id": "36764",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "UK product count",
+      "target_sheet": "Sheet1",
+      "position": "after_col_C"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because blank_row_insert shifted data rows, making cell references (A2, C2) inconsistent with the answer position. Given risk flags about specific cell addresses and absolute rows, I avoid any row insertion. Instead, I add a distractor column 'UK product count' on Sheet1 inserted after column C (pushing the real 'IE purchases' to column E). This column name is plausibly similar to 'UK purchases' but clearly different, testing whether the agent writes the formula in the correct column C rather than being confused by the distractor. No column or sheet renames are applied since the instruction references column names that overlap with common English usage in the instruction body ('UK purchases', 'IE purchases'). instruction_paraphrase is set to false per rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

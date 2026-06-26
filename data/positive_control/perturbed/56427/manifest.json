@@ -1,0 +1,36 @@
+{
+  "task_id": "56427",
+  "opaque_col_map": {
+    "Race": "Level",
+    "Runner": "Batch",
+    "Runners": "Zone",
+    "Starters": "Grade",
+    "Distance": "Division",
+    "Arrivees": "Rank",
+    "Odds": "Frequency"
+  },
+  "opaque_sheet_map": {
+    "Taul1": "Catalog"
+  },
+  "primary_distractor": "Race",
+  "old_anchors": [
+    "Race",
+    "Runner",
+    "Runners",
+    "Starters",
+    "Distance",
+    "Arrivees",
+    "Odds",
+    "Taul1"
+  ],
+  "new_anchors": [
+    "Level",
+    "Batch",
+    "Zone",
+    "Grade",
+    "Division",
+    "Rank",
+    "Frequency",
+    "Catalog"
+  ]
+}

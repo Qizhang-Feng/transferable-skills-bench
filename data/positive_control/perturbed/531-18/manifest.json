@@ -1,0 +1,39 @@
+{
+  "task_id": "531-18",
+  "opaque_col_map": {
+    "ITEM": "Division",
+    "DESCRIPTION": "Sector",
+    "UOM": "Margin",
+    "SUPPLIER_NAME": "Metric",
+    "SUPPLIER_SITE_NAME": "Volume",
+    "Supplier ID": "Label",
+    "QTY": "Code"
+  },
+  "opaque_sheet_map": {
+    "Data": "Overview",
+    "Transpose": "Digest"
+  },
+  "primary_distractor": "ITEM",
+  "old_anchors": [
+    "ITEM",
+    "DESCRIPTION",
+    "UOM",
+    "SUPPLIER_NAME",
+    "SUPPLIER_SITE_NAME",
+    "Supplier ID",
+    "QTY",
+    "Data",
+    "Transpose"
+  ],
+  "new_anchors": [
+    "Division",
+    "Sector",
+    "Margin",
+    "Metric",
+    "Volume",
+    "Label",
+    "Code",
+    "Overview",
+    "Digest"
+  ]
+}

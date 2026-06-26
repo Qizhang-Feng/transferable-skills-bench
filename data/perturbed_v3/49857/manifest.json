@@ -1,0 +1,39 @@
+{
+  "task_id": "49857",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sub CO's"
+      ],
+      "params": {
+        "title_text": "Subcontractor Change Orders Tracker",
+        "note": "Header row shifts from row 3 to row 4; data rows shift accordingly. Instruction references column F and column G by letter (not absolute row), and the answer position G4:G10 must be updated to G5:G11 to reflect the one-row shift."
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Owner CO #",
+      "target_sheet": "Sub CO's",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references columns F and G by letter and uses the answer range G4:G10. A title row insert at row 1 shifts the header from row 3 to row 4 and data from rows 4-10 to rows 5-11, testing whether the model can adapt to the shifted layout rather than relying on hardcoded row numbers. The distractor column 'Owner CO #' is plausibly related to the existing 'PCO #' and 'Pass on to owner?' columns but is clearly distinct, testing whether the model incorrectly references it. No column or sheet renames are applied because the instruction explicitly references column F ('Pass on to owner?') and column G ('PCO #') by letter rather than by name, and the column names don't appear verbatim in the instruction text, so renaming them would not meaningfully test surface anchor dependence. The two chosen perturbations (title_row_insert + distractor_column) are sufficient to probe positional and structural anchoring."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sub CO's": 1
+    },
+    "col_inserts": {}
+  }
+}

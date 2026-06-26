@@ -1,0 +1,43 @@
+{
+  "task_id": "56225",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "invoice": "ticket",
+        "job": "task"
+      },
+      "sheet_rename_map": {
+        "mechanic": "technician",
+        "data": "records"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "records"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "elapsed time",
+      "target_sheet": "records",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction explicitly references cell addresses (M3, N5, K2:K32, O3) and column K, so we must not rename columns that the instruction references by name. The instruction mentions 'date', 'name', 'time in', 'time out', and 'total time' conceptually but the critical references are by cell address. We safely rename 'invoice' to 'ticket' and 'job' to 'task' (same descriptiveness level, single words). We rename sheets 'mechanic' to 'technician' and 'data' to 'records' — both are same-level descriptive words. The instruction says 'My data is in a spreadsheet' using 'data' as a common English word, but the sheet name 'data' is used as a sheet reference in the answer position, so renaming it tests whether the agent can adapt. However, the instruction doesn't use 'data' as a column name reference — it's used generically. We add a distractor column 'elapsed time' on the records sheet after the last column, which is plausibly similar to 'total time' but clearly different, testing whether the agent confuses it with the actual 'total time' column. We avoid title_row_insert due to the risk flag about absolute row references. We avoid renaming 'date', 'name', 'time in', 'time out', or 'total time' since these appear as common English words in the instruction body."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "mechanic": "technician",
+      "data": "records"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "58687",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "insert_at": 1,
+        "num_rows": 2,
+        "note": "Insert 2 blank rows above the existing content, shifting all data down by 2 rows. The header row moves from row 4 to row 6, horizontal table moves from B4:V6 to B6:V8, example cells move from B9:B13 to B11:B15, and answer range moves from B9:B100 to B11:B102."
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Batch ID",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flags indicate that the instruction references absolute rows (B4:V6, B9:B13, B9:B100) and the header is not in row 1, so inserting blank rows at the top will shift all content down by 2 rows. This tests whether the agent can locate the actual data by content rather than hardcoded row numbers. The instruction still references the original cell addresses, but the data has moved — an agent that blindly uses the mentioned addresses will fail. Adding a distractor column 'Batch ID' after the last column (column W) provides a plausibly related but irrelevant column that tests whether the agent incorrectly incorporates it. Column renaming is skipped because 'Month No.' appears as a meaningful term in the instruction body, and the numeric header columns (1, 2, 3...) are also data values that the task logic depends on — renaming them would be unsafe."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

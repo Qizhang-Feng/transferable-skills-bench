@@ -1,0 +1,40 @@
+{
+  "task_id": "52532",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "# of times scored highest": "Win Count"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Player Game Scores Tracker"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Average Score",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "1) Title row insert: Pushes the header from row 1 to row 2 and data rows down by 1, which tests whether the model hardcodes row references like H2:H8 (now H3:H9). The instruction references column H and 'column H' generically, so the column letter doesn't change. 2) Distractor column: Adding 'Average Score' after the last column is plausibly related to game score data but clearly different from the win count column. It tests whether the model confuses it with the target column. 3) Column rename: '# of times scored highest' → 'Win Count' is semantically equivalent and same descriptiveness level. The instruction says 'win count' naturally so this aligns. The instruction mentions column H explicitly, not by header name, so renaming is safe. No data_value_renames needed since the header name doesn't appear as data values."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "id": "46240",
+  "instruction": "How can I create a formula in Excel where cell J displays 'Yes' if cell H either contains a date or the word 'Yes', displays 'N/A' if cell H contains 'N/A', and displays 'No' if cell H is blank?  My current formula is : IF(H3>1/1/1,\"Yes\",\"No\")",
+  "answer_position": "J3:J5"
+}

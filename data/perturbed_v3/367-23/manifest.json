@@ -1,0 +1,43 @@
+{
+  "task_id": "367-23",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date": "Txn Date",
+        "Branch": "Office",
+        "Ref": "Reference"
+      },
+      "sheet_rename_map": {
+        "final Recon Items": "Final Reconciliation Items"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Final Reconciliation Items"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Balance",
+      "target_sheet": "Final Reconciliation Items",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction explicitly references 'Amount' as a non-numeric value in the first row of column 4 and discusses its role in causing the Type Mismatch error. Renaming 'Amount' would require changing the instruction text and risk altering the task's meaning, so we leave it unchanged. We rename the other three columns (Date→Txn Date, Branch→Office, Ref→Reference) at the same descriptiveness level. The sheet is renamed from 'final Recon Items' to 'Final Reconciliation Items' to test hardcoded sheet name references. We avoid blank_row_insert because the previous attempt failed: inserting a blank row above the data shifts the header row and changes what 'the first row of column 4' contains, which directly impacts the macro's error behavior described in the instruction. Instead, we add a distractor column 'Balance' after column D. This tests whether the agent hardcodes the number of columns (4) or correctly identifies column D as the relevant column. The distractor name 'Balance' is plausibly related to financial reconciliation data but clearly different from 'Amount'."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "final Recon Items": "Final Reconciliation Items"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

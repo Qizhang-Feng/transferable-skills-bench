@@ -1,0 +1,42 @@
+{
+  "task_id": "82-30",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Raw Data": "Source Data",
+        "Numbers": "Integers",
+        "Manual Result": "Expected Output"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Source Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Source Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves filtering whole numbers from columns A-F in 'Raw Data' and outputting to 'Numbers'. The headers in this spreadsheet are actually numeric data values (12, 0.025..., 19, etc.), not descriptive column names, so renaming them would alter the data and break the task. Instead, I apply two safe perturbations: (1) Lexical sheet renames — 'Raw Data' → 'Source Data', 'Numbers' → 'Integers', 'Manual Result' → 'Expected Output' — which tests whether the agent hardcodes sheet names. These are same-level descriptive names. (2) A distractor column 'Notes' added after column F in Source Data, which tests whether the agent correctly limits processing to columns A-F or naively extends to all populated columns. No blank rows are inserted because previous attempts showed that inserting blank rows at the start breaks the task logic (the instruction says start from row 1). No column renames are done because the headers ARE the data values themselves (numbers), and renaming them would change the actual data being filtered. The distractor column contains no numeric data so it won't affect the filtering result if the agent correctly processes only A-F."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Raw Data": "Source Data",
+      "Numbers": "Integers",
+      "Manual Result": "Expected Output"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

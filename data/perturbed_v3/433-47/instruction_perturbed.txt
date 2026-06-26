@@ -1,0 +1,2 @@
+How can I add to or subtract from cells across five block columns (from block 1 to block 5 for addition, and from block 5 to block 1 for subtraction) in order to balance positive or negative remainders in another column, ensuring that the operation adheres to specified minimum and maximum quantity constraints for each block column, and without changing block column cells that are zero? Be careful to keep the original location of the data unchanged.
+And also change Column I values to 0 at the end.

@@ -1,0 +1,53 @@
+{
+  "task_id": "160-6",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Invoice": "Bill",
+        "Type": "Category",
+        "Plan": "Scheme",
+        "Order": "Requisition",
+        "Code": "Identifier",
+        "Decription": "Details",
+        "Start Plan Date": "Scheme Start Date",
+        "Invoice Amount": "Bill Amount",
+        "Outstanding Amount": "Pending Amount",
+        "Plate": "Tag",
+        "Registration Date": "Enrollment Date",
+        "Ageing": "Duration"
+      },
+      "sheet_rename_map": {
+        "SH": "DT",
+        "CP": "BK"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DT"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Remarks",
+      "target_sheet": "DT",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flags indicate task_deletes_or_inserts_rows and task_depends_on_blank_row_positions, so we must NOT insert blank rows (which would change the blank row positions the task depends on) and must NOT insert a title row. We use lexical renames on all column headers (all are used purely as column references, none appear as common English words in the instruction body) and both sheet names (SH→DT, CP→BK). We also add a distractor column 'Remarks' after the last column to test whether the agent hardcodes column count. The instruction references 'SH' and 'CP' by name, so those must be updated in the instruction text via the sheet_rename_map. The answer position shifts from 'SH'!A6:L11 to 'DT'!A6:L11 (column L is still the last data column; the distractor column M should remain empty and not affect the answer range). Renaming preserves descriptiveness: full words to full words, abbreviations to abbreviations of similar length."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "SH": "DT",
+      "CP": "BK"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

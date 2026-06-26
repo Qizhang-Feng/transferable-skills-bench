@@ -1,0 +1,53 @@
+{
+  "task_id": "54144",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date": "Ship Date",
+        "Supplier ": "Vendor ",
+        "Truck": "Vehicle",
+        "Quantity ": "Qty "
+      },
+      "sheet_rename_map": {
+        "Data": "Source",
+        "Report": "Summary"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Source",
+        "Summary"
+      ],
+      "params": {
+        "row_position": 1,
+        "count": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Weight ",
+      "target_sheet": "Source",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe perturbation strategies are applied: (1) Lexical: All column headers are renamed consistently across both sheets — 'Date' → 'Ship Date', 'Supplier ' → 'Vendor ', 'Truck' → 'Vehicle', 'Quantity ' → 'Qty '. Sheet names are also renamed: 'Data' → 'Source', 'Report' → 'Summary'. The instruction references 'Data' and 'Report' sheet names and 'Truck'/'Trucks' as column/concept names, but the instruction text uses 'trucks' as a general English word describing the domain, so renaming the column header to 'Vehicle' is safe since the instruction will still be interpretable. The sheet renames test whether the agent hardcodes sheet names. (2) Positional title row: A blank row is inserted at row 1 on both sheets, pushing the header row from row 2 to row 3. This tests whether the agent assumes headers are at a fixed row. (3) Distractor column: A 'Weight ' column is added after the last column on the Source sheet. This is plausibly related to truck/shipping data but is not used in the task, testing whether the agent incorrectly references it."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Data": "Source",
+      "Report": "Summary"
+    },
+    "row_shifts": {
+      "Source": 1,
+      "Summary": 1
+    },
+    "col_inserts": {}
+  }
+}

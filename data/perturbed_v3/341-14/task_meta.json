@@ -1,0 +1,5 @@
+{
+  "id": "341-14",
+  "instruction": "I have a dataset in columns A and B of the source sheet, and I need to transform this data to achieve the layout described in the 'output' sheet. Could you provide a solution, possibly using Power Query or any other method, to accomplish this transposition? \n\nDo this in the output sheet in-place. Include entries that dont have corresponding numbers and leave them unfilled",
+  "answer_position": "'output'!A1:B28"
+}

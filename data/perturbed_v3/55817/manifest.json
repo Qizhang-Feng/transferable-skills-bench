@@ -1,0 +1,46 @@
+{
+  "task_id": "55817",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "QS": "QN",
+        "OPT 1": "CH 1",
+        "OPT 2": "CH 2",
+        "OPT 3": "CH 3",
+        "OPT 4": "CH 4",
+        "Correct Ans": "Right Ans",
+        "Explaination": "Justification"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Remarks",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task references specific cell addresses (column A, B2) and depends on blank row positions, so inserting blank rows is risky as shown by the failed attempt. Instead, I use two safe perturbations: (1) column renames — all headers are renamed at the same descriptiveness level (abbreviation to abbreviation, full word to full word), and none of these header names appear as general English words in the instruction body (the instruction references 'column A' and 'B2' which are cell references, not header names); (2) a distractor column 'Remarks' inserted after the last column, which tests whether the agent incorrectly includes it in data range detection. The sheet is also renamed from Sheet1 to DataSheet. No blank rows are inserted, avoiding the layout_impact failure from the previous attempt. The instruction is not paraphrased to avoid meaning changes."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

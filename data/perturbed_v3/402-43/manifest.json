@@ -1,0 +1,71 @@
+{
+  "task_id": "402-43",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Col1": "Fld1",
+        "Col2": "Fld2",
+        "Col3": "Fld3",
+        "Col4": "Fld4",
+        "Col5": "Fld5",
+        "Col6": "Fld6",
+        "Col7": "Fld7",
+        "Col8": "Fld8",
+        "Col9": "Fld9",
+        "Col10": "Fld10",
+        "Col11": "Fld11",
+        "Col12": "Fld12",
+        "Col13": "Fld13",
+        "Col14": "Fld14",
+        "Col15": "Fld15",
+        "Col16": "Fld16",
+        "Col17": "Fld17",
+        "Col18": "Fld18",
+        "Col19": "Fld19",
+        "Col20": "Fld20",
+        "Col21": "Fld21",
+        "Col22": "Fld22",
+        "Col23": "Fld23",
+        "Col24": "Fld24",
+        "Col25": "Fld25",
+        "Col26": "Fld26",
+        "Col27": "Fld27",
+        "Col28": "Fld28",
+        "Col29": "Fld29",
+        "Col30": "Fld30",
+        "Col31": "Fld31",
+        "Col32": "Fld32"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataInput",
+        "Sheet2": "ResultOutput"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction explicitly references column AG by letter and column A by letter, and the answer position references Sheet2. A distractor column insertion would shift column positions and break the AG reference (as noted in the failed attempt), so we skip layout/distractor perturbations entirely. Instead we apply two safe perturbation types: (1) lexical rename of all column headers from 'Col#' to 'Fld#' (same abbreviation-level descriptiveness) to test whether the agent hardcodes header names, and (2) sheet renames from Sheet1→DataInput and Sheet2→ResultOutput to test whether the agent hardcodes sheet names. The instruction references columns by letter (A, AG) not by header name, so renaming headers does not conflict with instruction text. The answer position must be updated to 'ResultOutput'!A1:AG10. We do NOT insert a distractor column because the instruction explicitly says 'column AG' and any column shift would change the task logic. We set instruction_paraphrase to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataInput",
+      "Sheet2": "ResultOutput"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

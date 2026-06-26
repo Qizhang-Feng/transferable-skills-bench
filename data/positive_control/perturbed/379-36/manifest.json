@@ -1,0 +1,23 @@
+{
+  "task_id": "379-36",
+  "opaque_col_map": {
+    "account": "Origin",
+    "state": "Rank",
+    "Date": "Impact",
+    "Check": "Factor"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "account",
+  "old_anchors": [
+    "account",
+    "state",
+    "Date",
+    "Check"
+  ],
+  "new_anchors": [
+    "Origin",
+    "Rank",
+    "Impact",
+    "Factor"
+  ]
+}

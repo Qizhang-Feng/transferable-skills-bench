@@ -1,0 +1,67 @@
+{
+  "task_id": "168-17",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "positional_blank_row"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Invoice No.": "Inv No.",
+        "Transaction Date": "Trans Date",
+        "Due Date": "Payment Date",
+        "Description": "Details",
+        "Amount": "Total",
+        "Account Number: KRT821476": "Acct No: KRT821476",
+        "BR1 Ltd": "BR1 Limited"
+      },
+      "sheet_rename_map": {
+        "Statement": "Ledger",
+        "Final result": "Expected output"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "Ledger",
+          "range": "A1:E12",
+          "find": "Invoice No.",
+          "replace": "Inv No."
+        },
+        {
+          "sheet": "Expected output",
+          "range": "A1:E1",
+          "find": "Invoice No.",
+          "replace": "Inv No."
+        }
+      ]
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Ledger"
+      ],
+      "params": {
+        "above_data": 1,
+        "below_data": 2
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Ref Code",
+      "target_sheet": "Ledger",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task searches for 'Invoice No.' by text in column A on the 'Statement' sheet. We apply three safe perturbations: (1) Lexical rename — rename 'Invoice No.' to 'Inv No.' (abbreviation to abbreviation), rename the sheet 'Statement' to 'Ledger', and rename other headers at the same descriptiveness level. Since 'Invoice No.' appears both as a header in 'Final result' and as a data value searched for in the 'Statement' sheet, we update all occurrences via data_value_renames. (2) Blank row insert — insert 1 blank row above and 2 below the data block on the 'Ledger' sheet. This tests whether the agent hardcodes row numbers or properly detects data boundaries. The task deletes rows above the target text, so the inserted blank row above should naturally be deleted by a correct macro. (3) Distractor column — add 'Ref Code' after the last column on 'Ledger' to test whether the agent hardcodes column count. We do NOT paraphrase the instruction to avoid meaning drift; the instruction must be updated only to reflect the new names ('Inv No.' and 'Ledger')."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Statement": "Ledger",
+      "Final result": "Expected output"
+    },
+    "row_shifts": {
+      "Ledger": 1
+    },
+    "col_inserts": {}
+  }
+}

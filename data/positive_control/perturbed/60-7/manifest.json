@@ -1,0 +1,26 @@
+{
+  "task_id": "60-7",
+  "opaque_col_map": {
+    "Category": "Frequency",
+    "Activity Name": "Cycle",
+    "AU": "Tier",
+    "Frequency": "Origin",
+    "Team Member": "Code"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "Category",
+  "old_anchors": [
+    "Category",
+    "Activity Name",
+    "AU",
+    "Frequency",
+    "Team Member"
+  ],
+  "new_anchors": [
+    "Frequency",
+    "Cycle",
+    "Tier",
+    "Origin",
+    "Code"
+  ]
+}

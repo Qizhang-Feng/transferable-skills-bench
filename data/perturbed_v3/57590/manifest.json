@@ -1,0 +1,54 @@
+{
+  "task_id": "57590",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Debit Note Number": "DN Reference",
+        "8D Number": "8D Ref",
+        "DNote / Invoice": "Debit Note / Invoice",
+        "Customer": "Client Name",
+        "Part Number ": "Part No.",
+        "Description ": "Item Description",
+        "Customer Number": "Client Number",
+        "QTY": "Quantity",
+        "Price": "Unit Price",
+        "Cost": "Amount",
+        "Status": "Current Status",
+        "Comments": "Remarks"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": [
+        {
+          "sheet": "Sheet1",
+          "range": "A19",
+          "find": "Status",
+          "replace": "Current Status"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Reference Code",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references 'Column I' and 'Column C' by letter, and the formula references absolute cell addresses like K2:K3, C2:C3, A26, B26. The risk flags indicate instruction_references_absolute_rows and task_references_specific_cell_addresses, so we must NOT insert a title row or do column reordering that would shift referenced columns. Instead, we use (1) lexical renames: rename columns to semantically equivalent names — importantly we do NOT rename 'Date' since the instruction uses 'date' as a common English word describing the column's content. We rename most other columns. The data_value_renames handles the overlap where 'Status' appears as data in A19. (2) distractor_column: we add a 'Reference Code' column AFTER the last column (after column M). This ensures no existing column letters shift, preserving all absolute references in the formula and instruction. The distractor name is plausibly similar to existing columns like 'DN Reference' or '8D Ref' but clearly distinct."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "task_id": "42515",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "TABLE 1": "RATE TABLE 1",
+        "TABLE 2": "RATE TABLE 2"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "FXRates"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "FXRates",
+          "range": "A3",
+          "find": "TABLE 1",
+          "replace": "RATE TABLE 1"
+        },
+        {
+          "sheet": "FXRates",
+          "range": "E3",
+          "find": "TABLE 2",
+          "replace": "RATE TABLE 2"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "FXRates"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "CONVERSION LOG",
+      "target_sheet": "FXRates",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flags indicate that the task references specific cell addresses ($B$8, $B$13, B5) and the header is not in row 1 (it's in row 3), so title_row_insert is unsafe as it would shift all absolute references mentioned in the instruction. Instead, I use two safe perturbation types: (1) Lexical rename — renaming 'TABLE 1' to 'RATE TABLE 1' and 'TABLE 2' to 'RATE TABLE 2' (same descriptiveness level, both short descriptive labels). The instruction references 'TABLE 2' so the model must adapt to the new name 'RATE TABLE 2'. The sheet is also renamed from 'Sheet1' to 'FXRates'. Since 'TABLE 1' and 'TABLE 2' appear both as headers and as data values in the merged header cells (A3, E3), data_value_renames are included. (2) Distractor column — adding 'CONVERSION LOG' after the last column, which is plausibly related to foreign exchange but clearly different from existing rate table columns. These changes alter surface anchors without affecting the underlying formula logic, cell references, or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "FXRates"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

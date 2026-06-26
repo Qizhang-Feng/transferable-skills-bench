@@ -1,0 +1,41 @@
+{
+  "task_id": "55060",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Client": "Customer",
+        "Deal #": "Transaction #"
+      },
+      "sheet_rename_map": {
+        "Deal 8": "Transaction 8"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Transaction 8"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Deal Ref",
+      "target_sheet": "Transaction 8",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (I12, J23) which means any row or column shifting operations (blank_row_insert, title_row_insert, column_reorder) would break the cell references in the instruction. The risk flag 'task_references_specific_cell_addresses' confirms this — the previous attempt failed exactly because blank_row_insert shifted the referenced rows. Instead, I use safe perturbations: (1) Rename columns 'Client' → 'Customer' and 'Deal #' → 'Transaction #' — these are semantically equivalent and neither term appears as general English in the instruction. (2) Rename the sheet from 'Deal 8' to 'Transaction 8' — the instruction never references the sheet by name, so this only tests whether the model hardcodes sheet names. (3) Add a distractor column 'Deal Ref' after the last column — this is plausibly similar to the renamed 'Transaction #' but clearly different, and being appended at the end it does not shift any existing columns. No blank_row_insert is used to avoid the row-shifting problem identified in the failed attempt."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Deal 8": "Transaction 8"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

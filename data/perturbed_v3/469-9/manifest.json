@@ -1,0 +1,52 @@
+{
+  "task_id": "469-9",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "SERVICE FEE": "SVC FEE",
+        "DESCRIPTION": "DETAILS",
+        "REFERENCE": "REF NO",
+        "CHEQUE NUMBER": "CHQ NO",
+        "Balance": "Running Bal"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Transactions"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Transactions"
+      ],
+      "params": {
+        "row_positions": [
+          12,
+          13
+        ],
+        "note": "Insert 2 blank rows after the last data row (row 10) to test if agent hardcodes row range"
+      }
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because distractor columns were inserted at or before Column H, conflicting with the instruction's explicit Column H/I output placement. Since the task references specific cell addresses (H and I), inserting a distractor column is unsafe — it shifts columns or overwrites the output area. Instead, I use (1) lexical perturbation: rename columns that are not referenced in the instruction body as common English words — 'SERVICE FEE' → 'SVC FEE', 'DESCRIPTION' → 'DETAILS', 'REFERENCE' → 'REF NO', 'CHEQUE NUMBER' → 'CHQ NO', 'Balance' → 'Running Bal'. I do NOT rename 'Date' or 'Amount' since 'debit and credit values from Column C' implicitly references Amount, and 'Date' is a very common English word. (2) positional_title_row via blank_row_insert: add 2 blank rows after the data to test whether the agent hardcodes the row count. The sheet is also renamed from 'Sheet1' to 'Transactions'. No distractor column is used to avoid the layout_impact failures seen in attempts 1-3. The answer position H1:I10 remains unaffected since blank rows are added after row 10 and no columns are shifted."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Transactions"
+    },
+    "row_shifts": {
+      "Transactions": 1
+    },
+    "col_inserts": {}
+  }
+}

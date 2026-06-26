@@ -1,0 +1,29 @@
+{
+  "task_id": "57445",
+  "opaque_col_map": {
+    "Part No.": "Origin",
+    "Product Description": "Label",
+    "Post Cost": "Period",
+    "Weight From (g)": "Level",
+    "Weight To (g)": "Metric",
+    "Price": "Zone"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "Part No.",
+  "old_anchors": [
+    "Part No.",
+    "Product Description",
+    "Post Cost",
+    "Weight From (g)",
+    "Weight To (g)",
+    "Price"
+  ],
+  "new_anchors": [
+    "Origin",
+    "Label",
+    "Period",
+    "Level",
+    "Metric",
+    "Zone"
+  ]
+}

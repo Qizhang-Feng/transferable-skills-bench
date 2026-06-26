@@ -1,0 +1,62 @@
+{
+  "task_id": "408-39",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Row Labels": "Row Tags",
+        "Grand Total": "Overall Total",
+        "Case ID": "Ticket ID",
+        "Status": "State",
+        "Ageing Since": "Aging From",
+        "Reopened Date": "Reopen Dt",
+        "Primary Owner": "Primary Assignee",
+        "Primary Cat": "Primary Category",
+        "Primary SubCat": "Primary SubCategory",
+        "Customer Name": "Client Name",
+        "Seg": "Segment",
+        "Seg-Bifur": "Segment-Split",
+        "AgeBucket": "AgeBand",
+        "31-40": "31-40d",
+        "41-50": "41-50d"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Summary",
+        "RawData": "SourceData"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "Summary",
+          "range": "A5:A11",
+          "find": "Grand Total",
+          "replace": "Overall Total"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific column letters (B, L, I) and the instruction mentions 'column L has the correct Grand Total'. Inserting a distractor column would shift column positions and break these references, as noted in the failed attempt. Instead, we apply only lexical renames: renaming headers on both sheets and the sheet names themselves. 'Row Labels' → 'Row Tags' and 'Grand Total' → 'Overall Total' are same-descriptiveness renames. 'Grand Total' also appears as a data value in A11 of Summary, so we include a data_value_rename for that. We rename both sheets. We do NOT rename '0-15' since it is central to the task instruction and is the target column the user must find. We also avoid renaming columns whose names appear as English words in the instruction. The column headers '31-40' and '41-50' get minor renames to '31-40d' and '41-50d' to test lexical anchoring. No layout changes are made to avoid breaking the column-letter references in the instruction."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Summary",
+      "RawData": "SourceData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

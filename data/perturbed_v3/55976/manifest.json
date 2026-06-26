@@ -1,0 +1,42 @@
+{
+  "task_id": "55976",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Number": "Item",
+        "Statement": "Description",
+        "No": "Disagree"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "SurveyData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "SurveyData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific absolute cell addresses (F25, G25, etc.) and specific column letters (F, G, H, I) that are critical to the answer. The risk flags confirm 'instruction_references_absolute_rows', 'task_references_specific_cell_addresses', and 'header_not_in_row_1'. Inserting a distractor column would shift columns and break the cell address references in the instruction (as shown by two failed attempts). A title_row_insert would also shift rows and break the F25/G25 references. A blank_row_insert would similarly shift the answer row. Therefore, the safest approach is to use only lexical renames: renaming 'Number' to 'Item', 'Statement' to 'Description', and 'No' to 'Disagree' (all same descriptiveness level). The 'Yes' column is NOT renamed because the instruction uses 'Yes' as a general English word throughout ('Yes responses', 'mark x under Yes'). The sheet is renamed from 'Sheet1' to 'SurveyData'. No layout changes are made to avoid breaking the absolute cell references. This tests whether the model hardcodes column names and sheet names without changing the task logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "SurveyData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

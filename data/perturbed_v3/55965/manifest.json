@@ -1,0 +1,34 @@
+{
+  "task_id": "55965",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DATI"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "REF",
+      "target_sheet": "DATI",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because inserting a title row on either sheet shifted data rows and broke row references. The risk flags explicitly warn about multi_sheet_references and instruction_references_absolute_rows, so any row-shifting perturbation is unsafe. Instead, I use a distractor column strategy: inserting a plausibly-named column 'REF' (similar to 'ID' or 'TOT' but clearly different) after the last column of the DATI sheet. This tests whether the agent hardcodes column positions or correctly identifies columns by name/letter. The column name 'REF' is plausibly related (could stand for 'reference') but distinct from existing headers. No column or sheet renames are applied because the instruction explicitly references 'ID' in both sheets and 'data sheet' / 'Sheet1' by role, and renaming 'ID' would risk breaking the instruction's meaning. No title/blank row inserts are used to avoid the row-shifting failures seen in previous attempts. instruction_paraphrase is set to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

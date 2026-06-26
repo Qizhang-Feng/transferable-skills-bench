@@ -1,0 +1,5 @@
+{
+  "id": "297-42",
+  "instruction": "Running my macro only creates a new sheet named 'merged' without pulling in the data from the other sheets. Use a macro or similar function to copy the data from the existing sheets into the newly created 'merged' sheet. I have given the header of the expected output in the 'merged sheet' in the attachment. Please start from cell A2 to output the answer, pay attention to the position, mapping between the answer and the header name.",
+  "answer_position": "'merged'!A2:O822"
+}

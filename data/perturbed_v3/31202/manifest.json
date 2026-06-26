@@ -1,0 +1,47 @@
+{
+  "task_id": "31202",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "DATE": "FECHA",
+        "MONTH": "MES",
+        "WEEK": "SEMANA",
+        "WORKER": "EMPLEADO",
+        "DAILY WAGE": "SALARIO DIARIO",
+        "DAYS WORKED": "DIAS LABORADOS",
+        "TOTAL": "SUMA TOTAL",
+        "EMPLEADOS ACTIVOS": "PERSONAL ACTIVO"
+      },
+      "sheet_rename_map": {
+        "NOMINA": "PLANILLA"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "PLANILLA"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "BALANCE PREVIO",
+      "target_sheet": "PLANILLA",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves looking up a worker's previous week debt and updating the debt column based on deductions/additions. The instruction explicitly references 'debt', 'deductions', and 'additions' as English words integral to the task logic, so I do NOT rename DEBT, DEDUCTIONS, or ADDITIONS columns (Rule 6). I rename the other columns to Spanish equivalents maintaining the same descriptiveness level (full words to full words). The sheet is renamed from NOMINA to PLANILLA. A distractor column 'BALANCE PREVIO' (meaning 'previous balance') is added after the last column — it's plausibly similar to DEBT but clearly different, testing whether the agent latches onto it instead of the actual DEBT column. These changes break hardcoded column names and sheet names without altering the underlying logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "NOMINA": "PLANILLA"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

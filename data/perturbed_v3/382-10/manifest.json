@@ -1,0 +1,43 @@
+{
+  "task_id": "382-10",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Sheet1": "Call QC"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Call QC"
+      ],
+      "params": {
+        "position": "after_data",
+        "count": 3
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Remarks",
+      "target_sheet": "Call QC",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The column 'Comments' cannot be renamed because 'comments' appears as a common English word in the instruction (it's the filter value). Risk flag data_values_match_headers confirms the header name matches data values, so renaming would alter the filtering logic. Instead, I renamed the sheet from 'Sheet1' to 'Call QC' (matching the sheet name mentioned in the original macro code, which is a plausible rename). I added a distractor column 'Remarks' (plausibly similar to 'Comments' but clearly different) to test if the agent correctly targets only column A. I also inserted 3 blank rows after data to test whether the agent hardcodes the row range or dynamically detects data boundaries. Title row insert was avoided per Rule 4 since the task involves deleting/clearing cell values."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Call QC"
+    },
+    "row_shifts": {
+      "Call QC": 1
+    },
+    "col_inserts": {}
+  }
+}

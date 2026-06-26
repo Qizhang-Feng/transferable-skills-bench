@@ -1,0 +1,45 @@
+{
+  "task_id": "203-15",
+  "opaque_col_map": {
+    "staff no.": "Interval",
+    "Department": "Grade",
+    "Location": "Period",
+    "Name": "Factor",
+    "Position": "Tier",
+    "Gender": "Segment",
+    "Nationality": "Label",
+    "Description": "Level",
+    "Amount": "Division",
+    "Currency": "Marker"
+  },
+  "opaque_sheet_map": {
+    "Main": "Roster"
+  },
+  "primary_distractor": "staff no.",
+  "old_anchors": [
+    "staff no.",
+    "Department",
+    "Location",
+    "Name",
+    "Position",
+    "Gender",
+    "Nationality",
+    "Description",
+    "Amount",
+    "Currency",
+    "Main"
+  ],
+  "new_anchors": [
+    "Interval",
+    "Grade",
+    "Period",
+    "Factor",
+    "Tier",
+    "Segment",
+    "Label",
+    "Level",
+    "Division",
+    "Marker",
+    "Roster"
+  ]
+}

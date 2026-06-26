@@ -1,0 +1,56 @@
+{
+  "task_id": "57033",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Interface Id": "Intf Id",
+        "Company": "Firm",
+        "Document": "Doc",
+        "Document Date": "Doc Date",
+        "Period": "Prd",
+        "Reference": "Ref",
+        "Original Reference": "Orig Ref",
+        "Result": "Outcome",
+        "company": "firm",
+        "cashbook": "cshbook",
+        "doc-id": "document-id",
+        "docnumber": "docnum",
+        "yearno": "yrno",
+        "period": "prd",
+        "docdate": "documentdate",
+        "baseval": "basevalue",
+        "currency": "curr"
+      },
+      "sheet_rename_map": {
+        "Sheet4": "Sheet4",
+        "CBtrans": "MD"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "xchar_desc",
+      "target_sheet": "MD",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves a 3-way match between Sheet4 and a source sheet. The user's formula references 'MD[company]', 'MD[account]', and 'MD[xchar]' — meaning the source table is referenced as 'MD'. The original source sheet is named 'CBtrans', so renaming it to 'MD' aligns with the formula reference in the instruction (this is safe since the instruction explicitly names it). I renamed most columns on both sheets to synonyms/abbreviations of equal descriptiveness, but critically kept 'account' and 'xchar' unchanged on both sheets since these are the key matching columns referenced in the formula and instruction — changing them would break the alignment. 'Company'/'company' is renamed to 'Firm'/'firm' consistently across both sheets to maintain alignment (the instruction formula says 'company' but the agent must adapt). I also added a distractor column 'xchar_desc' on the MD sheet to test whether the agent incorrectly references it instead of 'xchar'. Sheet4 keeps its name since the instruction explicitly references 'Sheet 4' and cell K2."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet4": "Sheet4",
+      "CBtrans": "MD"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

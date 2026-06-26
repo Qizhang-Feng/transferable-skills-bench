@@ -1,0 +1,43 @@
+{
+  "task_id": "353-29",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date & Time": "Timestamp"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {
+        "column_name": "Record ID",
+        "position": "after_last_column"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Record ID",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task depends on blank row positions in column A and references specific row examples (rows 7-12), so title_row_insert is unsafe as flagged by 'task_depends_on_blank_row_positions' and 'instruction_references_absolute_rows'. Instead, I use two safe perturbation types: (1) Lexical renaming — renaming 'Date & Time' to 'Timestamp' (same descriptiveness, full phrase to single word equivalent) and renaming 'Sheet1' to 'DataSheet'. I do NOT rename 'URN' because the instruction heavily references 'URN' and 'Unique Reference Number' as both a column reference and a conceptual term throughout the task description. (2) Distractor column — adding a 'Record ID' column after the last column, which is plausibly similar to URN but clearly different, testing whether the solution incorrectly targets this column instead of the actual URN column A. These changes alter surface anchors (sheet name, column header, column count) without affecting the underlying logic of filling blank cells in the first column with sequential letter-suffixed URNs."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "task_id": "395-36",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Unique ID": "UID",
+        "Function": "Dept",
+        "Class": "Category"
+      },
+      "sheet_rename_map": {
+        "Result what i am getting": "Current Output",
+        "Result what i am expecting ": "Expected Output"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Current Output"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "UID_Check",
+      "target_sheet": "Current Output",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Two anchor types used: lexical (renaming columns and sheets) and distractor_column. Column renames maintain same descriptiveness: 'Unique ID' → 'UID' (abbreviation), 'Function' → 'Dept' (abbreviation), 'Class' → 'Category' (full word to full word). Both 'Result what i am getting' and 'Result what i am expecting' sheets get the same column renames to preserve alignment. Sheet renames change the result sheets but NOT 'Main unique ID' since that name appears directly in the instruction text as a key reference. The distractor column 'UID_Check' is plausibly related to the UID column but clearly different. Risk flags note multi_sheet_references and row insertion dependencies, so no title_row_insert is used. The instruction references 'Main unique ID', 'Result what I am getting', and 'Result what I am expecting' by name — the latter two sheet renames will require the agent to find sheets by actual name rather than hardcoded old names. Note: 'Function' and 'Class' do not appear as common English words in the instruction body in a way that would conflict with renaming."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Result what i am getting": "Current Output",
+      "Result what i am expecting ": "Expected Output"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

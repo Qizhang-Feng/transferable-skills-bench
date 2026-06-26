@@ -1,0 +1,40 @@
+{
+  "task_id": "334-11",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Current Balance": "Outstanding Balance"
+      },
+      "sheet_rename_map": {
+        "imported Data": "Loaded Data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Loaded Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Running Total",
+      "target_sheet": "Loaded Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flags indicate the task deletes/inserts rows and depends on blank row positions, so blank_row_insert and title_row_insert are unsafe. I chose lexical rename and distractor_column as the two safe perturbation types. Column rename: 'Current Balance' → 'Outstanding Balance' (same descriptiveness, full phrase to full phrase). Sheet rename: 'imported Data' → 'Loaded Data' (same descriptiveness level, common synonym). The instruction references 'Imported Data' as a sheet name and 'Column C' positionally — the sheet rename forces the agent to detect the new sheet name rather than hardcoding 'Imported Data'. The instruction also says 'Column C' which remains correct positionally. A distractor column 'Running Total' is added after the last column (column D) — it is plausibly financial but clearly different from 'Outstanding Balance'. No data_value_renames needed since the header name does not appear as data values. instruction_paraphrase is false to avoid meaning drift."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "imported Data": "Loaded Data"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

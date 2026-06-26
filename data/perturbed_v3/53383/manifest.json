@@ -1,0 +1,50 @@
+{
+  "task_id": "53383",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Name Column": "Person Column",
+        "status": "condition",
+        "Match status (formula) column": "Match condition (formula) column"
+      },
+      "sheet_rename_map": {
+        "worksheet 1": "source_sheet",
+        "worksheet2": "lookup_sheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "source_sheet"
+      ],
+      "params": {
+        "row_index": 1,
+        "count": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "category",
+      "target_sheet": "source_sheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical: Renamed columns across both sheets consistently — 'Name Column' → 'Person Column', 'status' → 'condition', and the formula column header updated accordingly. Sheet names are also renamed. The instruction mentions 'name' and 'status' as general English concepts describing what to match, but the column headers 'Name Column' and 'status' are specific column references. However, 'status' appears in the instruction as both a column reference and a concept. To be safe, I renamed it to 'condition' which is equally descriptive. (2) Positional/title_row: A blank row is inserted at row 1 of the source sheet, shifting the header row from row 2 to row 3, testing whether the agent finds headers by content rather than hardcoded row position. (3) Distractor column: A plausible but irrelevant 'category' column is added to the source sheet to test if the agent incorrectly references it. The column rename map is applied consistently across both sheets to preserve the alignment relationship required for the lookup logic."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "worksheet 1": "source_sheet",
+      "worksheet2": "lookup_sheet"
+    },
+    "row_shifts": {
+      "source_sheet": 1
+    },
+    "col_inserts": {}
+  }
+}

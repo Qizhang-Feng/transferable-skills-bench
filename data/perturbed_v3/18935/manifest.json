@@ -1,0 +1,93 @@
+{
+  "task_id": "18935",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Work": "Task",
+        "Material": "Substance",
+        "Category 1": "Group 1",
+        "Category 2": "Group 2",
+        "Category 3": "Group 3"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "LookupSheet"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "LookupSheet",
+          "range": "A16:A16",
+          "find": "Work",
+          "replace": "Task"
+        },
+        {
+          "sheet": "LookupSheet",
+          "range": "C16:C16",
+          "find": "Material",
+          "replace": "Substance"
+        },
+        {
+          "sheet": "LookupSheet",
+          "range": "B17:B17",
+          "find": "Category 1",
+          "replace": "Group 1"
+        },
+        {
+          "sheet": "LookupSheet",
+          "range": "B18:B18",
+          "find": "Category 2",
+          "replace": "Group 2"
+        },
+        {
+          "sheet": "LookupSheet",
+          "range": "B19:B19",
+          "find": "Category 3",
+          "replace": "Group 3"
+        },
+        {
+          "sheet": "LookupSheet",
+          "range": "B20:B20",
+          "find": "Category 1",
+          "replace": "Group 1"
+        },
+        {
+          "sheet": "LookupSheet",
+          "range": "B21:B21",
+          "find": "Category 3",
+          "replace": "Group 3"
+        },
+        {
+          "sheet": "LookupSheet",
+          "range": "B22:B22",
+          "find": "Category 2",
+          "replace": "Group 2"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "LookupSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Group Code",
+      "target_sheet": "LookupSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves looking up values from a data table using Work, Material, and Category columns. I applied lexical perturbation by renaming all column headers ('Work'->'Task', 'Material'->'Substance', 'Category 1/2/3'->'Group 1/2/3') and the sheet name ('Sheet1'->'LookupSheet'). Since the schema shows these header names also appear as data values in the report section (rows 16-22), I included data_value_renames to keep the data-header alignment consistent. I also added a distractor column 'Group Code' after the last column to test whether the agent is distracted by a plausibly similar but irrelevant column. The instruction mentions 'Work Criteria', 'Category Type', 'Category Value', and 'Material' as general English descriptions of the task logic, but the actual column names being renamed are 'Work', 'Material', 'Category 1', etc. — these are used as column references in the spreadsheet. The instruction is not paraphrased to avoid risk of meaning change."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "LookupSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

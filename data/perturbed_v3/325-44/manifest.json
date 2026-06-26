@@ -1,0 +1,57 @@
+{
+  "task_id": "325-44",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "wtype_id": "worktype_id",
+        "name": "label",
+        "status": "state",
+        "filter": "filter_expr",
+        "orgId": "org_id",
+        "careType": "care_type",
+        "specialtyId": "specialty_id",
+        "contextId": "context_id"
+      },
+      "sheet_rename_map": {
+        "Input": "SourceData",
+        "Output": "ResultData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "SourceData",
+        "ResultData"
+      ],
+      "params": {
+        "title_SourceData": "Source Data Table",
+        "title_ResultData": "Result Data Table"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "priority_level",
+      "target_sheet": "SourceData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe perturbation strategies are applied: (1) Lexical: All column headers across both sheets are renamed to semantically equivalent alternatives (e.g., 'wtype_id' → 'worktype_id', 'name' → 'label', 'status' → 'state', 'filter' → 'filter_expr', and camelCase output headers to snake_case equivalents). Sheet names are also renamed ('Input' → 'SourceData', 'Output' → 'ResultData'). The instruction references 'wtype_id', 'name', and 'status' as column-level references and 'filter' as a column reference, so renaming them tests whether the model can adapt. The words 'name' and 'status' appear in the instruction but purely as column references (\"at a wtype_id, name, and status level\" and \"filter data from a column\"), so renaming is appropriate. (2) Positional title row insert: A title row is inserted at row 1 on both sheets, pushing headers to row 2 and data down by one row. This breaks any hardcoded assumption that row 1 is the header. The answer position shifts from 'Output'!A1:G10 to 'ResultData'!A1:G11 (but since the title row is part of the sheet, the answer range must be updated by the caller). (3) Distractor column: A plausible but irrelevant column 'priority_level' is added to the SourceData sheet to test whether the model incorrectly tries to use it. No data values match header names, so no data_value_renames are needed."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Input": "SourceData",
+      "Output": "ResultData"
+    },
+    "row_shifts": {
+      "SourceData": 1,
+      "ResultData": 1
+    },
+    "col_inserts": {}
+  }
+}

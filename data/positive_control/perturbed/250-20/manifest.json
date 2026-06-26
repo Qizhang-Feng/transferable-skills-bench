@@ -1,0 +1,33 @@
+{
+  "task_id": "250-20",
+  "opaque_col_map": {
+    "NUMBER": "Impact",
+    "LINE NO": "Margin",
+    "MATCHED_QTY": "Tier",
+    "EMAIL ADDRESS": "Origin",
+    "PCR_USR_FLD_04": "Grade"
+  },
+  "opaque_sheet_map": {
+    "RNM": "Digest",
+    "Desired outcome": "Ledger"
+  },
+  "primary_distractor": "NUMBER",
+  "old_anchors": [
+    "NUMBER",
+    "LINE NO",
+    "MATCHED_QTY",
+    "EMAIL ADDRESS",
+    "PCR_USR_FLD_04",
+    "RNM",
+    "Desired outcome"
+  ],
+  "new_anchors": [
+    "Impact",
+    "Margin",
+    "Tier",
+    "Origin",
+    "Grade",
+    "Digest",
+    "Ledger"
+  ]
+}

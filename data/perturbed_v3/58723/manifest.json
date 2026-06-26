@@ -1,0 +1,50 @@
+{
+  "task_id": "58723",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "A_Name": "Account_Name",
+        "A_Code": "Account_Code",
+        "Entry Time": "Entry_Timestamp",
+        "Max": "Max_Flag",
+        "PL_Code": "PL_Identifier",
+        "W_User": "Writer_User"
+      },
+      "sheet_rename_map": {
+        "Лист1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {
+        "title_text": "Weekly Entry Tracking Report"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Entry_Duration",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used. Lexical: I renamed columns that are referenced purely as column identifiers in the instruction — 'A_Name' to 'Account_Name' (the instruction says 'Name in column C' referring to the column header, and 'A_Name' is the actual header), 'Entry Time' to 'Entry_Timestamp', and 'Max' to 'Max_Flag'. I also renamed non-referenced columns (PL_Code, A_Code, W_User) for additional surface disruption. The sheet is renamed from 'Лист1' to 'DataSheet'. Note: 'Name' (column A) is NOT renamed because the instruction uses 'Name' as a general English word ('Look for a particular Name'). Positional_title_row: A title row is inserted at row 1, pushing headers to row 2 and data to rows 3-42. The answer position shifts from M2:M41 to M3:M42. The instruction references column letters (C, I) and the 'MAX column' — after title row insert, column letters remain the same but row numbers shift. Since the instruction doesn't reference absolute row numbers (only column letters), this is safe. Distractor_column: 'Entry_Duration' is added after the last column — it's plausibly similar to 'Entry_Timestamp' (formerly 'Entry Time') but clearly different, testing whether the model confuses it with the actual entry time column."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Лист1": "DataSheet"
+    },
+    "row_shifts": {
+      "DataSheet": 1
+    },
+    "col_inserts": {}
+  }
+}

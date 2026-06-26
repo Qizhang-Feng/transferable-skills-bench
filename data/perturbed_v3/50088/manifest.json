@@ -1,0 +1,34 @@
+{
+  "task_id": "50088",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "B Notes",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task references specific cell addresses (B5, A5) and depends on blank cell positions in column B, so blank_row_insert and title_row_insert are both unsafe — they would shift rows and alter blank cell positions. Column renaming is also risky because the instruction explicitly references 'column A' and 'column B' by letter, and the header names 'A List' and 'B List' are closely tied to the A/B letter references in the instruction. Renaming them could cause confusion. Instead, I add a distractor column named 'B Notes' which is plausibly similar to 'B List' but clearly different, placed after the last existing column. This tests whether the model is distracted by a similarly-named column without changing any data, cell references, or task logic. No other layout changes are made to preserve the exact row positions and blank cell locations that the task depends on."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

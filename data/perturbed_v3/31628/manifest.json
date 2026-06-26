@@ -1,0 +1,34 @@
+{
+  "task_id": "31628",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Event_Category",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references specific cell addresses A1:A11 and B1. Previous attempts failed because inserting blank rows shifted data out of A1:A11, and inserting a distractor column at column B displaced the answer cell B1. The safe approach is to place the distractor column AFTER the last existing column. Since the data is in column A (col 1) and the answer goes in B1, inserting a distractor column at position 'after_last_column' places it in column C (or beyond B if B is considered occupied by the answer). However, since the schema only shows 1 column (A), and the answer is in B1, placing the distractor after_last_column means it goes into column C (after B, which is reserved for the answer). This does not shift A1:A11 or B1. The distractor column 'Event_Category' is plausibly related to dates but clearly different. No column renames are needed since the header '2024-01-01 00:00:00' is a date value, not a semantic name. No layout changes that shift rows are applied, respecting the risk flags about absolute row/cell references."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

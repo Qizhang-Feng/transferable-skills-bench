@@ -1,0 +1,20 @@
+{
+  "task_id": "39515",
+  "opaque_col_map": {
+    "Month Available": "Rating",
+    "Year Available": "Segment",
+    "Increase Based on Availability": "Volume"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "Month Available",
+  "old_anchors": [
+    "Month Available",
+    "Year Available",
+    "Increase Based on Availability"
+  ],
+  "new_anchors": [
+    "Rating",
+    "Segment",
+    "Volume"
+  ]
+}

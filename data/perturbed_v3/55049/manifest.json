@@ -1,0 +1,42 @@
+{
+  "task_id": "55049",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Place": "Location"
+      },
+      "sheet_rename_map": {
+        "book1": "summary",
+        "book2": "data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Region",
+      "target_sheet": "data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves cross-sheet lookup/sum using SUMPRODUCT. I rename sheets (book1→summary, book2→data) and the key column (Place→Location) to break hardcoded references. Both sheets' key column get the same rename to preserve alignment. I add a distractor column 'Region' to the data sheet after the last column, which is plausibly similar to 'Location' but clearly different. I avoid blank_row_insert because the risk flags indicate 'task_references_specific_cell_addresses' - the instruction explicitly references book1!A3 and book2!H:J, and inserting a blank row would shift data and break these references. The distractor column is added after the last column so it doesn't shift H:J positions. The 'Place' column name does not appear as a common English word in the instruction body (it's used as a column header reference), so renaming it is safe."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "book1": "summary",
+      "book2": "data"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

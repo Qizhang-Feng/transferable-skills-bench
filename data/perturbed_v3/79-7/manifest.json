@@ -1,0 +1,38 @@
+{
+  "task_id": "79-7",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Data Report"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves a VBA find-and-replace operation across all columns. The answer position is 'Sheet1'!A1:A4. I chose two safe perturbations: (1) title_row_insert pushes the header from row 1 to row 2 and data down accordingly, testing whether the model hardcodes row positions. Since the instruction doesn't reference absolute cell addresses, this is safe — the answer position will shift to A2:A5 after insert but the task logic remains the same. (2) A distractor column 'Notes' is added after the last column to test whether the model is confused by extra columns. The column name 'Detail' is not renamed because it appears only once and the instruction doesn't reference it by name — but more importantly, the task is about VBA code fixing, not column-specific operations, so the header name doesn't affect the logic. No sheet rename is needed since the instruction doesn't reference 'Sheet1' by name in a way that would be a useful perturbation target."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

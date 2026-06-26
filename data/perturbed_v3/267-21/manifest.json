@@ -1,0 +1,52 @@
+{
+  "task_id": "267-21",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "ITEM": "PRODUCT",
+        "ID": "SKU",
+        "QTY": "AMT",
+        "MONTH1": "PERIOD1",
+        "MONTH2": "PERIOD2"
+      },
+      "sheet_rename_map": {
+        "SH1": "JAN",
+        "RP1": "FEB",
+        "merging": "consolidated"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "JAN",
+        "FEB"
+      ],
+      "params": {
+        "column_name": "UNIT",
+        "position": "after_last_column"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "UNIT",
+      "target_sheet": "JAN",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Lexical perturbation: Renamed all column headers across all three sheets consistently — ITEM→PRODUCT, ID→SKU, QTY→AMT on both source sheets, and MONTH1→PERIOD1, MONTH2→PERIOD2 on the merging sheet. Sheet names changed from SH1→JAN, RP1→FEB, merging→consolidated. These are all same-level descriptiveness renames (abbreviation to abbreviation, or short word to short word). The instruction references 'SH1' and 'RP1' and 'merging' by name, plus column names like 'ID', 'QTY', 'MONTH1', 'MONTH2' — renaming all of these tests whether the agent hardcodes these names. Distractor column 'UNIT' is added to both source sheets after the last column; it is plausibly related (units of measurement) but clearly different from AMT (quantity amount). The key column alignment is preserved: SKU↔SKU across all sheets. No data values needed renaming since header names don't appear as data values. No instruction paraphrase to avoid meaning drift."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "SH1": "JAN",
+      "RP1": "FEB",
+      "merging": "consolidated"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

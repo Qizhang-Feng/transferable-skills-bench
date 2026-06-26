@@ -1,0 +1,39 @@
+{
+  "task_id": "50682",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "PART LIST (2)"
+      ],
+      "params": {
+        "position": "after_header",
+        "note": "Insert a blank row between header row 1 and data row 2, pushing all data down by one row. This shifts data that was in row 2 to row 3, etc. However, since the task references specific cell addresses like A2, B2:K2, L2, M2, T2, U2, these must be updated in the instruction to A3, B3:K3, L3, M3, T3, U3 respectively, and the answer position moves to M3."
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Subtotal",
+      "target_sheet": "PART LIST (2)",
+      "position": "after_col_M"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task heavily references specific cell addresses (A2, B2:K2, L2, M2, T2, U2, S, U, W columns). Since the risk flag 'task_references_specific_cell_addresses' is present, I must be careful. I chose two safe perturbation types: (1) positional_blank_row - inserting a blank row after the header pushes all data down by 1 row, which tests whether the model can adapt to shifted row references. All cell references in the instruction must be updated accordingly (row 2 becomes row 3). (2) distractor_column - adding a 'Subtotal' column after column M (in the N position, which is currently empty/unused as a spacer). This is plausibly similar to 'Total 1' and 'Total 2' but clearly different, and could confuse a model into referencing it. I avoided renaming columns because the instruction references column letters and specific cell addresses rather than column names, and the header names (dates, part numbers) don't appear as English words in the instruction. I also avoided title_row_insert since blank_row_insert is safer and already in the safe list."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "PART LIST (2)": 1
+    },
+    "col_inserts": {}
+  }
+}

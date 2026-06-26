@@ -1,0 +1,55 @@
+{
+  "task_id": "55979",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Item ": "Prod_No",
+        "ITEM": "PROD_NO",
+        "Name": "Descr",
+        "NAME": "DESCR",
+        "PL-code": "Cat-code",
+        "PL-Code": "Cat-Code",
+        "Price": "Cost",
+        "PRICE": "COST",
+        "Discount": "Rebate",
+        "My price": "My cost"
+      },
+      "sheet_rename_map": {
+        "Calc": "Summary",
+        "Supplier_1": "Vendor_1",
+        "Supplier_2": "Vendor_2",
+        "Supplier_3": "Vendor_3",
+        "Discount_S1": "Rebate_V1"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Region",
+      "target_sheet": "Vendor_1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task is a lookup/match across supplier sheets and a calculation sheet. I renamed columns consistently across all sheets: 'Item '/'ITEM' -> 'Prod_No'/'PROD_NO', 'Name'/'NAME' -> 'Descr'/'DESCR', 'PL-code'/'PL-Code' -> 'Cat-code'/'Cat-Code', 'Price'/'PRICE' -> 'Cost'/'COST', 'Discount' -> 'Rebate', 'My price' -> 'My cost'. All renames maintain the same descriptiveness level (abbreviation to abbreviation, full word to full word). Sheet names are renamed from Supplier_X to Vendor_X and Calc to Summary, Discount_S1 to Rebate_V1. Each old name maps to a unique new name, avoiding the collision issue from previous attempts. A distractor column 'Region' is added to Vendor_1 to test whether the agent incorrectly uses positional assumptions. The instruction references specific cell addresses (A10, B7) and the concept of 'supplier' which is a general English word in the instruction, so I renamed sheets from Supplier to Vendor but did not rename the word 'supplier' in the instruction (instruction_paraphrase is false). The column 'NAME'/'Name' is renamed to 'DESCR'/'Descr' — the instruction says 'name of a supplier' using 'name' as general English, but the column 'NAME' is a column header reference; however since instruction_paraphrase is false, the instruction text stays unchanged."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Calc": "Summary",
+      "Supplier_1": "Vendor_1",
+      "Supplier_2": "Vendor_2",
+      "Supplier_3": "Vendor_3",
+      "Discount_S1": "Rebate_V1"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

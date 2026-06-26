@@ -1,0 +1,1 @@
+I need to create a formula that can combine DD, MM, and YYYY data from separate columns A, B, and C into a complete Full Date format in column J, as shown in my attached file.

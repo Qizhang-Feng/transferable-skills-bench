@@ -1,0 +1,38 @@
+{
+  "task_id": "49196",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Month": "Cal Month",
+        "Week": "Cal Week",
+        "End finishing": "End Completion"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Start Completion",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (K2, column C, column K) so we cannot insert blank rows or title rows, as that would shift data and break the cell references in the instruction. Instead we use two safe perturbation types: (1) A distractor column 'Start Completion' is added after the last column — it is plausibly similar to 'Start finishing' and 'End finishing' but clearly different, testing whether the model gets confused by a nearby column name. (2) We rename columns that are NOT referenced in the instruction: 'Month' → 'Cal Month', 'Week' → 'Cal Week', and 'End finishing' → 'End Completion'. Critically, we do NOT rename 'Start Time' (column C) or 'Start finishing' (column K) since those are the columns explicitly referenced in the instruction and formula. The renames change surface anchors without affecting the task logic or difficulty. instruction_paraphrase is set to false to avoid risk of meaning change."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "task_id": "49945",
+  "opaque_col_map": {
+    "Year": "Interval",
+    "Qty": "Phase",
+    "Total": "Index"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Workflow"
+  },
+  "primary_distractor": "Year",
+  "old_anchors": [
+    "Year",
+    "Qty",
+    "Total",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Interval",
+    "Phase",
+    "Index",
+    "Workflow"
+  ]
+}

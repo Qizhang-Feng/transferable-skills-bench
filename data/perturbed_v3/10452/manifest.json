@@ -1,0 +1,45 @@
+{
+  "task_id": "10452",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Data": "Material",
+        "Result Required": "Filtered Output"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "LookupSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "LookupSheet"
+      ],
+      "params": {
+        "column_name": "Material Desc",
+        "position": "after_col_C",
+        "fill": "empty"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Material Desc",
+      "target_sheet": "LookupSheet",
+      "position": "after_col_C"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (B4, B5, B6, E4, E4:E12) which are flagged as risk, so we avoid any row insertions that would shift cell positions. We apply two safe perturbation types: (1) Lexical rename — 'Data' becomes 'Material' and 'Result Required' becomes 'Filtered Output', both at the same descriptiveness level (full descriptive phrases). The sheet is renamed from 'Sheet1' to 'LookupSheet'. Neither 'Data' nor 'Result Required' appear as common English words in the instruction body in a way that would cause confusion — 'data' does appear generically but the column name 'Data' is used purely as a column header reference, and the instruction references it by cell address (Column B), not by the header name. (2) Distractor column — 'Material Desc' is inserted after column C, which is plausibly similar to the renamed 'Material' column but clearly different. This tests whether the agent incorrectly references the distractor column instead of the actual data column. No data values need renaming since we are not changing any key/data values, only headers and sheet names."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "LookupSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

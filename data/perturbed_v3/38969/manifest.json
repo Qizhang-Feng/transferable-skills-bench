@@ -1,0 +1,41 @@
+{
+  "task_id": "38969",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Remarks": "Notes",
+        "Invoice in KA": "KA Invoice"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Variance",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (S2, U2, R2:R20), so layout changes that shift rows (blank_row_insert, title_row_insert) are unsafe. Instead, I use lexical renames on columns that are referenced by name in the instruction ('Remarks' -> 'Notes', 'Invoice in KA' -> 'KA Invoice') and rename the sheet. I do NOT rename 'Difference' because it appears as a general English word in the instruction body ('Difference is...'). A distractor column 'Variance' is added after the last column — it's plausibly similar to 'Difference' but clearly distinct. These changes test whether the model hardcodes column names and sheet names without altering task logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

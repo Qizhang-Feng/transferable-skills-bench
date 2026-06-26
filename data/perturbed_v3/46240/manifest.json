@@ -1,0 +1,39 @@
+{
+  "task_id": "46240",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "position": "after_row_4",
+        "note": "Insert a blank row after the last data row (row 4) to add a positional blank row at the bottom of the data range"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Contract Completed",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (H2, J2:J4) and column letters (H, J), so title_row_insert is risky and excluded. Instead, I use two safe perturbation strategies: (1) positional_blank_row — inserting a blank row after the last data row (row 4) to test whether the model is sensitive to trailing blank rows without shifting any referenced cells; (2) distractor_column — adding a 'Contract Completed' column after the last column, which is plausibly similar to existing columns like 'Contract Sent' and 'Contract Returned' but clearly different, testing whether the model gets confused by nearby similar column names. No column renames are applied because the instruction directly references columns H and J by letter, and renaming headers that the instruction doesn't mention by name would have no perturbation effect. The instruction mentions 'Docusign Sent' (col H) and 'Contract Sent' (col J) implicitly via cell addresses, but since the instruction uses letter references not header names, renaming them wouldn't test anything meaningful and could cause confusion without benefit."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

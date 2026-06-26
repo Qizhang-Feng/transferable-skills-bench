@@ -1,0 +1,36 @@
+{
+  "task_id": "585-41",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task is very constrained: the instruction explicitly references the range 'a1:h1' on 'Sheet1'. Previous attempts failed because (1) inserting a distractor column shifted data within A1:H1 or risked doing so, and (2) inserting a title row pushed data from row 1 to row 2 without updating the instruction's cell references. Given the risk flags ('task_references_specific_cell_addresses', 'data_values_match_headers'), both title_row_insert and distractor_column are unsafe — a title row shifts the row reference, and a distractor column inserted before or within A-H shifts column references. The only safe perturbation is a lexical sheet rename: changing 'Sheet1' to 'DataSheet'. This changes a surface anchor (the sheet name) without affecting the data layout, cell positions, or task logic. The instruction references 'Sheet1' which must be updated to 'DataSheet' in the renamed spreadsheet. No column renames are possible since the 'headers' are actually data values (numeric strings and currency strings), not semantic column names. No layout changes are safe given the explicit cell address references."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

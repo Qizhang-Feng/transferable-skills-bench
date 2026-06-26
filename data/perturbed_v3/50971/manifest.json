@@ -1,0 +1,34 @@
+{
+  "task_id": "50971",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Count",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references specific cell addresses (G3:K14, G3:G13) and column letters (A, B, E, F), so we cannot insert blank rows (which would shift rows and invalidate those references — as seen in the failed Attempt 1). Column renaming is risky because the instruction explicitly mentions 'column A', 'column B', 'column F', 'column E' by letter rather than by header name, and the header names like 'Value' appear as common English words. Instead, we add a distractor column named 'Count' after the last column. This is plausibly similar to the existing duplication-count column (column E) but clearly different, testing whether the agent incorrectly references it. We keep instruction_paraphrase false per the rules. This perturbation changes surface anchors (adds a new column that could confuse column-letter-based hardcoding for columns beyond K) without altering the task logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

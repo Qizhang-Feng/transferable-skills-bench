@@ -1,0 +1,42 @@
+{
+  "task_id": "47933",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Employee Number": "Staff ID",
+        "Amount": "Payment",
+        "Sum": "Total"
+      },
+      "sheet_rename_map": {
+        "Hrs": "ContractHrs",
+        "amount": "payments"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Overtime Rate",
+      "target_sheet": "master",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction explicitly references 'hours column (B2)' and 'rate column (D2)' by both semantic name and cell address, plus the answer is at E2:E154. Since the instruction uses specific cell addresses (B2, D2, E2), column reorder and title_row_insert are risky and flagged. Instead I use safe anchors: (1) Lexical renames — rename columns that are NOT referenced by name in the instruction body ('Employee Number' → 'Staff ID', 'Amount' → 'Payment', 'Sum' → 'Total') and rename non-master sheets ('Hrs' → 'ContractHrs', 'amount' → 'payments'). I do NOT rename 'Hours' or 'Rate' because those exact words appear in the instruction as general English describing the columns. (2) Distractor column — add 'Overtime Rate' after the last column on master, which is plausibly similar to 'Rate' but clearly different, testing whether the model gets confused by a nearby column name. These changes alter surface anchors without affecting the underlying logic, cell addresses, or data values."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Hrs": "ContractHrs",
+      "amount": "payments"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

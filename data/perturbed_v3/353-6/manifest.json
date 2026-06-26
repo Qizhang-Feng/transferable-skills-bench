@@ -1,0 +1,69 @@
+{
+  "task_id": "353-6",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "job_comm_id": "comm_record_id",
+        "job_id": "task_id",
+        "communication_time": "comm_timestamp",
+        "contact_name": "contact_person",
+        "contact_company": "contact_org",
+        "funder": "sponsor",
+        "communication_with": "comm_with",
+        "communication_from": "comm_from",
+        "communication_reason": "comm_reason",
+        "communication_reason_group": "comm_reason_group",
+        "client_communication_reason_group": "client_comm_reason_group",
+        "communication_type": "comm_type",
+        "potential_escalation_reason": "escalation_reason",
+        "hand_off_reason": "handoff_reason",
+        "parent_job_comm_id": "parent_comm_record_id",
+        "hand_off_warranted": "handoff_warranted",
+        "added_on_behalf_of_client": "added_for_client",
+        "last_note_time": "latest_note_time",
+        "communication_notes": "comm_notes",
+        "resolved": "is_resolved",
+        "job_comm_note_id": "comm_note_id",
+        "user": "agent",
+        "note_time": "note_timestamp",
+        "previous_note_time": "prev_note_timestamp",
+        "communication_note": "comm_note",
+        "realm": "domain",
+        "realm_entity_name": "domain_entity_name",
+        "action": "activity",
+        "action_reason": "activity_reason"
+      },
+      "sheet_rename_map": {
+        "Data": "CommLog"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "CommLog"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "comm_category",
+      "target_sheet": "CommLog",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references column 'I' (communication_reason) and the value 'Hub Notes', and mentions header row '1'. Perturbations applied: (1) Renamed all columns to similarly descriptive but different names (abbreviation-to-abbreviation consistency maintained, e.g., communication_reason -> comm_reason). The column 'communication_reason' which was in column I is now 'comm_reason' — but since the instruction references column 'I' by letter, the rename tests whether the agent can find the correct column by position or header name. (2) Renamed the sheet from 'Data' to 'CommLog' to break hardcoded sheet references. (3) Added a distractor column 'comm_category' after the last column to shift any hardcoded column count assumptions. No blank rows were inserted above/below data because the risk flag 'task_deletes_or_inserts_rows' is present and inserting blank rows could interfere with the row deletion logic. No title_row_insert per the risk flag. The instruction is not paraphrased to avoid changing meaning. The answer position updates to 'CommLog'!A1:AI20 (one extra distractor column, AH->AI)."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Data": "CommLog"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

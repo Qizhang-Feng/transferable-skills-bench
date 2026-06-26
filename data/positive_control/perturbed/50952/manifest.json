@@ -1,0 +1,30 @@
+{
+  "task_id": "50952",
+  "opaque_col_map": {
+    "ID": "Cycle",
+    "Comments": "Metric",
+    "Parameter 1": "Volume",
+    "Parameter2": "Period",
+    "Found ID": "Level"
+  },
+  "opaque_sheet_map": {
+    "Munka1": "Dashboard"
+  },
+  "primary_distractor": "ID",
+  "old_anchors": [
+    "ID",
+    "Comments",
+    "Parameter 1",
+    "Parameter2",
+    "Found ID",
+    "Munka1"
+  ],
+  "new_anchors": [
+    "Cycle",
+    "Metric",
+    "Volume",
+    "Period",
+    "Level",
+    "Dashboard"
+  ]
+}

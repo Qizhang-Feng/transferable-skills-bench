@@ -1,0 +1,47 @@
+{
+  "task_id": "388-47",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Company Name": "Firm Name",
+        "Period Year": "Fiscal Year",
+        "Period Month": "Fiscal Month",
+        "Date Processed": "Processing Date",
+        "Reference": "Ref Code"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "WorkingData",
+        "Original Data": "Source Records"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "WorkingData",
+        "Source Records"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Ref Notes",
+      "target_sheet": "WorkingData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task involves deleting rows based on column E values and references Sheets(1) and Range('A1'). The risk flags indicate row deletion and multi-sheet references, so we must NOT insert blank rows (which failed in Attempt 1 by shifting the header away from A1 and breaking AutoFilter). Instead, we use two safe perturbations: (1) Rename all columns and both sheets to test whether the agent hardcodes column names like 'Reference' or sheet names like 'Sheet1'. The instruction references 'column E' positionally rather than by header name, so renaming headers is safe and won't conflict with instruction text. Sheet rename from 'Sheet1' to 'WorkingData' tests whether the agent hardcodes Sheets(1) vs sheet name. (2) Add a distractor column 'Ref Notes' after the last column on WorkingData. This tests whether the agent correctly identifies column E (now 'Ref Code') as the filter column rather than being confused by the extra column F. We do NOT insert blank rows since that broke the AutoFilter logic in the previous attempt. We do NOT paraphrase the instruction per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "WorkingData",
+      "Original Data": "Source Records"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

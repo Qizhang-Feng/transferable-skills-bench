@@ -1,0 +1,24 @@
+{
+  "task_id": "56225",
+  "opaque_col_map": {
+    "invoice": "Marker",
+    "job": "Frequency"
+  },
+  "opaque_sheet_map": {
+    "mechanic": "Roster",
+    "data": "Tracker"
+  },
+  "primary_distractor": "invoice",
+  "old_anchors": [
+    "invoice",
+    "job",
+    "mechanic",
+    "data"
+  ],
+  "new_anchors": [
+    "Marker",
+    "Frequency",
+    "Roster",
+    "Tracker"
+  ]
+}

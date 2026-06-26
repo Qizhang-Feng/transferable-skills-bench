@@ -1,0 +1,78 @@
+{
+  "task_id": "142-19",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Number": "Code",
+        "Name": "Person"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "DataSheet",
+          "range": "A16",
+          "find": "Number",
+          "replace": "Code"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "B16",
+          "find": "Name",
+          "replace": "Person"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "A43",
+          "find": "Number",
+          "replace": "Code"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "B43",
+          "find": "Name",
+          "replace": "Person"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "A58",
+          "find": "Number",
+          "replace": "Code"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "B58",
+          "find": "Name",
+          "replace": "Person"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task depends on blank row positions as a risk flag, so we must NOT insert blank rows (which would alter the blank-row-separated ranges the macro must detect). Instead we use two safe perturbation types: (1) Lexical rename — rename columns 'Number'->'Code' and 'Name'->'Person', rename sheet 'Sheet1'->'DataSheet'. These are same-level descriptiveness (single full words). The header names 'Number' and 'Name' appear as data values at rows 16, 43, and 58 (sub-headers within the data), so those must also be renamed. The word 'names' appears in the instruction as general English but 'Name' as a column header is a direct reference, and 'Number' likewise — both are safe to rename since the instruction references them as 'Column A' and 'Column B' positionally, not by header name. (2) Distractor column — add an empty 'Category' column after the last used column. This tests whether the agent hardcodes column count or correctly identifies only columns A and B (now with renamed headers) as the data columns. No blank rows are inserted or removed, preserving the task's core logic of sorting non-blank ranges separated by blank rows."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

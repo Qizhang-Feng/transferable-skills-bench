@@ -1,0 +1,43 @@
+{
+  "task_id": "45372",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Time": "Timestamp",
+        "Actual Value": "Observed Value",
+        "Forecast Value": "Projected Value",
+        " Forecast VALUE": " Projected TOTAL"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Adjusted Value",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references specific cell addresses E2:E15 and column letters B, C, E. Since inserting a blank row would shift rows and break the E2:E15 reference (as seen in Attempt 1), and inserting a distractor column before E would shift the target column (as seen in Attempt 2), I use only safe perturbations: (1) Lexical renames of all column headers and the sheet name to semantically equivalent alternatives — 'Time' → 'Timestamp', 'Actual Value' → 'Observed Value', 'Forecast Value' → 'Projected Value', ' Forecast VALUE' → ' Projected TOTAL', and 'Sheet1' → 'DataSheet'. These break hardcoded name lookups while preserving meaning. (2) A distractor column 'Adjusted Value' placed AFTER the last column (after column E), so it goes into column F. This does NOT shift any existing columns, preserving the B, C, E references in the instruction. The distractor name is plausibly similar to existing columns but clearly different."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "task_id": "50521",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Order Frequency",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has several risk flags that severely constrain what we can do: (1) task_references_specific_cell_addresses means N4:N6 is hardcoded in the instruction and answer, so any blank_row_insert or title_row_insert would shift rows and break alignment (as seen in the failed Attempt 1); (2) task_depends_on_blank_row_positions means blank cells within the data are semantically meaningful for the formula logic, so inserting blank rows is dangerous; (3) header_not_in_row_1 means the header is already at row 2, making title_row_insert risky. The column '# of orders by customers' contains the phrase 'orders' and 'customers' which appear as common English words in the instruction body, so renaming it would violate Rule 6. Given these constraints, the safest perturbation is adding a distractor column 'Order Frequency' after the last column. This name is plausibly similar to the order-counting theme of the spreadsheet but clearly different from existing columns. It tests whether the model incorrectly references or is confused by an extra column. instruction_paraphrase is set to false per Rule 7."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

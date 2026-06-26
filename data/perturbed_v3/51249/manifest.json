@@ -1,0 +1,47 @@
+{
+  "task_id": "51249",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Input:": "Entry:"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "DataSheet",
+          "range": "A2:A11",
+          "find": "Input:",
+          "replace": "Entry:"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes:",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references specific cell addresses (B1, B2, D1), column D, and the label 'Result:' — so those must NOT be changed. I only rename 'Input:' to 'Entry:' (same descriptiveness level, colon-labeled to colon-labeled) since 'Input:' is not referenced in the instruction at all. Since 'Input:' also appears as data values in column A (rows 2, 5, 6, 9, 10), I include data_value_renames to update those occurrences. The sheet is renamed from 'Sheet1' to 'DataSheet' which is safe since the instruction doesn't reference the sheet name. A distractor column 'Notes:' is added after the last column (column E), which won't affect column D's position or any cell references in the instruction. I explicitly avoid renaming 'Result:' (referenced in instruction as 'Result:'), 'Description A'/'Description B' (referenced in instruction), or 'Single A'/'Single B'/'Multiple' (these are answer values). This perturbation changes surface anchors (column name, sheet name, adds distractor) without altering task logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

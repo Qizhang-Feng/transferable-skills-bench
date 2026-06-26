@@ -1,0 +1,45 @@
+{
+  "task_id": "384-4",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Item": "Entry",
+        "Value": "Amount"
+      },
+      "sheet_rename_map": {
+        "Source": "DataSet1",
+        "Source2": "DataSet2",
+        "Result": "Output"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "DataSet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Two anchor types are used: (1) Lexical — renaming sheets ('Source' → 'DataSet1', 'Source2' → 'DataSet2', 'Result' → 'Output') and columns ('Item' → 'Entry', 'Value' → 'Amount'). The column 'Value' appears in all three sheets so it is consistently renamed to 'Amount' everywhere. The sheet names 'Source', 'Source2', and 'Result' appear in the instruction but the instruction references them as table names, so the agent must adapt. The word 'Value' also appears in the instruction as a general English word ('values'), but the column header 'Value' is singular and used as a column reference — however, since 'value' does appear heavily in the instruction text, I still rename it because it is clearly a column header name distinct from the general English usage in context. (2) Distractor column — a plausible but irrelevant column 'Category' is added to DataSet1 after the last column to test whether the agent incorrectly processes extra columns. No data_value_renames are needed since the data cells contain numeric values, not the old column/sheet names."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Source": "DataSet1",
+      "Source2": "DataSet2",
+      "Result": "Output"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

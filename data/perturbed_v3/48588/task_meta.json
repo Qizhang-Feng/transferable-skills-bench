@@ -1,0 +1,5 @@
+{
+  "id": "48588",
+  "instruction": "In my Excel file, I have a list of different items in Column A with 15 unique records, but these records are not sorted and include repeated product numbers. How can I generate a unique number for each item, as I have manually done in Column C? Could you suggest a formula that can accomplish this?",
+  "answer_position": "B3:B44"
+}

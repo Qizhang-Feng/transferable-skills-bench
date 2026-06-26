@@ -1,0 +1,49 @@
+{
+  "task_id": "32612",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "IN": "CLOCK IN",
+        "OUT": "CLOCK OUT",
+        "TOTAL HOURS": "HRS WORKED",
+        "Holiday Name": "Holiday Title",
+        "Type": "Category"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Attendance"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Attendance"
+      ],
+      "params": {
+        "title_text": "Employee Attendance Record"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "WORK SHIFT",
+      "target_sheet": "Attendance",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical — renamed columns that are not referenced by their exact names in the instruction. 'IN'→'CLOCK IN', 'OUT'→'CLOCK OUT', 'TOTAL HOURS'→'HRS WORKED', 'Holiday Name'→'Holiday Title', 'Type'→'Category'. I kept 'DATE', 'WORKDAY', and 'Date' unchanged because 'date', 'workday', and 'holiday' appear as meaningful English words in the instruction. The sheet is renamed from 'Sheet1' to 'Attendance'. (2) Positional title row insert — inserts a title row at row 1, pushing headers to row 2 and data down by one row. This shifts the answer position from E2:E75 to E3:E76, testing whether the model hardcodes row numbers. (3) Distractor column — added 'WORK SHIFT' as a plausibly related but clearly different column from 'WORKDAY', which could confuse models that do fuzzy column matching. None of these changes alter the underlying logic or data values."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Attendance"
+    },
+    "row_shifts": {
+      "Attendance": 1
+    },
+    "col_inserts": {}
+  }
+}

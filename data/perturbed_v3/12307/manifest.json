@@ -1,0 +1,40 @@
+{
+  "task_id": "12307",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Country": "Nation"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Territory",
+      "target_sheet": "Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references 'Country' as a column header in the schema. The instruction uses 'countries' as a general English word describing the concept, but the actual column header 'Country' can be safely renamed to 'Nation' (same descriptiveness level, single full word to single full word) since the instruction says 'countries' not 'Country' as a column reference. The sheet is renamed from 'Sheet1' to 'Data' to break hardcoded sheet name references. A distractor column 'Territory' is added after the last column — it is plausibly similar to geographic columns like 'Country'/'Nation' but clearly different. No title_row_insert is used because the task references specific cell addresses (I12, I13) and absolute rows, which would break if rows shifted. The answer position I12:I13 remains unchanged. No data values need renaming since 'Country' only appears as a header, not as data values in the visible schema."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

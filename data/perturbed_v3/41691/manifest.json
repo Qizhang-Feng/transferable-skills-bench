@@ -1,0 +1,38 @@
+{
+  "task_id": "41691",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Number Reference Table"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "ones",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references a specific cell address B:7 (B7). The risk flag 'task_references_specific_cell_addresses' is noted, but the instruction says 'Edit cell B:7' — after a title row insert, the data in B7 shifts to B8. However, the instruction must be updated to reference B:8 instead. Since the task is about fixing a #REF! error at a specific cell, inserting a title row shifts all data down by one row, so the broken formula moves from B7 to B8. The instruction should reference the new position. A distractor column 'ones' (plausibly similar to 'one' but clearly different) is added after the last column to test whether the model is confused by similar column names. No column or sheet renames are applied since the header names '1' and 'one' are very short/generic and renaming them risks changing semantics in unpredictable ways."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

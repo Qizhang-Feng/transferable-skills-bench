@@ -1,0 +1,43 @@
+{
+  "task_id": "57693",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Sheet1": "TextAnalysis"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "TextAnalysis"
+      ],
+      "params": {
+        "title": "Character Frequency Counter"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Cumulative Count",
+      "target_sheet": "TextAnalysis",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves counting alphabet occurrences in a string stored in a header cell. The header 'abdhfujhajdbbcgsrrfssdddnmvnbdhfgtrfs' is the actual text string being analyzed - it appears as both a header and data value (noted in data_header_overlaps). Since the instruction explicitly references this string by its exact content and the task logic depends on this specific text, I cannot rename it without changing the task. Instead, I apply: (1) Sheet rename from 'Sheet1' to 'TextAnalysis' to break hardcoded sheet references. (2) Title row insert to shift the header from row 5 to row 6, breaking positional assumptions about where data starts. The answer position shifts from E7:E32 to E8:E33 accordingly. (3) A distractor column 'Cumulative Count' which is plausibly related to counting but distinct from the actual count column. I do not rename the header column because it IS the data string referenced in the instruction."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "TextAnalysis"
+    },
+    "row_shifts": {
+      "TextAnalysis": 1
+    },
+    "col_inserts": {}
+  }
+}

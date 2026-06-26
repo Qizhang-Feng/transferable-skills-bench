@@ -1,0 +1,43 @@
+{
+  "task_id": "493-18",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Car": "Vehicle",
+        "Mileage(Miles)": "Distance(Miles)",
+        "Colour": "Color",
+        "Filter_List": "Match_List"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Vehicle_Type",
+      "target_sheet": "Data",
+      "position": "after_col_C"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Two safe anchor types are used: (1) lexical — renaming all four headers and the sheet name to break hardcoded references. 'Car' → 'Vehicle', 'Mileage(Miles)' → 'Distance(Miles)', 'Colour' → 'Color', 'Filter_List' → 'Match_List', and 'Sheet1' → 'Data'. None of these header names appear as common English words in the instruction body (the instruction references columns by letter, not by name). (2) distractor_column — inserting a plausibly similar but clearly different column 'Vehicle_Type' after column C. This shifts column positions for columns after C, testing whether the agent relies on column letters (which the instruction explicitly uses) rather than column count. The instruction references columns A, B, C, and F by letter, and the distractor is inserted between C and the original F, which will push Filter_List/Match_List from F to G. However, since the task depends on column F specifically, we place the distractor after C so that the original column F data shifts to column G — this tests whether the agent finds the match list by header name or by hardcoded column letter. Risk flags note row deletion/insertion sensitivity, so no title_row_insert is used. No instruction paraphrase is applied."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

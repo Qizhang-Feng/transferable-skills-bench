@@ -1,0 +1,44 @@
+{
+  "task_id": "209-30",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Location": "Postcode",
+        "URN": "Reference ID",
+        "Date": "Timestamp"
+      },
+      "sheet_rename_map": {
+        "Data to Import": "Import Dataset",
+        "Location Matrix": "Postcode Matrix"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Import Dataset"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Postal Area",
+      "target_sheet": "Import Dataset",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task references specific cell addresses and sheet/column names in VBA code. The task has a risk flag for specific cell addresses, so we avoid title_row_insert which would shift rows. We use lexical perturbation to rename sheets and columns: 'Data to Import' becomes 'Import Dataset' (the instruction and VBA code reference this sheet name, so the model must adapt), 'Location' becomes 'Postcode' (which is semantically equivalent since the column contains postcodes as described in the instruction), 'URN' becomes 'Reference ID', and 'Date' becomes 'Timestamp'. We also add a distractor column 'Postal Area' which is plausibly similar to 'Postcode' but clearly different. The word 'Location' does not appear as a common English word in the instruction body (the instruction discusses 'postcode' and 'column' but not 'location' as general English), so renaming it is safe. The underlying logic (debugging the VBA code) remains identical - the answer still involves fixing the loop variable reference from hardcoded 'C2' to the loop variable 'c'."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Data to Import": "Import Dataset",
+      "Location Matrix": "Postcode Matrix"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

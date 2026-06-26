@@ -1,0 +1,35 @@
+{
+  "task_id": "146-49",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "WORDPAIR",
+      "target_sheet": "Sheet1",
+      "position": "after_col_E"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because (1) blank_row_insert shifted dictionary data and broke row references in the instruction (G2, H2, G1:H1), and (2) placing a distractor column at G/H overwrote the answer output columns. This time I use a distractor column inserted after column E (becoming column F), which pushes nothing into G/H since columns G and H are already the answer output columns at indices 7-8. The dictionary data lives in columns A-E, and the distractor 'WORDPAIR' column at F is plausibly related to the word-pair task but is clearly not a real data column. The layout is 'skip' to avoid any row shifting that would break the explicit G2/H2/G1:H1 references. No column or sheet renames are needed since the headers are data values (dictionary words) rather than semantic column labels referenced by the instruction. The instruction_paraphrase is false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "task_id": "36097",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Year of purchase": "Acquisition Year",
+        "`Book value": "`Carrying Amount",
+        "Proceeds": "Sale Proceeds"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "AssetDisposal"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "AssetDisposal"
+      ],
+      "params": {
+        "title_text": "Tax Recoupment & Scrapping Allowance Schedule",
+        "merge_range": "A1:H1"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Depreciation Rate",
+      "target_sheet": "AssetDisposal",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used. Lexical: renamed 'Year of purchase' → 'Acquisition Year', '`Book value' → '`Carrying Amount', and 'Proceeds' → 'Sale Proceeds' — these are semantically equivalent renames at the same descriptiveness level. Critically, columns referenced in the instruction by name (Cost, ITV, Profit) are NOT renamed because 'cost', 'profit', and 'ITV' appear as general English/domain terms in the instruction body (e.g., 'original cost', 'loss', 'profit', 'ITV adjusted'). The sheet is also renamed. Positional_title_row: a title row is inserted at row 1, pushing the header from row 2 to row 3 and data from rows 3-6 to rows 4-7. The answer position shifts from H3:H6 to H4:H7. The risk flag 'instruction_references_absolute_rows' is noted but the instruction does not contain explicit absolute row references — it references column H generically, so the title row insert is safe. Distractor column: 'Depreciation Rate' is added after the last column — plausibly related to asset disposal/tax context but clearly distinct from existing columns."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "AssetDisposal"
+    },
+    "row_shifts": {
+      "AssetDisposal": 1
+    },
+    "col_inserts": {}
+  }
+}

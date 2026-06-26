@@ -1,0 +1,41 @@
+{
+  "task_id": "54717",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "BA": "BsA",
+        "EMA": "ErMA",
+        "LMA": "LtMA",
+        "PME": "PrME",
+        "CE": "CpE",
+        "Fut": "Ftr"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "PF",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task answer is at S10 and the instruction references predefined cells and domain-specific concepts (1.9 thread, P1/P2 auto prime, owner contributions). The schema shows columns only up to O (col 15), but the sheet has 32 columns, meaning columns P through AF exist but aren't listed in the schema headers — they likely contain the predefined cells and the answer at S10. I avoid any blank_row_insert because the risk flags indicate instruction_references_absolute_rows and task_references_specific_cell_addresses, meaning row shifts would break the task. Instead I: (1) rename several columns that are purely abbreviation-style headers (BA→BsA, EMA→ErMA, LMA→LtMA, PME→PrME, CE→CpE, Fut→Ftr) — all remain abbreviations of similar descriptiveness; (2) add a distractor column 'PF' after the last column, which is plausibly similar to existing columns like PE and PME but clearly different. None of the renamed columns appear as English words in the instruction. The answer position S10 and all data values remain unchanged, preserving task solvability."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

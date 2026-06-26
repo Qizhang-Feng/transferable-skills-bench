@@ -1,0 +1,59 @@
+{
+  "task_id": "398-14",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "ITEM": "SKU",
+        "BR": "MK",
+        "TY": "TY",
+        "OR": "OR",
+        "SALE": "SALE",
+        "RET": "RET",
+        "BALANCE": "BALANCE"
+      },
+      "sheet_rename_map": {
+        "STA": "WHS",
+        "RPA": "DLV",
+        "SR": "INV",
+        "SS": "PKG",
+        "COLLECTION": "SUMMARY"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "WHS",
+        "DLV"
+      ],
+      "params": {
+        "column_name": "REF",
+        "position": "after_last_column",
+        "fill_value": ""
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "REF",
+      "target_sheet": "WHS",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Lexical perturbation: Renamed 'ITEM' to 'SKU' (abbreviation to abbreviation) and 'BR' to 'MK' (abbreviation to abbreviation). These column names are not used as English words in the instruction. Renamed all sheet names to different abbreviations of similar length (STA→WHS, RPA→DLV, SR→INV, SS→PKG, COLLECTION→SUMMARY). The instruction references 'collection' sheet by name, so the agent must find the renamed 'SUMMARY' sheet. TY, OR, SALE, RET, and BALANCE are kept unchanged because they appear explicitly in the instruction text as meaningful references (e.g., 'TY and OR are the same', 'RET value from the SALE columns', 'BALANCE'). Distractor column: Added a 'REF' column (plausibly similar to real data columns but clearly different) to source sheets WHS and DLV to test whether the agent incorrectly includes it. This does not change the task logic since REF contains no data."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "STA": "WHS",
+      "RPA": "DLV",
+      "SR": "INV",
+      "SS": "PKG",
+      "COLLECTION": "SUMMARY"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "id": "141-20",
+  "instruction": "How can I create a macro that finds and deletes rows in two Excel sheets named 'Pipeline' and 'Ledger', where the invoice number in column C of 'Pipeline' and the value in column D match the reference number in column F and value in column I of 'Ledger'? The matching rows, which I have highlighted in yellow, should be deleted from both sheets. Could someone provide the code to accomplish this?",
+  "answer_position": "'Pipeline!'A1:D2,'Ledger!'A1:J3",
+  "instruction_type": "Sheet-Level Manipulation"
+}

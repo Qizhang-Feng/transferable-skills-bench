@@ -1,0 +1,44 @@
+{
+  "task_id": "178-22",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "SL": "NO",
+        "ITEM": "PRODUCT",
+        "CLASS": "GRADE"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "position": "after_data",
+        "count": 3
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "CATEGORY",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Using lexical renames for all three columns (SL→NO, ITEM→PRODUCT, CLASS→GRADE) since the instruction references columns by letter (B, C) not by name, so renaming headers won't break the instruction. Inserting 3 blank rows AFTER the data (not at row 1, which caused previous failures) to test whether agents hardcode the data range. Adding a distractor column 'CATEGORY' which is plausibly similar to 'CLASS'/'GRADE' but clearly different. Not renaming sheets since the instruction explicitly references 'Sheet1' and 'Sheet2' and we are not paraphrasing. No data_value_renames needed since column names don't appear as data values."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

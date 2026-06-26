@@ -1,0 +1,41 @@
+{
+  "task_id": "54474",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "EEG": "EEP",
+        "Dis": "Dsp",
+        "LTU": "LTV",
+        "YTD": "MTD",
+        "Go Live 1/3/18": "Go Live 2/5/18",
+        "Referral Type": "Referral Category"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "WHP DATA"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Referral Status",
+      "target_sheet": "WHP DATA",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I chose lexical renames and a distractor column. For lexical changes, I renamed abbreviation headers to similar abbreviations (EEG→EEP, Dis→Dsp, LTU→LTV, YTD→MTD) and full-phrase headers to equivalent full phrases (Go Live date changed, Referral Type→Referral Category). None of these column names appear as general English words in the instruction text, so renaming is safe. Sheet names ('WHP' and 'WHP DATA') are explicitly referenced in the instruction ('a tab named WHP and another with WHP data'), so renaming them would risk changing the instruction's meaning — I left them unchanged. I added a distractor column 'Referral Status' to the WHP DATA sheet, which is plausibly similar to 'Referral Category' but clearly different, testing whether the agent picks the correct source column. The answer position ('WHP'!E7:G8) remains valid since no rows or columns were inserted in the WHP sheet."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

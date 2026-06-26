@@ -1,0 +1,24 @@
+{
+  "task_id": "46167",
+  "opaque_col_map": {
+    "PRODUCT ID": "Tier",
+    "QTY": "Channel",
+    "answer": "Impact"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Overview"
+  },
+  "primary_distractor": "PRODUCT ID",
+  "old_anchors": [
+    "PRODUCT ID",
+    "QTY",
+    "answer",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Tier",
+    "Channel",
+    "Impact",
+    "Overview"
+  ]
+}

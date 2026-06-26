@@ -1,0 +1,34 @@
+{
+  "task_id": "54925",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Support"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "EmpID",
+      "target_sheet": "Support",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task heavily references specific absolute cell addresses ($B$2:$B$40, $H$2:$H$40, $K$2:$K$40, M3, N3, N4) and ROW()-based calculations that assume data starts at row 2. The risk flags explicitly warn about instruction_references_absolute_rows and task_references_specific_cell_addresses, which means blank_row_insert or title_row_insert would break the formula logic (as seen in the failed attempt). Column reorder is also unsafe because the instruction references columns by letter (B, H, K, M, N, Q). The safest perturbation is adding a distractor column that doesn't interfere with any existing references. I chose 'EmpID' as it's plausibly similar to the existing 'Emp' column but clearly different. I avoid renaming columns because the header names like 'E' and 'F' appear as data values in column H (used for matching), and renaming them could create confusion or require extensive data_value_renames that risk breaking the logic. I set instruction_paraphrase to false as required."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

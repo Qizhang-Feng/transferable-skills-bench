@@ -1,0 +1,21 @@
+{
+  "task_id": "5835",
+  "opaque_col_map": {
+    "Requested table": "Delta",
+    "Basic Table": "Volume"
+  },
+  "opaque_sheet_map": {
+    "\u05d2\u05d9\u05dc\u05d9\u05d5\u05df1": "Inventory"
+  },
+  "primary_distractor": "Requested table",
+  "old_anchors": [
+    "Requested table",
+    "Basic Table",
+    "\u05d2\u05d9\u05dc\u05d9\u05d5\u05df1"
+  ],
+  "new_anchors": [
+    "Delta",
+    "Volume",
+    "Inventory"
+  ]
+}

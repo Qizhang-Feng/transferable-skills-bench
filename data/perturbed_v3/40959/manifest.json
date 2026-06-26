@@ -1,0 +1,42 @@
+{
+  "task_id": "40959",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Name": "Department",
+        "Sub-Dept": "Sub-Division",
+        "Excel Formula": "Result Formula"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Dept-Code",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references columns by letter (Column A, Column B, Column C) and specific cell addresses (C6, A2, C2:C7), so column reorder and title_row_insert are risky due to the 'task_references_specific_cell_addresses' flag. Instead, I use safe perturbations: (1) Lexical rename of column headers — 'Name' to 'Department', 'Sub-Dept' to 'Sub-Division', 'Excel Formula' to 'Result Formula'. The instruction refers to 'name' and 'sub-dept' as conceptual labels but the column letter references (A, B, C) remain unchanged, so the task logic is preserved. The sheet is also renamed from 'Sheet1' to 'DataSheet'. (2) A distractor column 'Dept-Code' is added after the last column to test whether the model is confused by a plausibly related but irrelevant column. No data values need renaming since the data values like 'Sales', 'Sales-Marketing', and 'General' appear in the instruction body as meaningful English terms and must not be changed."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

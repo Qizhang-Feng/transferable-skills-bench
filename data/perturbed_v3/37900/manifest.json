@@ -1,0 +1,36 @@
+{
+  "task_id": "37900",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Adjustment",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The previous attempt failed by inserting a blank row which shifted cell addresses (E5 answer position). Risk flag 'task_references_specific_cell_addresses' confirms we must not shift rows. Rule 6 prevents renaming 'Date', 'Value', and 'Current Date' since all three appear as common English words in the instruction ('return a value based on the current day's date'). Instead, we rename the sheet from Sheet1 to DataSheet to test if the agent hardcodes sheet names, and add a distractor column 'Adjustment' (plausibly related to values but clearly different) after the last column to test if the agent is confused by extra columns. No layout shifts are applied to preserve cell addresses."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

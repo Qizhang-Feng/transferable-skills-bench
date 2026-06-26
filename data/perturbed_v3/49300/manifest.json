@@ -1,0 +1,44 @@
+{
+  "task_id": "49300",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Job Title": "Position",
+        "Months": "Period",
+        "Salary": "Pay"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Lookup",
+        "Data": "Reference"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Lookup"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Grade",
+      "target_sheet": "Lookup",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task involves INDEX/MATCH across two sheets. The instruction explicitly references sheet names ('Data', 'Sheet1') and cell addresses, so renaming sheets and columns tests whether the agent hardcodes these references. I renamed both sheets (Sheet1→Lookup, Data→Reference) and all three columns on Sheet1 (Job Title→Position, Months→Period, Salary→Pay) to same-descriptiveness-level synonyms. The numeric headers on the Data sheet (1, 2, 3...) are not renamed since they represent month numbers used as lookup keys. A distractor column 'Grade' is added to the Lookup sheet to test positional assumptions. The instruction references specific cell addresses and sheet names which will need to be adapted by the agent. No data values need renaming since the Job Title values in the Data sheet are actual job titles (data), not column names being renamed. The instruction is not paraphrased to avoid meaning changes."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Lookup",
+      "Data": "Reference"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

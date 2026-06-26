@@ -1,0 +1,42 @@
+{
+  "task_id": "46167",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "PRODUCT ID": "ITEM CODE",
+        "QTY": "QUANTITY",
+        "answer": "result"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "ITEM QTY TOTAL",
+      "target_sheet": "Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references 'PRODUCT ID' and 'QTY' as column names in the instruction, and the answer cell is at D2. Since the risk flag warns about specific cell addresses, I avoid blank_row_insert (which caused the previous failure by shifting D2). Instead I use lexical renaming (PRODUCT ID→ITEM CODE, QTY→QUANTITY, answer→result) and a distractor column ('ITEM QTY TOTAL' — plausibly similar to QUANTITY but clearly different). The sheet is renamed from Sheet1 to Data. The instruction still says 'PRODUCT ID' and 'QTY' as descriptive references and D2 as the output cell, which remains valid since no rows are shifted. The agent must map the old column names mentioned in the instruction to the new renamed headers. Data values are unchanged so aggregation results remain 270."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

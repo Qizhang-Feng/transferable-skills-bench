@@ -1,0 +1,34 @@
+{
+  "task_id": "183-8",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Average of Wind Speed (m/s)",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references absolute cell addresses (J3:L6 and I3:L7), so any row-shifting perturbation (title_row_insert, blank_row_insert) would break the task unless the instruction is rewritten — which is risky. The previous attempt failed exactly because blank rows were inserted at the top, shifting the target rows. Therefore I avoid any row/column positional shifts entirely. Instead I use a distractor column appended after the last column. This adds a plausibly similar column ('Average of Wind Speed (m/s)') that could confuse a model into referencing it, but it does not shift any existing columns or rows. I also set instruction_paraphrase to false per the rules. No column or sheet renames are applied because the instruction explicitly references columns J, K, L by letter, and renaming headers in columns A-F would not affect those references meaningfully — the real surface anchor disruption here comes from the distractor column that looks like it could be relevant energy/generation data."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

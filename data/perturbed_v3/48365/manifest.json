@@ -1,0 +1,43 @@
+{
+  "task_id": "48365",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Region": "Territory",
+        "M1": "Q1"
+      },
+      "sheet_rename_map": {
+        "Data": "Source",
+        "Dashboard": "Summary"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Source"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "Source",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I chose lexical renaming and a distractor column. For lexical changes: 'Data' sheet is renamed to 'Source' and 'Dashboard' to 'Summary' (both descriptive single words). 'Region' becomes 'Territory' (same descriptiveness, synonym) and 'M1' becomes 'Q1' (abbreviation to abbreviation). I did NOT rename 'Product' because the instruction uses 'product' as a general English word ('for a product'). I did not rename 'AAA' or 'EMEA' since 'EMEA' appears as a data value in the Dashboard and also as a header, and renaming region values would change the matching logic. The distractor column 'Category' is added to the Source sheet after the last column — it's plausibly related but clearly different from existing columns. These perturbations test whether the agent hardcodes sheet names ('Data'), column names ('Region', 'M1'), or assumes a fixed column count in the source table."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Data": "Source",
+      "Dashboard": "Summary"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

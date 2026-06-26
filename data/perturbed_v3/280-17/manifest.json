@@ -1,0 +1,41 @@
+{
+  "task_id": "280-17",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "DATA 1": "INFO 1",
+        "1": "1"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Records"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Records"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "DATA 2",
+      "target_sheet": "Records",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves filtering rows based on last unique entries in a column. Risk flags indicate the task deletes/inserts rows and the instruction references absolute row numbers, so we must NOT insert blank rows (which would shift row references). Instead, we use two safe perturbations: (1) A distractor column 'DATA 2' inserted after the last column — this is plausibly similar to the original 'DATA 1' column name but clearly different, testing whether the agent hardcodes column count or letter. (2) Column rename: 'DATA 1' → 'INFO 1' to test hardcoded column name references. The sheet is renamed from 'Sheet1' to 'Records' to test hardcoded sheet name references. The header '1' is kept unchanged since it is a numeric value that likely serves as a data identifier. The instruction references 'row 3', 'row 6' etc. as examples — since we do not insert any rows, these references remain valid. No data value renames are needed since the renamed column header 'DATA 1' does not appear as data values in cells."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Records"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

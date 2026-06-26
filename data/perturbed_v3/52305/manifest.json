@@ -1,0 +1,43 @@
+{
+  "task_id": "52305",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Destination": "Target"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": [
+        {
+          "sheet": "Sheet1",
+          "range": "G3",
+          "find": "Destination",
+          "replace": "Target"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Duration",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (J6:N24) and the header is not in row 1 for some sections, so blank_row_insert is unsafe (as shown by the failed attempt). Instead, I use lexical perturbation by renaming 'Destination' to 'Target' (both are full words with similar descriptiveness). The word 'Destination' appears in the instruction but only as a column reference criterion, not as general English vocabulary - however, looking more carefully, the instruction says 'destination' as a criterion name. Since the instruction mentions 'destination' explicitly, I should still rename it because it's used as a column reference (the instruction says 'match the first three criteria (name, destination, and type)'). I also add a distractor column 'Duration' which is plausibly related to time-based data but clearly different from 'Time'. I also update the data_value_renames for cell G3 where 'Destination' appears as a data value overlapping with the header."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "task_id": "38462",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Aircraft Hours Report"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "48917",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task is a Formula Write-back where the user must write a formula to round up time values. The answer position is C1:C2, which after a title row insert shifts to C2:C3. I chose two safe perturbations: (1) positional_title_row — inserting a title row at row 1 pushes the header and data down by one row, testing whether the model hardcodes row references like C1:C2 vs adapting to the new layout; (2) distractor_column — adding a plausible numeric column '48917' (similar in format to the existing header '49122') after the last column to test if the model gets confused by similar-looking numeric columns. I did not rename any columns because the headers ('DEE', '2046 days, 17:30:00', '49122') are data-like values flagged by data_values_match_headers, and the instruction explicitly says 'do not name the column', so column names are not referenced in the instruction. No sheet rename is needed as the instruction doesn't reference sheet names."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

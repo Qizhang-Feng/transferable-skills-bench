@@ -1,0 +1,41 @@
+{
+  "task_id": "58499",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Branches": "Branches",
+        "checked": "verified"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "BranchData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "BranchData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "status",
+      "target_sheet": "BranchData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task depends on filtering branches (column A) based on whether they have a tick mark in the 'checked' column (column I). Safe perturbations: (1) Lexical rename: 'checked' → 'verified' — same descriptiveness level (single descriptive word to single descriptive word). This tests whether the agent hardcodes the column name 'checked' or correctly identifies the relevant column from the instruction context ('tick mark' / 'corresponding tick mark'). I do NOT rename 'Branches' because the word 'branches' appears prominently in the instruction as a general English word describing the data. (2) Distractor column: adding a 'status' column after the last column. This is plausibly similar to 'checked'/'verified' but clearly different, testing whether the agent picks the correct condition column. (3) Sheet rename: 'Sheet1' → 'BranchData' to break hardcoded sheet references. The risk flag 'task_depends_on_blank_row_positions' means I avoid inserting blank rows, which could shift the answer position A13:A14. The distractor column addition does not affect row positions or the filtering logic."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "BranchData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

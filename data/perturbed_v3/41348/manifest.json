@@ -1,0 +1,51 @@
+{
+  "task_id": "41348",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Project ID": "Budget Ref ID",
+        "Budget Type": "Revenue Category",
+        "Project includes tech?": "Includes Technology?",
+        "Linked to Budget": "Budget Linked",
+        "Actual Hours": "Hours Worked",
+        "Actual Revenue": "Revenue Earned",
+        "Actual Costs": "Costs Incurred"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "ProjectData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "ProjectData"
+      ],
+      "params": {
+        "title_text": "Project Revenue & Technology Analysis"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Tech Flag Override",
+      "target_sheet": "ProjectData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical — renamed several columns to semantically equivalent names. 'Project ID' → 'Budget Ref ID' (the instruction refers to it as 'budget ID in column H', so renaming tests whether the model hardcodes the header name), 'Budget Type' → 'Revenue Category' (instruction says 'revenue types' in column L), 'Project includes tech?' → 'Includes Technology?' (answer column), and several uninvolved columns renamed to break hardcoded header matching. Importantly, I did NOT rename 'technology' or 'Budget ID' (col J) since 'technology' appears as a general English word in the instruction and 'Budget ID' in col J is distinct from the 'budget ID' reference in the instruction which points to col H. (2) Positional title row insert — inserts a title row pushing headers from row 1 to row 2 and data from rows 2-11 to rows 3-12, which breaks hardcoded row references. The answer position shifts from Q2:Q11 to Q3:Q12. (3) Distractor column — 'Tech Flag Override' is plausibly similar to the answer column 'Includes Technology?' but clearly different, testing whether the model writes to the wrong column."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "ProjectData"
+    },
+    "row_shifts": {
+      "ProjectData": 1
+    },
+    "col_inserts": {}
+  }
+}

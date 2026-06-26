@@ -1,0 +1,23 @@
+{
+  "task_id": "156-14",
+  "opaque_col_map": {
+    "Ref": "Branch",
+    "Invoice": "Score",
+    "Amount": "Region",
+    "Transaction Number": "Zone"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "Ref",
+  "old_anchors": [
+    "Ref",
+    "Invoice",
+    "Amount",
+    "Transaction Number"
+  ],
+  "new_anchors": [
+    "Branch",
+    "Score",
+    "Region",
+    "Zone"
+  ]
+}

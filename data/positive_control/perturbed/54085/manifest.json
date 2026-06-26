@@ -1,0 +1,24 @@
+{
+  "task_id": "54085",
+  "opaque_col_map": {
+    "Item": "Factor",
+    "List of Items": "Grade",
+    "Desired Result": "Phase"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Snapshot"
+  },
+  "primary_distractor": "Item",
+  "old_anchors": [
+    "Item",
+    "List of Items",
+    "Desired Result",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Factor",
+    "Grade",
+    "Phase",
+    "Snapshot"
+  ]
+}

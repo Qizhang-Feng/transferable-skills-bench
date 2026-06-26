@@ -1,0 +1,47 @@
+{
+  "task_id": "57558",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Start Date": "Begin Date",
+        "End Date": "Close Date",
+        "LeadsSalesPerson": "SalesRep",
+        "PODateReceived": "OrderDateReceived",
+        "RateHurdles.Rate": "CommissionPct",
+        "Deposits.Commission Rate": "CommPct"
+      },
+      "sheet_rename_map": {
+        "RateHurdles": "CommissionTiers",
+        "Deposits": "Orders"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "CommissionTiers"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Region",
+      "target_sheet": "CommissionTiers",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Using lexical renames and a distractor column. Column renames maintain the same descriptiveness level: 'Start Date' → 'Begin Date', 'End Date' → 'Close Date' (full word to full word synonyms), 'LeadsSalesPerson' → 'SalesRep' (abbreviation to abbreviation), 'PODateReceived' → 'OrderDateReceived' (compound to compound), 'Rate' → 'CommissionPct' and 'Commission Rate' → 'CommPct' (these are intentionally different names since they are on different sheets and serve different roles — Rate is the lookup target in the source table, Commission Rate is the output column in the destination table). Sheet renames from 'RateHurdles' to 'CommissionTiers' and 'Deposits' to 'Orders' are same-level descriptive names. A distractor column 'Region' is added to the source sheet to test whether the agent handles extra irrelevant columns. The instruction mentions 'rate' and 'date range' as general English concepts, but the specific column names being renamed ('Start Date', 'End Date', 'Rate', etc.) are used as column references, not as general English words in the instruction body — the instruction refers to concepts generically. No data values need renaming as the key columns contain dates and names, not column-name-like strings."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "RateHurdles": "CommissionTiers",
+      "Deposits": "Orders"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

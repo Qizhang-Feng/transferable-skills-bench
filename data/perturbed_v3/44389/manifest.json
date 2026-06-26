@@ -1,0 +1,38 @@
+{
+  "task_id": "44389",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Price Comparison Report"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Max Price > 0",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task is a Formula Write-back task where the model must construct a formula that finds the column header(s) of the smallest positive value in each row. The instruction does not reference specific cell addresses or column letters, so the main surface anchors to perturb are layout assumptions. (1) Title row insert: inserting a title row in row 1 pushes the header from row 1 to row 2 and data from rows 2-7 to rows 3-8. This shifts the answer position from P2:P7 to P3:P8 and tests whether the model hardcodes row 1 as the header row. The instruction doesn't mention absolute cell addresses so no instruction update is needed. (2) Distractor column: adding 'Max Price > 0' after the last column is plausibly similar to the existing 'Min Price > 0' column but clearly different, testing whether the model confuses the two. I avoided renaming columns because many header names (Amazon, Costco, etc.) are proper nouns used as data identifiers and the risk flag 'data_values_match_headers' warns that header names may appear as data values — renaming them would require careful data_value_renames across unknown ranges. The two chosen perturbations safely change surface anchors without altering task logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

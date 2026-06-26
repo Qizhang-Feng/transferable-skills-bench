@@ -1,0 +1,39 @@
+{
+  "task_id": "290-27",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "insert_at": 1,
+        "note": "Insert a blank row at the very top (row 1), pushing all existing data down by one row. This shifts column B data range and answer position accordingly. Answer position becomes A15:I138."
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references column B explicitly and operates on cell values within it. Two safe perturbation strategies are applied: (1) A positional blank row is inserted at row 1, shifting all data down by one row. This tests whether the macro or solution hardcodes specific row ranges rather than dynamically detecting data. Since the schema has no header row (header_row is null), inserting a blank row at the top is safe and doesn't conflict with header assumptions. The answer position shifts from A14:I137 to A15:I138. (2) A distractor column named 'Category' is added after the last column (column J). This is plausibly related to the data but clearly different from column B's alphanumeric code values. It tests whether the solution incorrectly processes extra columns. No column or sheet renames are needed since there are no named headers to rename, and instruction_paraphrase is set to false to avoid meaning changes."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

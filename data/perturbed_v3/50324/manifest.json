@@ -1,0 +1,54 @@
+{
+  "task_id": "50324",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Product 1": "Item 1",
+        "Product 2": "Item 2",
+        "Product 3": "Item 3",
+        "Product 4": "Item 4",
+        "Product 5": "Item 5",
+        "Product 6": "Item 6",
+        "Product 7": "Item 7",
+        "Product 8": "Item 8"
+      },
+      "sheet_rename_map": {
+        "Datensatz": "Dataset",
+        "Analyse": "Analysis"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "Analysis",
+          "range": "C5:C12",
+          "find": "Product",
+          "replace": "Item"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has multiple risk flags: multi_sheet_references, header_not_in_row_1, and task_references_specific_cell_addresses (D14, E5, D6, D5:K12, row 3, col C). Previous attempts failed because distractor_column insertion shifted cell addresses (D14 broke) and blank_row_insert shifted the Analyse table layout. The safest approach is pure lexical renaming: rename all 'Product X' headers to 'Item X' across both sheets (including the row labels in the Analysis sheet column C which contain Product names as data values), and rename sheet names from German (Datensatz/Analyse) to English equivalents (Dataset/Analysis). This tests whether the model hardcodes column names and sheet names without changing any cell positions, ranges, or layout. No layout perturbation is applied because all layout changes risk breaking the many specific cell references in the instruction (D14, E5, D6, row 3, col C, D5:K12)."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Datensatz": "Dataset",
+      "Analyse": "Analysis"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

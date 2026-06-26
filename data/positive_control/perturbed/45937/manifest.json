@@ -1,0 +1,17 @@
+{
+  "task_id": "45937",
+  "opaque_col_map": {
+    "Number": "Vendor",
+    "kms": "Flag"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "Number",
+  "old_anchors": [
+    "Number",
+    "kms"
+  ],
+  "new_anchors": [
+    "Vendor",
+    "Flag"
+  ]
+}

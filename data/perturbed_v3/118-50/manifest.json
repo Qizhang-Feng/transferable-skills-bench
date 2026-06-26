@@ -1,0 +1,43 @@
+{
+  "task_id": "118-50",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "AROINTED": "ORDINATE"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": [
+        {
+          "sheet": "Sheet1",
+          "range": "A2:A5000",
+          "find": "AROINTED",
+          "replace": "ORDINATE"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "FLAGGED",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "EARTHPEA and HEARTPEA appear explicitly in the instruction text as examples, so per Rule 6 they cannot be renamed. AROINTED is only a column header/data value not mentioned in the instruction, so it can be safely renamed to ORDINATE (same descriptiveness: both are 8-letter English words). A distractor column FLAGGED is added after the last column (column E) which is far enough from the C/D output area to not interfere. Since row 1 contains data values (not traditional headers), the distractor column header in E1 is just another cell value and won't conflict with the 'no extra headings' instruction since the task only concerns columns C and D for output. data_value_renames ensures any occurrence of AROINTED in the data is also updated to ORDINATE."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

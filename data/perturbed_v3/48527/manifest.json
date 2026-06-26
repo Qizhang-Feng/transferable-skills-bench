@@ -1,0 +1,38 @@
+{
+  "task_id": "48527",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Data Comparison Report"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Column 5",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references columns by ordinal position ('third column', 'first two columns', 'fourth column') rather than by header name, so renaming columns would not perturb any surface anchor the model relies on. Instead, I use two safe perturbations: (1) title_row_insert — inserting a title row at row 1 pushes the header to row 2 and data to rows 3-6, which shifts the answer position from D2:D5 to D3:D6. This tests whether the model hardcodes row numbers or correctly identifies the header row dynamically. (2) distractor_column — adding a 'Column 5' after column D introduces a plausible extra column that could confuse ordinal column counting if the model naively counts all columns. Column names are not renamed because the instruction uses ordinal references ('first', 'second', 'third', 'fourth') which are common English words appearing in the instruction body, and the existing column names ('Column 1', etc.) are generic labels that don't serve as surface anchors in the instruction text."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

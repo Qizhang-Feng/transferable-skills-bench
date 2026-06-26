@@ -1,0 +1,34 @@
+{
+  "task_id": "142-12",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Adjustment Amt",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction explicitly references Column F, Column J, and specific cell addresses F10 and F13. Because of the risk flag 'instruction_references_absolute_rows', inserting a blank row would shift those row references and break the instruction (as seen in the failed Attempt 1). Title row insert carries the same risk. Column reorder would also be dangerous since the instruction hardcodes column letters F and J. Column renaming is unsafe because the header names don't cleanly map to the instruction's references (the instruction references data values like 'Marble Slab Creamery', not header names). The safest perturbation is adding a distractor column with a plausibly similar name ('Adjustment Amt' is similar to the amount column J but clearly different) which tests whether the model incorrectly references or processes this extra column. This changes the surface structure without affecting any logic, cell addresses, or data values."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

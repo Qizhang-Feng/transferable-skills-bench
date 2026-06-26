@@ -1,0 +1,34 @@
+{
+  "task_id": "51262",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Adjustment",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task references many specific absolute cell addresses ($D$6:$D$13, $B$6:$B$13, $C$6:$C$13, $F$10:$F$14, F5, G5, H5) and the header row is not in row 1 (it's in row 6). These risk flags mean we cannot safely insert blank rows or title rows (which would shift all data and break the hardcoded cell references in the instruction), and we cannot reorder columns (which would break the column-letter references). The safest perturbation is adding a distractor column after the last used column. This adds a plausibly similar column ('Adjustment' — related to numeric/sum context but clearly different from existing columns) without shifting any existing data or breaking any cell references. Previous Attempt 2 failed because the distractor column was likely inserted in the middle of the data range, disrupting formula references. By placing it strictly after the last column (after column H, i.e., in a column beyond all referenced ranges), no formulas or references are affected. No column or sheet renames are applied since the headers are data values (dates, letters, formulas) rather than descriptive names, and renaming them would risk breaking the task logic."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

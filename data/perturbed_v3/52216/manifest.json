@@ -1,0 +1,41 @@
+{
+  "task_id": "52216",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Annual Asking Rent (P/SQM)": "Annual Asking Rent (Per SQM)",
+        "Gross Potential Rent (GPR)": "Gross Potential Rent (Total)"
+      },
+      "sheet_rename_map": {
+        "Sheet2": "LOOKUP_TABLE"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "LOOKUP_TABLE"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Adjustment Factor",
+      "target_sheet": "LOOKUP_TABLE",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "We apply two safe anchor types: lexical renames and a distractor column. For lexical changes: (1) 'Annual Asking Rent (P/SQM)' is renamed to 'Annual Asking Rent (Per SQM)' — same meaning, same descriptiveness, just expanding the abbreviation slightly. (2) 'Gross Potential Rent (GPR)' is renamed to 'Gross Potential Rent (Total)' — same concept, same descriptiveness level, keeping 'Rent' intact since the instruction doesn't use this column name as general English. (3) 'Sheet2' is renamed to 'LOOKUP_TABLE' — the instruction references 'Sheet2' by name, but this is a surface anchor change that tests whether the agent finds the sheet by name or by content. We do NOT rename 'DATA' because the INPUTS sheet has formulas like '=DATA!B4*DATA!B7' that would break if the sheet name changes without updating those references, and the previous attempt failed on this. We do NOT rename 'Advertising & Marketing' or 'Electricity' since these appear as meaningful terms in the instruction text. A distractor column 'Adjustment Factor' is added to the lookup table sheet to test whether the agent incorrectly includes it in range references. No data_value_renames are needed since the renamed columns don't appear as data values elsewhere."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet2": "LOOKUP_TABLE"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

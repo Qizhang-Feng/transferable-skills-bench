@@ -1,0 +1,57 @@
+{
+  "task_id": "141-20",
+  "opaque_col_map": {
+    "Transaction Date": "Phase",
+    "Branch": "Grade",
+    "Invoice No.": "Code",
+    "Amount": "Flag",
+    "Code": "Score",
+    "Name": "Source",
+    "Transaction Category Type": "Priority",
+    "Period Month": "Severity",
+    "Period Year": "Channel",
+    "Reference": "Span",
+    "Run": "Vendor",
+    "Date Processed": "Batch",
+    "Total Invoice Value": "Duration"
+  },
+  "opaque_sheet_map": {
+    "PL Recon Items": "Catalog",
+    "Statement Recon Items": "Workflow"
+  },
+  "primary_distractor": "Transaction Date",
+  "old_anchors": [
+    "Transaction Date",
+    "Branch",
+    "Invoice No.",
+    "Amount",
+    "Code",
+    "Name",
+    "Transaction Category Type",
+    "Period Month",
+    "Period Year",
+    "Reference",
+    "Run",
+    "Date Processed",
+    "Total Invoice Value",
+    "PL Recon Items",
+    "Statement Recon Items"
+  ],
+  "new_anchors": [
+    "Phase",
+    "Grade",
+    "Code",
+    "Flag",
+    "Score",
+    "Source",
+    "Priority",
+    "Severity",
+    "Channel",
+    "Span",
+    "Vendor",
+    "Batch",
+    "Duration",
+    "Catalog",
+    "Workflow"
+  ]
+}

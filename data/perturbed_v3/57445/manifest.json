@@ -1,0 +1,42 @@
+{
+  "task_id": "57445",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Part No.": "Item Code",
+        "Product Description": "Item Description",
+        "Post Cost": "Shipping Cost",
+        "Weight From (g)": "Min Weight (g)",
+        "Weight To (g)": "Max Weight (g)",
+        "Price": "Cost"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Package & Weight Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Handling Fee",
+      "target_sheet": "Package & Weight Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I rename columns that are not referenced by name in the instruction text. The instruction mentions 'Column E', 'Columns C and D', 'Package Type' and 'Weight' implicitly through the sheet name, and 'Cost data'. I keep 'Package Type' and 'Weight (g)' unchanged since they appear in the instruction context (the sheet is named 'Package & Weight Data' and the task references 'Cost data'). I rename 'Post Cost' to 'Shipping Cost' (same descriptiveness), 'Part No.' to 'Item Code', 'Product Description' to 'Item Description', and in the lookup sheet rename 'Weight From (g)' to 'Min Weight (g)', 'Weight To (g)' to 'Max Weight (g)', and 'Price' to 'Cost'. I do NOT rename sheets since the instruction explicitly references 'Package & Weight Data' and 'Pricing Worksheet' and changing those would require instruction paraphrasing which is disallowed. I add a distractor column 'Handling Fee' to the lookup sheet to test whether the agent incorrectly references it instead of the actual cost column."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "task_id": "12864",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1",
+        "Sheet2"
+      ],
+      "params": {
+        "title_row_content": {
+          "Sheet1": "Deal Tracking Summary",
+          "Sheet2": "Data Lookup Reference"
+        }
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Legacy Data Reference",
+      "target_sheet": "Sheet2",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves matching Column D on Sheet1 with Column A on Sheet2 using INDEX/MATCH, with the answer at Sheet2!B2:B12. I chose two safe anchor types: (1) positional_title_row — inserting a title row on both sheets shifts all data down by one row, so the answer position moves from B2:B12 to B3:B13, testing whether the agent dynamically identifies the actual data range rather than hardcoding row numbers; (2) distractor_column — adding a plausibly named 'Legacy Data Reference' column after the last column on Sheet2 tests whether the agent incorrectly references this extra column instead of the correct ones. I avoided renaming columns because key column names like 'Existing Data Fields', 'Deal Name', and 'deal name' appear as meaningful references in the instruction (the instruction explicitly mentions 'Column B', 'Column C', 'Column D' and the concept of matching existing data fields). The distractor column name is plausibly related to the data domain but clearly distinct from the actual columns."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1,
+      "Sheet2": 1
+    },
+    "col_inserts": {}
+  }
+}

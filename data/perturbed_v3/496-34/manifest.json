@@ -1,0 +1,47 @@
+{
+  "task_id": "496-34",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "ID": "IDNumber",
+        "Date en Time": "Timestamp",
+        "Amount": "Quantity"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data1"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Data1"
+      ],
+      "params": {
+        "title_text": "Transaction Records"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Total",
+      "target_sheet": "Data1",
+      "position": "after_col_E"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used. Lexical: 'ID' → 'IDNumber', 'Date en Time' → 'Timestamp', 'Amount' → 'Quantity' — all maintain similar descriptiveness. 'Name' is not renamed because it appears as a common English word in the instruction ('sheet name', 'column name'). Sheet renamed from 'Sheet1' to 'Data1'. Positional title row insert: adds a title row at row 1, shifting the header to row 2 and data to rows 3-10, which tests whether the agent hardcodes row references (the answer position and instruction reference absolute rows, but title_row_insert is listed as safe and the task does not delete/insert rows itself — it unmerges and reformats). Distractor column 'Total' is placed after col E, plausibly similar to aggregation output but clearly different from existing columns. Data values in col A (ID numbers) are not renamed since they are numeric keys that affect grouping results. The merged cells in F:H and their content are untouched per the constraint that col F:H should not change."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data1"
+    },
+    "row_shifts": {
+      "Data1": 1
+    },
+    "col_inserts": {}
+  }
+}

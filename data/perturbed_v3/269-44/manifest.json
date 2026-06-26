@@ -1,0 +1,37 @@
+{
+  "task_id": "269-44",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "column_name": "Notes",
+        "position": "after_last_column"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has severe constraints: (1) The instruction explicitly references absolute cell addresses A2 & A3 for 'Chassis' text, so blank_row_insert would shift data and break the verification condition — this was the exact failure in Attempt 1. (2) The task deletes rows, so title_row_insert is unsafe. (3) The only header is '2022/04/22' which is a date value appearing as both header and data — renaming it would require changing actual date data values which risks semantic confusion. (4) The sheet name 'Import Data' is explicitly referenced in the instruction as a meaningful name the user chose, and the task is about fixing VBA code that likely references this sheet name — renaming it could change the task's difficulty by requiring the agent to also update VBA references. (5) Column A is referenced in the instruction and is the only data column. Given these constraints, the safest perturbation is adding a distractor column (column B with header 'Notes') which tests whether the agent incorrectly assumes single-column data or hardcodes column counts, without affecting any absolute row references or the deletion logic. This is a minimal but valid structural perturbation that changes the surface layout without altering task logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "task_id": "50683",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Golfer": "Player",
+        "Average": "Season Avg",
+        "last 4 trend": "Recent 4 Avg"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "ScoreTracker"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "ScoreTracker"
+      ],
+      "params": {
+        "title_text": "2021 Golf Season Scores",
+        "new_header_row": 2,
+        "new_answer_position": "Q3:Q6"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Handicap",
+      "target_sheet": "ScoreTracker",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe perturbation strategies are applied: (1) Lexical: Renamed 'Golfer' to 'Player', 'Average' to 'Season Avg', and 'last 4 trend' to 'Recent 4 Avg' — all semantically equivalent at the same descriptiveness level. The sheet is renamed from 'Sheet1' to 'ScoreTracker'. None of these renamed headers appear as common English words in the instruction body (the instruction uses 'player' generically but 'Golfer' is the column name being renamed, and the instruction never references the column name 'Golfer' directly). (2) Positional title row insert: A title row is inserted at row 1, pushing headers to row 2 and data to rows 3-6. This shifts the answer position from Q2:Q5 to Q3:Q6, testing whether solutions hardcode row numbers. The risk flag 'task_depends_on_blank_row_positions' is respected — the title row insert only shifts everything uniformly and does not affect the relative positions of blank cells within the data. (3) Distractor column: 'Handicap' is added after the last column — plausibly golf-related but clearly different from score/average columns, testing whether solutions incorrectly incorporate it."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "ScoreTracker"
+    },
+    "row_shifts": {
+      "ScoreTracker": 1
+    },
+    "col_inserts": {}
+  }
+}

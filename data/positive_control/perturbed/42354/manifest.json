@@ -1,0 +1,18 @@
+{
+  "task_id": "42354",
+  "opaque_col_map": {
+    "Result": "Interval"
+  },
+  "opaque_sheet_map": {
+    "Query": "Workflow"
+  },
+  "primary_distractor": "Result",
+  "old_anchors": [
+    "Result",
+    "Query"
+  ],
+  "new_anchors": [
+    "Interval",
+    "Workflow"
+  ]
+}

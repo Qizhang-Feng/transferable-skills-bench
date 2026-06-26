@@ -1,0 +1,34 @@
+{
+  "task_id": "50796",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Preorder Count",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction explicitly references absolute cell addresses (A1:B5, A12:C22, B1, C1) which makes positional_blank_row extremely risky — as seen in the failed Attempt 1. Therefore I avoid any row-shifting layout. Instead I use a distractor column strategy: adding a column named 'Preorder Count' which is plausibly similar to the existing 'Preorder Total' column but clearly different. This tests whether the agent latches onto the wrong column. I do not rename 'Item' because it appears as a common English word in the instruction context, and I do not rename 'Preorder Total' because the instruction references the concept of preorder totals. No sheet renames are needed since the task doesn't reference sheet names. No data value renames are needed. The underlying logic and difficulty remain identical — the agent still needs to use SUMIF/SUMIFS on the same data range with the same grouping keys."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

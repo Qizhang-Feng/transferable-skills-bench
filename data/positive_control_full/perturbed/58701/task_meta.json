@@ -1,0 +1,6 @@
+{
+  "id": "58701",
+  "instruction": "How can I automatically populate an office code on the 'Archive' when a user enters a location name in another cell, using the location - office code pairs stored in the 'Workflow'? For example, when a user types a location such as \u2018Applewood\u2019 on the 'Archive', the corresponding office code linked to that location in the 'Workflow' should automatically appear in the designated office code column.",
+  "answer_position": "'Archive'!E2:E3",
+  "instruction_type": "Cell-Level Manipulation"
+}

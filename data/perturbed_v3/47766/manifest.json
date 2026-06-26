@@ -1,0 +1,34 @@
+{
+  "task_id": "47766",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Total (2)"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Closing Revenue",
+      "target_sheet": "Total (2)",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has severe risk flags: the instruction references specific absolute row ranges ($H$8:$H$37, $H$41:$H$58, $H$62:$H$74) and specific cell addresses (J39:O53, K40), and the header is not in row 1. This means blank_row_insert would shift all rows and break every reference in the instruction (as demonstrated by the failed Attempt 1). Title_row_insert has the same problem. Shuffling data rows is not safe because the data appears to be organized in distinct sections separated by specific row ranges, and the task references absolute row ranges. The only safe layout perturbation is adding a distractor column, which does not shift any rows. The distractor column 'Closing Revenue' is plausibly similar to existing columns ('Revenue') but clearly different, and could confuse an agent into referencing it. I avoid renaming 'Revenue' or 'Rentals' because 'Revenue' appears as a header that is referenced contextually and 'Rentals' similarly appears in data overlaps. No column or sheet renames are applied to avoid risk given the complex absolute references in the instruction."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

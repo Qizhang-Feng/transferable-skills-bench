@@ -1,0 +1,36 @@
+{
+  "task_id": "49237",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Open AEW": "Active AEW"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "MI Period",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task references many specific cell addresses (E19, E5, E7, E9, F10, F7), so any row/column shifting (blank_row_insert, title_row_insert, column_reorder) would break the cell references and change the task logic. The header is already not in row 1 (it's in row 2), further confirming we must avoid layout shifts. Instead, I use two safe perturbations: (1) Rename 'Open AEW' to 'Active AEW' — a semantically equivalent abbreviation-level rename for a column not referenced in the instruction, which tests whether the model hardcodes column names. (2) Add a distractor column 'MI Period' after the last column — this is plausibly related to the task (middle initial period) but is clearly a different column from any existing one, testing whether the model gets confused and writes to the wrong location. No data_value_renames are needed since 'Open AEW' does not appear as data values elsewhere. The answer position F7 remains unchanged."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

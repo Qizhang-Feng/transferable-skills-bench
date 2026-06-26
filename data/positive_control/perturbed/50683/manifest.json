@@ -1,0 +1,24 @@
+{
+  "task_id": "50683",
+  "opaque_col_map": {
+    "Golfer": "Weight",
+    "Average": "Source",
+    "last 4 trend": "Tier"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Registry"
+  },
+  "primary_distractor": "Golfer",
+  "old_anchors": [
+    "Golfer",
+    "Average",
+    "last 4 trend",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Weight",
+    "Source",
+    "Tier",
+    "Registry"
+  ]
+}

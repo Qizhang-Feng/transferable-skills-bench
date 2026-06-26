@@ -1,0 +1,38 @@
+{
+  "task_id": "32093",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Employee Transition Tracker 2023-2024"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Office 4",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Two safe perturbation strategies are applied. (1) Title row insert: A title row is inserted at row 1, pushing the header row from row 1 to row 2 and all data rows down by one. This tests whether the model hardcodes row references (e.g., F2:F15 becomes F3:F16 in the new layout). The instruction references columns B, C, D, E, and F by letter, and the answer position shifts accordingly. (2) Distractor column: 'Office 4' is added after the last column. This is plausibly similar to the existing Office 1/2/3 columns but is clearly a new, empty column that should not be referenced in the formula. It tests whether the model incorrectly extends its lookup range to include this extra column. No column renames are applied because the instruction explicitly references columns B, C, D, E by letter and describes their semantic content ('current employee's name', 'new employees'), so renaming them would risk misalignment with the instruction text. No sheet rename is needed since the instruction doesn't reference a sheet name."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

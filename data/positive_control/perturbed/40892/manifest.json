@@ -1,0 +1,24 @@
+{
+  "task_id": "40892",
+  "opaque_col_map": {
+    "Product Name": "Impact",
+    "Needs to return value from list when A2 etc matches ": "Marker",
+    "List": "Margin"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Dashboard"
+  },
+  "primary_distractor": "Product Name",
+  "old_anchors": [
+    "Product Name",
+    "Needs to return value from list when A2 etc matches ",
+    "List",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Impact",
+    "Marker",
+    "Margin",
+    "Dashboard"
+  ]
+}

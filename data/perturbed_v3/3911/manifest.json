@@ -1,0 +1,50 @@
+{
+  "task_id": "3911",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "CompanyID": "FirmID",
+        "EmpCode": "EmployeeCode",
+        "EmpName": "EmployeeName",
+        "Designation": "JobTitle",
+        "NetSalary": "NetPay",
+        "Total": "GrandTotal"
+      },
+      "sheet_rename_map": {
+        "denomination": "CurrencyBreakdown"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "CurrencyBreakdown"
+      ],
+      "params": {
+        "title_text": "Employee Salary Currency Distribution Report",
+        "new_header_row": 2
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "BankAccount",
+      "target_sheet": "CurrencyBreakdown",
+      "position": "after_col_F"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I selected positional_title_row and distractor_column from the safe list. The title_row_insert shifts the header from row 1 to row 2, which tests whether the model hardcodes row positions. The answer position H2:P8 will shift to H3:P9 accordingly. Column renames change CompanyID→FirmID, EmpCode→EmployeeCode, EmpName→EmployeeName, Designation→JobTitle, NetSalary→NetPay, Total→GrandTotal — all semantically equivalent at the same descriptiveness level. The denomination columns (1000, 500, etc.) are left unchanged since they are numeric denomination values central to the task logic. The sheet is renamed from 'denomination' to 'CurrencyBreakdown'. A distractor column 'BankAccount' is inserted after column F, which is plausibly related to employee payroll data but clearly different from existing columns. None of the renamed columns appear as common English words in the instruction text, so renaming is safe."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "denomination": "CurrencyBreakdown"
+    },
+    "row_shifts": {
+      "CurrencyBreakdown": 1
+    },
+    "col_inserts": {}
+  }
+}

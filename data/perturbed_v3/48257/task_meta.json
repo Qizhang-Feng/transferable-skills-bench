@@ -1,0 +1,5 @@
+{
+  "id": "48257",
+  "instruction": "How can I extract numerical values and determine the valid decimal sign from a text string containing various currency positions and formats in Excel?",
+  "answer_position": "C3:C6"
+}

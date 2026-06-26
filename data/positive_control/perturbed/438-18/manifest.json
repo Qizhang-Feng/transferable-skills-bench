@@ -1,0 +1,30 @@
+{
+  "task_id": "438-18",
+  "opaque_col_map": {
+    "ITEM": "Index",
+    "BRANDS": "Label",
+    "BATCH": "Vendor",
+    "ORIGIN": "Cycle"
+  },
+  "opaque_sheet_map": {
+    "INPUT": "Archive",
+    "OUPUT": "Pipeline"
+  },
+  "primary_distractor": "ITEM",
+  "old_anchors": [
+    "ITEM",
+    "BRANDS",
+    "BATCH",
+    "ORIGIN",
+    "INPUT",
+    "OUPUT"
+  ],
+  "new_anchors": [
+    "Index",
+    "Label",
+    "Vendor",
+    "Cycle",
+    "Archive",
+    "Pipeline"
+  ]
+}

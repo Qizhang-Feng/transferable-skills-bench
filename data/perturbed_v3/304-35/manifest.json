@@ -1,0 +1,121 @@
+{
+  "task_id": "304-35",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "column1": "field1",
+        "column2": "field2",
+        "column3": "field3",
+        "column4": "field4",
+        "column5": "field5",
+        "column6": "field6"
+      },
+      "sheet_rename_map": {
+        "what i need sheet": "target output sheet"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "target output sheet",
+          "range": "A2:F2",
+          "find": "column1",
+          "replace": "field1"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A2:F2",
+          "find": "column2",
+          "replace": "field2"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A2:F2",
+          "find": "column3",
+          "replace": "field3"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A2:F2",
+          "find": "column4",
+          "replace": "field4"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A2:F2",
+          "find": "column5",
+          "replace": "field5"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A2:F2",
+          "find": "column6",
+          "replace": "field6"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A29:F29",
+          "find": "column1",
+          "replace": "field1"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A29:F29",
+          "find": "column2",
+          "replace": "field2"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A29:F29",
+          "find": "column3",
+          "replace": "field3"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A29:F29",
+          "find": "column4",
+          "replace": "field4"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A29:F29",
+          "find": "column5",
+          "replace": "field5"
+        },
+        {
+          "sheet": "target output sheet",
+          "range": "A29:F29",
+          "find": "column6",
+          "replace": "field6"
+        }
+      ]
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "target output sheet"
+      ],
+      "params": {
+        "above_data": 1,
+        "below_data": 2
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "field7",
+      "target_sheet": "target output sheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references column letters (A, E, F), specific row numbers (2, 29), and the sheet name 'what i need sheet'. Risk flags indicate absolute row references and specific cell addresses are used. Strategy: (1) Rename all columns from 'columnN' to 'fieldN' — same abbreviation-level descriptiveness. Since headers also appear as data values in index rows 2 and 29, we include data_value_renames for both rows. (2) Rename the sheet from 'what i need sheet' to 'target output sheet' — same descriptiveness level. (3) Insert blank rows (1 above data, 2 below) to shift row positions and test whether the agent detects data boundaries dynamically rather than hardcoding row numbers. The instruction still references rows 2 and 29 which will now be shifted — this tests the agent's ability to find the actual index rows. (4) Add a distractor column 'field7' after the last column to test whether the agent hardcodes column count. We set instruction_paraphrase to false to avoid meaning drift, per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "what i need sheet": "target output sheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

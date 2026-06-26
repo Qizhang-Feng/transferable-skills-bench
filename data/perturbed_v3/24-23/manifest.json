@@ -1,0 +1,48 @@
+{
+  "task_id": "24-23",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Group": "Category",
+        "ID": "EmpID",
+        "Location": "Site",
+        "Pay Level": "Salary Grade"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Data"
+      ],
+      "params": {
+        "above_data": 1,
+        "below_data": 2
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Dept Code",
+      "target_sheet": "Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves filtering and deleting rows by values in column A ('Group'). The risk flag 'task_deletes_or_inserts_rows' means we must NOT insert a title row, so we use blank_row_insert instead (1 above, 2 below data block). This tests whether the agent hardcodes row numbers or correctly detects data boundaries. We also add a distractor column ('Dept Code') after the last real column to test whether the agent hardcodes the number of columns. Column renames change 'Group' to 'Category', 'ID' to 'EmpID', 'Location' to 'Site', and 'Pay Level' to 'Salary Grade' — all at the same descriptiveness level. The instruction references 'column A' positionally and the data values '@9T', 'SAL', 'T9A' which are not column names, so no data_value_renames are needed. The sheet is renamed from 'Sheet1' to 'Data'. We do not paraphrase the instruction to avoid changing meaning; the instruction still references 'column A' which remains correct after blank row insertion since columns don't shift."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data"
+    },
+    "row_shifts": {
+      "Data": 1
+    },
+    "col_inserts": {}
+  }
+}

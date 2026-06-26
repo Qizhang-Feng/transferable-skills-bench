@@ -1,0 +1,50 @@
+{
+  "task_id": "57232",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Origin Port (name)": "Source Port (name)",
+        "Origin Port (portcode)": "Source Port (portcode)",
+        "Origin Port": "Source Port",
+        "Destination Port (name)": "Dest Port (name)",
+        "Destination Port (portcode)": "Dest Port (portcode)",
+        "Equipment type": "Container Size",
+        "Sea Freight Rate": "Ocean Freight Rate",
+        "Total volume": "Total qty",
+        "Currency": "Curr"
+      },
+      "sheet_rename_map": {
+        "Sea Freight Rates": "Ocean Freight Rates",
+        "Volume": "Shipment Volume"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Shipment Volume"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Avg Weight",
+      "target_sheet": "Shipment Volume",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Two anchor types are used: (1) lexical — renaming columns and sheets to break hardcoded references. 'Origin Port' becomes 'Source Port' consistently across both sheets to preserve the alignment relationship. 'Equipment type' becomes 'Container Size' on both sheets. 'Destination Port' becomes 'Dest Port'. Sheet names are changed. The instruction mentions 'origin port', 'equipment size', 'destination port', and 'volume' as general English concepts describing the task logic, but the actual column names like 'Sea Freight Rate', 'Currency', 'Total volume' are safe to rename as they are column references. I kept 'Volume' column name in Sea Freight Rates unchanged since 'volume' appears prominently in the instruction as a concept word. (2) distractor_column — adding 'Avg Weight' to the Volume (now Shipment Volume) sheet, which is plausibly related to shipping data but clearly different from the volume columns needed for the lookup."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sea Freight Rates": "Ocean Freight Rates",
+      "Volume": "Shipment Volume"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

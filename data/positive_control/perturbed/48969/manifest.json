@@ -1,0 +1,21 @@
+{
+  "task_id": "48969",
+  "opaque_col_map": {
+    "Source": "Region",
+    "Result": "Tier"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Registry"
+  },
+  "primary_distractor": "Source",
+  "old_anchors": [
+    "Source",
+    "Result",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Region",
+    "Tier",
+    "Registry"
+  ]
+}

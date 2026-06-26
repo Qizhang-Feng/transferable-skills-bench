@@ -1,0 +1,48 @@
+{
+  "task_id": "398-14",
+  "opaque_col_map": {
+    "ITEM": "Channel",
+    "BR": "Factor",
+    "TY": "Label",
+    "OR": "Rating",
+    "SALE": "Ratio",
+    "RET": "Status",
+    "BALANCE": "Phase"
+  },
+  "opaque_sheet_map": {
+    "STA": "Records",
+    "RPA": "Registry",
+    "SR": "Tracker",
+    "SS": "Archive",
+    "COLLECTION": "Inventory"
+  },
+  "primary_distractor": "ITEM",
+  "old_anchors": [
+    "ITEM",
+    "BR",
+    "TY",
+    "OR",
+    "SALE",
+    "RET",
+    "BALANCE",
+    "STA",
+    "RPA",
+    "SR",
+    "SS",
+    "COLLECTION"
+  ],
+  "new_anchors": [
+    "Channel",
+    "Factor",
+    "Label",
+    "Rating",
+    "Ratio",
+    "Status",
+    "Phase",
+    "Records",
+    "Registry",
+    "Tracker",
+    "Archive",
+    "Inventory"
+  ]
+}

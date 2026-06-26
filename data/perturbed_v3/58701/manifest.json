@@ -1,0 +1,50 @@
+{
+  "task_id": "58701",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Location": "Site",
+        "Location Name": "Site Name",
+        "Office Code": "Branch Code"
+      },
+      "sheet_rename_map": {
+        "Entry Tab": "Input Tab",
+        "Table Tab": "Lookup Tab"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Lookup Tab"
+      ],
+      "params": {
+        "position": "before_header",
+        "count": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Region Code",
+      "target_sheet": "Lookup Tab",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical: Renamed sheets ('Entry Tab' → 'Input Tab', 'Table Tab' → 'Lookup Tab') and columns ('Location' → 'Site', 'Location Name' → 'Site Name', 'Office Code' → 'Branch Code') at the same descriptiveness level. Both sheets' shared concept column 'Office Code' is renamed consistently to 'Branch Code' to preserve alignment. 'Location' in the instruction is a general English word describing the concept, but the column names 'Location' and 'Location Name' are used as column references, so renaming to 'Site'/'Site Name' is acceptable. (2) Positional/title_row: A blank row is inserted before the header in the Lookup Tab, shifting the header row down by 1, which tests whether the agent hardcodes row 1 as the header. (3) Distractor column: 'Region Code' is added to the Lookup Tab after the last column — plausibly similar to 'Branch Code' but clearly different, testing whether the agent picks the wrong column."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Entry Tab": "Input Tab",
+      "Table Tab": "Lookup Tab"
+    },
+    "row_shifts": {
+      "Lookup Tab": 1
+    },
+    "col_inserts": {}
+  }
+}

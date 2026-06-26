@@ -1,0 +1,43 @@
+{
+  "task_id": "32438",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Email Campaign": "Campaign Name",
+        "Send List": "Distribution List",
+        "Day of Week": "Weekday",
+        "Activity Type": "Activity Category"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "CampaignData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "CampaignData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Timestamp",
+      "target_sheet": "CampaignData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (I2, J2:J4, column J, column I) so title_row_insert is risky and flagged. Instead, I use safe anchors: (1) lexical renames on columns NOT referenced in the instruction — 'Email Campaign', 'Send List', 'Day of Week', and 'Activity Type' are never mentioned in the instruction text, so renaming them is safe. The 'Time' column (col I) IS referenced in the instruction context so it is left unchanged. (2) A distractor column 'Timestamp' is added after the last column — it is plausibly similar to 'Time' but clearly different, testing whether the model gets confused by a nearby column name. The sheet is renamed from 'Sheet1' to 'CampaignData' which doesn't appear in the instruction. None of these changes affect the data values, the cell addresses referenced in the instruction, or the answer position J2:J4."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "CampaignData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

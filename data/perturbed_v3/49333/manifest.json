@@ -1,0 +1,52 @@
+{
+  "task_id": "49333",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "SR. NO.": "SL. NO.",
+        "TRACK": "VENUE",
+        "RACE": "EVT",
+        "AVB NO": "TAB NO",
+        "CORRECT": "VALID",
+        "RESULTS ": "OUTCOME ",
+        "MANUALLY": "MANUAL",
+        "NO": "SN",
+        "RN": "EN",
+        "TN": "BN",
+        "SEL": "PICK"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Sheet1",
+        "Sheet2": "Sheet2",
+        "Sheet3": "Sheet3"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "ODDS",
+      "target_sheet": "Sheet3",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (F2, G2:I7) and sheet names (Sheet3) in the instruction, so I cannot rename sheets or move columns that are explicitly referenced. I apply lexical renames to columns that are NOT referenced in the instruction (TRACK, RACE, AVB NO, CORRECT, RESULTS, MANUALLY, and Sheet2 columns). The key columns NAME, 100, FIXW, FIXP appear in the instruction context (the VLOOKUP formula references Sheet3's columns) and must remain aligned across sheets, so I leave them unchanged. I add a distractor column 'ODDS' to Sheet3 after the last column to test whether the agent incorrectly expands the lookup range. Sheet names are kept the same since the instruction explicitly references 'Sheet3'."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Sheet1",
+      "Sheet2": "Sheet2",
+      "Sheet3": "Sheet3"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

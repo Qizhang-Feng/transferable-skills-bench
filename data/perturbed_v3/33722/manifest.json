@@ -1,0 +1,42 @@
+{
+  "task_id": "33722",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "ticker": "symbol",
+        "marketcap": "market_cap",
+        "median 0-1%": "median_0_1pct"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "CompanyData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "CompanyData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "mkt_volume",
+      "target_sheet": "CompanyData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references columns B, C, and output E2:E6 by absolute cell addresses, so we must not change column positions or insert title rows (risk flags indicate absolute row references). Instead, we apply safe perturbations: (1) Lexical renames — 'ticker' → 'symbol' (same descriptiveness, both short labels), 'marketcap' → 'market_cap' (equivalent naming), 'median 0-1%' → 'median_0_1pct' (equivalent abbreviation style). Sheet renamed from 'Sheet1' to 'CompanyData'. None of these header names appear as general English words in the instruction body — 'percentile' IS used in the instruction as a general English word ('specific percentile range'), so we do NOT rename it per Rule 6. (2) Distractor column 'mkt_volume' added after the last column — it is plausibly similar to 'market_cap' but clearly different, testing whether the model gets confused by a nearby-sounding column. These changes break hardcoded column/sheet name assumptions without altering data values, column positions, or task logic."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "CompanyData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

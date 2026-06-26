@@ -1,0 +1,47 @@
+{
+  "task_id": "37086",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Column2": "Field2",
+        "Column3": "Field3",
+        "Total": "Sum"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {
+        "title_text": "Calculation Summary"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Subtotal",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical — Column2→Field2, Column3→Field3, Total→Sum, and Sheet1→DataSheet. Column1 is NOT renamed because the instruction references 'column1' as a general English phrase describing the column, and renaming it could confuse the mapping. Total→Sum is safe because the instruction says 'a column named Total' which is a pure column reference, and we update it to 'Sum' (the instruction would need to reference the new name, but since we're only perturbing the file, the model must find the right column). (2) Positional title row insert — pushes headers from row 1 to row 2 and data from rows 2-5 to rows 3-6, breaking hardcoded row assumptions. The answer position shifts from D2:D5 to E3:E6 accordingly. (3) Distractor column — 'Subtotal' is plausibly similar to 'Sum' (the renamed Total column) but clearly different, testing whether the model writes formulas to the correct column."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {
+      "DataSheet": 1
+    },
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "task_id": "170-13",
+  "opaque_col_map": {
+    "Entry": "Cycle",
+    "Output": "Vendor",
+    "U4_ComponentPropertyForm": "Platform",
+    "U4_PackageDetailsForm": "Volume",
+    "U4_VisualPerformanceForm": "Zone",
+    "U4_ApprvdPolymerDetailLForm": "Impact",
+    "U4_LayerStructureForm": "Metric"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "Entry",
+  "old_anchors": [
+    "Entry",
+    "Output",
+    "U4_ComponentPropertyForm",
+    "U4_PackageDetailsForm",
+    "U4_VisualPerformanceForm",
+    "U4_ApprvdPolymerDetailLForm",
+    "U4_LayerStructureForm"
+  ],
+  "new_anchors": [
+    "Cycle",
+    "Vendor",
+    "Platform",
+    "Volume",
+    "Zone",
+    "Impact",
+    "Metric"
+  ]
+}

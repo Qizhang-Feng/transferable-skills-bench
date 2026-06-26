@@ -1,0 +1,38 @@
+{
+  "task_id": "54196",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Supplier #": "Vendor #",
+        "Estimated Delivery time": "Est. Lead Time",
+        "Standardized supplier nr": "Normalized vendor nr",
+        "Itemnr": "Productnr",
+        "Supplier": "Vendor"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Vendor Region",
+      "target_sheet": "Sheet one",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific column letters (B, C, E, F, G) and cell G2 in the instruction, and the answer position is 'Sheet two'!E2:E279. Because previous attempts all failed by inserting a distractor column in Sheet two which shifted columns and broke the column-letter references in the instruction, I must NOT insert any column in Sheet two. Instead, I insert the distractor column in Sheet one (after the last column) which does not shift any referenced columns. For lexical perturbation, I rename all shared column headers consistently across both sheets (Supplier # → Vendor #, Estimated Delivery time → Est. Lead Time, Standardized supplier nr → Normalized vendor nr, Itemnr → Productnr, Supplier → Vendor). Column1 is not renamed since it's the target output column referenced as 'Column E' in the instruction. Sheet names are not renamed because the instruction explicitly references 'Sheet two' and the answer position uses it. The distractor column 'Vendor Region' in Sheet one is plausibly related but clearly different from existing columns. No instruction paraphrase to avoid meaning changes."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

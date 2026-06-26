@@ -1,0 +1,38 @@
+{
+  "task_id": "14240",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Category": "Plan Type",
+        "Members": "Dependents",
+        "Sum Insured": "Coverage Amount"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Premium Rate",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts all failed because row or column insertions shifted the specific cell addresses referenced in the instruction (R4, S4, T4, A4:A75, B4:B75, C3:M3, C4:M75, Column U). Since the task heavily references absolute cell addresses and the risk flags explicitly warn about this, I avoid any layout changes that shift cells. Instead, I (1) rename columns Category->Plan Type, Members->Dependents, Sum Insured->Coverage Amount to test if models hardcode column names rather than using cell references, and (2) add a distractor column 'Premium Rate' after the last column (column V) which does not shift any existing columns. The layout type is 'skip' to avoid any row shifts. This changes surface anchors without altering task logic or cell positions."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

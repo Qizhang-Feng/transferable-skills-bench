@@ -1,0 +1,41 @@
+{
+  "task_id": "341-14",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "positional_title_row"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "problem": "source",
+        "result": "output"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "source"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "C",
+      "target_sheet": "source",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task involves transposing/reshaping data from a 'problem' sheet into a 'result' sheet. The risk flags indicate multi_sheet_references and data_values_match_headers, so we must be careful. The column headers 'A' and the multiline header in column B are actual data markers (letters A-H and numbers), not descriptive names — renaming them would change the data itself since 'A' appears both as a header and as data values throughout. Instead, I apply two safe perturbations: (1) Sheet renaming — 'problem' → 'source' and 'result' → 'output' — which tests whether the agent hardcodes sheet names. Both are single-word, similar descriptiveness level. (2) A distractor column 'C' inserted after the last column in the source sheet, which tests whether the agent correctly identifies the data boundary (columns A and B only) rather than assuming all columns contain data. The instruction references 'problem' and 'result' sheet names which will need updating to 'source' and 'output'. I avoid renaming column headers since 'A' appears as both a header and data values extensively, and the risk flag 'data_values_match_headers' warns about this. I also avoid blank_row_insert since the task depends on blank row positions (risk flag) and the data structure with multiline cells is sensitive to row changes."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "problem": "source",
+      "result": "output"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

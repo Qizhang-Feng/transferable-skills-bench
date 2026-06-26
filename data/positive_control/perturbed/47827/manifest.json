@@ -1,0 +1,42 @@
+{
+  "task_id": "47827",
+  "opaque_col_map": {
+    "seq_no": "Status",
+    "strai_1": "Segment",
+    "strai_2": "Sector",
+    "strai_3": "Duration",
+    "straight": "Batch",
+    "box_1": "Factor",
+    "box_2": "Marker",
+    "box_3": "Grade"
+  },
+  "opaque_sheet_map": {
+    "3 straights to 3 boxed": "Archive",
+    "boxed": "Registry"
+  },
+  "primary_distractor": "seq_no",
+  "old_anchors": [
+    "seq_no",
+    "strai_1",
+    "strai_2",
+    "strai_3",
+    "straight",
+    "box_1",
+    "box_2",
+    "box_3",
+    "3 straights to 3 boxed",
+    "boxed"
+  ],
+  "new_anchors": [
+    "Status",
+    "Segment",
+    "Sector",
+    "Duration",
+    "Batch",
+    "Factor",
+    "Marker",
+    "Grade",
+    "Archive",
+    "Registry"
+  ]
+}

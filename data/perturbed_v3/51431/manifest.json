@@ -1,0 +1,37 @@
+{
+  "task_id": "51431",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Names:": "Names:",
+        "Primary Provider": "Primary Provider"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Secondary Contact",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task explicitly references cell addresses A2 and B2, so any row-shifting perturbation (blank_row_insert or title_row_insert) would break the task unless the instruction is rewritten — which is risky. Column renaming is also risky here: 'Names:' is closely related to the word 'names' used throughout the instruction body (rule 6), and 'Primary Provider' is the answer column at B2 which must stay intact. The safest perturbation is adding a distractor column ('Secondary Contact') after the last column (column C). This adds a plausibly similar but clearly different column that doesn't affect the data in A2 or the answer position B2. Previous Attempt 2 failed because it tried to rename/swap columns and ended up putting 'Primary Provider' header text where data should be. By only adding a distractor column at position C (after_last_column), we change the surface appearance of the spreadsheet without affecting any cell references, data values, or the task logic."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

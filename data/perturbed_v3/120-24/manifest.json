@@ -1,0 +1,39 @@
+{
+  "task_id": "120-24",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "insert_after_row": 1,
+        "num_rows": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "GCOA Ledger Desc",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction heavily references specific column letters (BL, BG, AY, BN, BF) and specific data values ('LAG', 'OCOGS - Spares - Transfer Price Overhead', 'OFSS - ORCL Consulting Prod Cost I/C', 'BOA_033E', 'BOA_011G'). Renaming columns is risky here because the instruction references columns by letter (BL, BG, AY, BN) rather than by header name, so column renames wouldn't test anything meaningful — the column letters stay the same. Instead, I use two safe perturbations: (1) A blank row inserted after the header row (row 1), which shifts all data rows down by 1. This tests whether the solution hardcodes row ranges like BN2:BN45 — the answer position would shift to BN3:BN46. Models that hardcode the original range will fail. (2) A distractor column 'GCOA Ledger Desc' placed after the last column, which is plausibly similar to the existing 'GCOA Ledger' column but clearly different. This tests whether the model confuses it with the real column. I avoid renaming columns because the header names like 'GCOA Ledger' and 'COA_Child' don't appear as column references in the instruction (the instruction uses column letters), and renaming them wouldn't meaningfully perturb the task. I also avoid title_row_insert since blank_row_insert is safer and achieves a similar positional shift."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

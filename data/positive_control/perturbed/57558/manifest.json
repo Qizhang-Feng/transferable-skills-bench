@@ -1,0 +1,36 @@
+{
+  "task_id": "57558",
+  "opaque_col_map": {
+    "Start Date": "Priority",
+    "End Date": "Code",
+    "LeadsSalesPerson": "Cycle",
+    "PODateReceived": "Factor",
+    "RateHurdles.Rate": "Branch",
+    "Deposits.Commission Rate": "Index"
+  },
+  "opaque_sheet_map": {
+    "RateHurdles": "Inventory",
+    "Deposits": "Roster"
+  },
+  "primary_distractor": "Start Date",
+  "old_anchors": [
+    "Start Date",
+    "End Date",
+    "LeadsSalesPerson",
+    "PODateReceived",
+    "RateHurdles.Rate",
+    "Deposits.Commission Rate",
+    "RateHurdles",
+    "Deposits"
+  ],
+  "new_anchors": [
+    "Priority",
+    "Code",
+    "Cycle",
+    "Factor",
+    "Branch",
+    "Index",
+    "Inventory",
+    "Roster"
+  ]
+}

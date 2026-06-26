@@ -1,0 +1,41 @@
+{
+  "task_id": "97-36",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {
+        "column_name": "Notes",
+        "position": "after_last_column"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because inserting blank rows at row 1 conflicted with the instruction's explicit reference to 'starting from the first row and first column' and the risk flag 'instruction_references_absolute_rows'. The task also has 'task_deletes_or_inserts_rows' risk flag, making blank row insertion dangerous. Instead, I use only safe perturbations that don't affect row positions: (1) Rename Sheet1 to DataSheet — this tests whether the agent hardcodes 'Sheet1' in the VBA code. (2) Insert a distractor column 'Notes' after column A — this tests whether the agent hardcodes column count or assumes single-column data. The header column A is a URL which is not a normal column name and doesn't appear in the instruction, but renaming it could break data integrity since it's actual content data, so I leave it unchanged. No blank rows are inserted, avoiding the layout_impact failures from previous attempts. The answer position updates from 'Sheet1'!A1:A22 to 'DataSheet'!A1:A22."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "task_id": "50916",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Day": "Cycle",
+        "H1": "HR",
+        "P1": "Pd1",
+        "P2": "Pd2",
+        "P3": "Pd3",
+        "P4": "Pd4",
+        "P5": "Pd5"
+      },
+      "sheet_rename_map": {
+        "21-22 Schedule": "2021-2022 Timetable"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "2021-2022 Timetable",
+          "range": "B11",
+          "find": "Day",
+          "replace": "Cycle"
+        },
+        {
+          "sheet": "2021-2022 Timetable",
+          "range": "C11",
+          "find": "H1",
+          "replace": "HR"
+        },
+        {
+          "sheet": "2021-2022 Timetable",
+          "range": "D11",
+          "find": "P1",
+          "replace": "Pd1"
+        },
+        {
+          "sheet": "2021-2022 Timetable",
+          "range": "E11",
+          "find": "P2",
+          "replace": "Pd2"
+        },
+        {
+          "sheet": "2021-2022 Timetable",
+          "range": "F11",
+          "find": "P3",
+          "replace": "Pd3"
+        },
+        {
+          "sheet": "2021-2022 Timetable",
+          "range": "G11",
+          "find": "P4",
+          "replace": "Pd4"
+        },
+        {
+          "sheet": "2021-2022 Timetable",
+          "range": "H11",
+          "find": "P5",
+          "replace": "Pd5"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Room",
+      "target_sheet": "2021-2022 Timetable",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flags indicate instruction references absolute rows and specific cell addresses, and headers are not in row 1. This means we CANNOT insert rows or columns before existing data (which would shift cell addresses referenced in the instruction). Previous attempts failed because inserting a distractor column at position A shifted all columns, breaking the formula references. Instead, we: (1) Rename columns at the same descriptiveness level (abbreviations to abbreviations, e.g., H1→HR, P1→Pd1), and rename the sheet. (2) Add a distractor column AFTER the last column so it doesn't shift any existing cell references. (3) The data_header_overlaps at row 11 need matching renames. The instruction references specific cells like A$12, C$2, C12, E12:H12, D13:D14 — none of these shift because the distractor column is appended after column H. Column names like 'Day', 'H1', 'P1' etc. are not used as common English words in the instruction body, so renaming them is safe."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "21-22 Schedule": "2021-2022 Timetable"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "task_id": "59196",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Comparison Table"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "MIN",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flag data_values_match_headers is present because headers A, B, C, D also appear as data values (e.g., the MAX column returns the header name of the column with the highest value, so 'D' appears in H3). Renaming these single-letter headers would require renaming corresponding data values, but since these are generic single-letter labels (A, B, C, D), any rename risks confusion or mismatch. Instead, I apply two safe perturbations: (1) title_row_insert pushes the header row from row 2 to row 3 and data rows down accordingly, which tests whether the model hardcodes row references like D2:G2 for headers or D3:D5 for data; (2) a distractor column 'MIN' is added after the last column, which is plausibly similar to the existing 'MAX' column and could mislead a model into referencing it. No column renames are applied to avoid the risky data_values_match_headers situation."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

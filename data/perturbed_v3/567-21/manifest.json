@@ -1,0 +1,39 @@
+{
+  "task_id": "567-21",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "AccountRef",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task deletes/inserts rows, so title_row_insert is unsafe per risk flags. The headers in this spreadsheet are numeric data values (account numbers, dates, amounts) rather than descriptive column names — the instruction references columns by letter (A, B, E), not by header name, so renaming headers would risk corrupting data. Instead I use two safe perturbations: (1) Sheet rename from 'Sheet1' to 'DataSheet' to test whether agents hardcode the sheet name. (2) A distractor column 'AccountRef' added after the last column — this is plausibly similar to the account number concept in column A but clearly different, testing whether agents incorrectly reference it. The answer position updates to 'DataSheet'!A3:H28 (with the extra column). instruction_paraphrase is set to false to avoid changing meaning."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

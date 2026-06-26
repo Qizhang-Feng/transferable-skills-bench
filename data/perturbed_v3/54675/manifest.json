@@ -1,0 +1,34 @@
+{
+  "task_id": "54675",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Lead Investigator",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell address F3 and specific column letters (A, B), so any row-shifting perturbation (blank_row_insert or title_row_insert) is risky — the previous attempt failed exactly because of this. The risk flag 'task_references_specific_cell_addresses' confirms this. Instead, I use a distractor column ('Lead Investigator') which is plausibly similar to the existing 'Investigating Officer (s)' column but clearly different. This tests whether the model gets confused by a semantically similar column. I cannot safely rename 'Month ' or 'Investigating Officer (s)' because the instruction explicitly references column A and column B by letter (not by name), so renaming headers wouldn't perturb the model's anchoring on column letters. The distractor column is placed after the last column, so it doesn't shift any existing column positions. No instruction paraphrase is applied per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

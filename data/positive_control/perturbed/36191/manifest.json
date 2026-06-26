@@ -1,0 +1,24 @@
+{
+  "task_id": "36191",
+  "opaque_col_map": {
+    "Name": "Severity",
+    "Employee": "Grade",
+    "Result Should Be": "Impact"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Digest"
+  },
+  "primary_distractor": "Name",
+  "old_anchors": [
+    "Name",
+    "Employee",
+    "Result Should Be",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Severity",
+    "Grade",
+    "Impact",
+    "Digest"
+  ]
+}

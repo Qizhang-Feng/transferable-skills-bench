@@ -1,0 +1,41 @@
+{
+  "task_id": "42526",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "values": "data_values",
+        "ranking": "rank_order"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "weight_factor",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references absolute cell addresses B2:B16 for both the answer position and the background color formatting. This means we CANNOT insert blank rows or title rows, as that would shift data and break the B2:B16 references (as seen in the failed Attempt 1). Instead, we use safe perturbations: (1) Lexical renames — rename 'values' to 'data_values' and 'ranking' to 'rank_order' (same descriptiveness level, full words to full words), and rename the sheet from 'Sheet1' to 'DataSheet'. Neither 'values' nor 'ranking' appear as general English words in the instruction body in a way that would cause confusion — 'values' does appear in the instruction as 'data values' but the column name 'values' is used purely as a column header reference, and the rename to 'data_values' is semantically equivalent. (2) Distractor column — add 'weight_factor' after the last column, which is plausibly related to a scoring/weighting task but clearly different from existing columns. These changes test whether the model hardcodes column names or sheet names without altering the task logic, difficulty, or the critical B2:B16 cell range."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

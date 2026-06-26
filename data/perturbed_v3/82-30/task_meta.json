@@ -1,0 +1,5 @@
+{
+  "id": "82-30",
+  "instruction": "How can I modify my VBA code to only copy and paste whole numbers from a range of columns (A to F) in the 'Source Data' sheet, starting from row 1 and continuing across columns A to F in the 'Integers' sheet, without including numbers with decimal points and ensuring a maximum of 6 numbers per row? You can refer to Expected Output sheet for outcome, and it should be in the exact same sorting order.",
+  "answer_position": "'Integers'!A1:F9"
+}

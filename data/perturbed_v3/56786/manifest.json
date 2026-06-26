@@ -1,0 +1,37 @@
+{
+  "task_id": "56786",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Beans Counted": "Bean Count",
+        "12 month rolling average": "Rolling 12-Month Avg"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Cumulative Bean Total",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references absolute cell addresses like B24:B69 and the header row is at row 3, so blank_row_insert is risky (as shown by the failed attempt). Title_row_insert would also shift rows and break the referenced formula. Instead, I use two safe strategies: (1) Rename columns — 'Beans Counted' → 'Bean Count' and '12 month rolling average' → 'Rolling 12-Month Avg' are semantically equivalent at the same descriptiveness level. Neither column name appears as general English in the instruction body. The 'Date' column is not renamed because 'date' and 'day' appear naturally in the instruction text. (2) Add a distractor column 'Cumulative Bean Total' which is plausibly related to the bean-counting domain but clearly different from existing columns. These perturbations change surface anchors (column names, number of columns) without altering data values, row positions, or task logic."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

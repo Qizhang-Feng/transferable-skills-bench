@@ -1,0 +1,39 @@
+{
+  "task_id": "31202",
+  "opaque_col_map": {
+    "DATE": "Rating",
+    "MONTH": "Vendor",
+    "WEEK": "Flag",
+    "WORKER": "Segment",
+    "DAILY WAGE": "Grade",
+    "DAYS WORKED": "Sector",
+    "TOTAL": "Marker",
+    "EMPLEADOS ACTIVOS": "Region"
+  },
+  "opaque_sheet_map": {
+    "NOMINA": "Metrics"
+  },
+  "primary_distractor": "DATE",
+  "old_anchors": [
+    "DATE",
+    "MONTH",
+    "WEEK",
+    "WORKER",
+    "DAILY WAGE",
+    "DAYS WORKED",
+    "TOTAL",
+    "EMPLEADOS ACTIVOS",
+    "NOMINA"
+  ],
+  "new_anchors": [
+    "Rating",
+    "Vendor",
+    "Flag",
+    "Segment",
+    "Grade",
+    "Sector",
+    "Marker",
+    "Region",
+    "Metrics"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "task_id": "333-29",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date": "Timestamp",
+        "TOP": "Peak",
+        "Record": "Status",
+        "#": "Seq",
+        "Name": "Label",
+        "Last 100 Date": "Last 100 Timestamp"
+      },
+      "sheet_rename_map": {
+        "A": "Main",
+        "B": "Summary"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Summary"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Summary",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because a distractor column was inserted into sheet A, which shifted columns referenced by absolute letter (P, L, F) in the instruction. The instruction references specific column letters and cell addresses (F1, F3, F4, column P, column L, column F, column C) in sheet A. Inserting a distractor column in sheet A would shift these columns and break the task. Instead, I insert the distractor column in sheet B (Summary) AFTER the last column, so no existing columns shift. Column letters P, L, F in sheet A remain unchanged. Column C and F in sheet B also remain unchanged since the distractor is appended after column F. Sheet renames (A→Main, B→Summary) and column header renames test lexical anchoring without affecting column positions or the logical structure. The instruction references columns by letter, not by name, so renaming headers is safe and only tests whether the agent hardcodes header names for lookups."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "A": "Main",
+      "B": "Summary"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

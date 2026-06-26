@@ -1,0 +1,111 @@
+{
+  "task_id": "448-11",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        " Teacher ID": " Instructor ID",
+        "Header2": "Field2",
+        "Header3": "Field3",
+        "Header4": "Field4",
+        "Header5": "Field5",
+        "Header6": "Field6",
+        "Header7": "Field7",
+        "Header8": "Field8",
+        "Header9": "Field9",
+        "Header10": "Field10"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "DataSheet",
+          "range": "A2",
+          "find": " Teacher ID",
+          "replace": " Instructor ID"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "B2",
+          "find": "Header2",
+          "replace": "Field2"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "C2",
+          "find": "Header3",
+          "replace": "Field3"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "D2",
+          "find": "Header4",
+          "replace": "Field4"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "E2",
+          "find": "Header5",
+          "replace": "Field5"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "F2",
+          "find": "Header6",
+          "replace": "Field6"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "G2",
+          "find": "Header7",
+          "replace": "Field7"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "H2",
+          "find": "Header8",
+          "replace": "Field8"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "I2",
+          "find": "Header9",
+          "replace": "Field9"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "J2",
+          "find": "Header10",
+          "replace": "Field10"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task deletes/inserts rows (risk flag: task_deletes_or_inserts_rows), so we must NOT insert title rows or blank rows as those would interfere with the row deletion logic. Safe perturbations chosen: (1) Column and sheet renames — ' Teacher ID' becomes ' Instructor ID' (same descriptiveness level, both full words), generic 'Header' columns become 'Field' columns (abbreviation-level equivalence), and 'Sheet1' becomes 'DataSheet'. Since the header names also appear as data values in row 2 (the header row overlaps), we include data_value_renames for all of them. (2) A distractor column 'Notes' is added after the last column (column K) — this is plausibly related to the data but clearly different from existing columns, and tests whether the agent hardcodes the column count. The instruction references 'Column A' which remains Column A positionally, and 'columns B to the last column' which still works semantically. No instruction paraphrase is applied to avoid meaning drift."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

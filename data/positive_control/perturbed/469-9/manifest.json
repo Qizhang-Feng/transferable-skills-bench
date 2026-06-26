@@ -1,0 +1,33 @@
+{
+  "task_id": "469-9",
+  "opaque_col_map": {
+    "Date": "Medium",
+    "SERVICE FEE": "Flag",
+    "DESCRIPTION": "Score",
+    "REFERENCE": "Margin",
+    "Balance": "Level",
+    "CHEQUE NUMBER": "Segment"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Dashboard"
+  },
+  "primary_distractor": "Date",
+  "old_anchors": [
+    "Date",
+    "SERVICE FEE",
+    "DESCRIPTION",
+    "REFERENCE",
+    "Balance",
+    "CHEQUE NUMBER",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Medium",
+    "Flag",
+    "Score",
+    "Margin",
+    "Level",
+    "Segment",
+    "Dashboard"
+  ]
+}

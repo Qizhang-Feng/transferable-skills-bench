@@ -1,0 +1,44 @@
+{
+  "task_id": "41589",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "CONTACT LIST": "CLIENT DIRECTORY",
+        "Area of Operation": "Region of Activity",
+        "Action": "Task"
+      },
+      "sheet_rename_map": {
+        "Contact List": "Client Directory",
+        "Data": "Reference"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Client Directory"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Last Follow-Up Notes",
+      "target_sheet": "Client Directory",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references specific columns by letter (H, I, J) and specific cell addresses (H4, I4, J4), so layout changes like title_row_insert would shift row references and break the task. Instead, I use safe perturbations: (1) Lexical renames - rename the sheet 'Contact List' to 'Client Directory' and rename 'CONTACT LIST' header to 'CLIENT DIRECTORY', plus rename columns on the Data sheet. These test whether the model hardcodes sheet/column names. The instruction references columns by letter (H, I, J) not by name, so renaming the title header is safe. (2) Distractor column - add 'Last Follow-Up Notes' which is plausibly similar to the existing contact-related columns but clearly different, testing whether the model gets confused by extra columns. I avoid title_row_insert because the risk flags indicate header_not_in_row_1 and task_references_specific_cell_addresses, meaning row shifts would break cell references like H4."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Contact List": "Client Directory",
+      "Data": "Reference"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

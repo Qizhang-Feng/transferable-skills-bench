@@ -1,0 +1,39 @@
+{
+  "task_id": "3002",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Duplicate Check Report",
+        "merge_range": "A1:G1"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Status",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references the Remark column by name in the instruction (and 'Remark' also appears as a general English concept in the instruction body, so renaming it would be risky). The headers 'Data' and 'Desired Output' are similarly referenced contextually. Instead, I apply two safe perturbations: (1) Title row insert — this shifts the header row from row 3 to row 4 and all data rows down by 1, which tests whether the model hardcodes row references like 'G5:G15' (the answer position shifts to G6:G16). The risk flag 'instruction_references_absolute_rows' is noted, but the instruction itself does not contain explicit absolute row/cell references — it speaks in terms of column names and conceptual operations, so inserting a title row is safe. (2) A distractor column 'Status' is added after the last column. This is plausibly similar to 'Remark' or 'Desired Output' but clearly different, testing whether the model incorrectly targets it. No column or sheet renames are applied since the key column names either appear as English words in the instruction or are contextually important references that shouldn't be altered without risk."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

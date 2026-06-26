@@ -1,0 +1,34 @@
+{
+  "task_id": "59129",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Status Date",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task is heavily constrained because the instruction references specific absolute cell addresses ($A$2:$A$22, $B2:$B$22, E1) and the answer spans E2:P2. The risk flags explicitly warn about instruction_references_absolute_rows and task_references_specific_cell_addresses. Previous attempts failed because: (1) blank_row_insert shifted all rows, breaking the formula references in the instruction, and (2) inserting a distractor column between B and D shifted the month columns, breaking the E1 reference. The only safe approach is to add a distractor column AFTER the last column (after column P, i.e., at column Q). This does not shift any existing columns, so all cell references ($A$2:$A$22, $B2:$B$22, E1, and the answer range E2:P2) remain valid. The distractor column 'Status Date' is plausibly similar to the existing date-related columns (Hire Date, Term Date) but clearly different. Column renames are avoided because 'Hire Date' and 'Term Date' appear as referenced anchors in the formula context (columns A and B), and renaming month headers could cause confusion since they are date values. No row insertions are performed to avoid breaking absolute row references."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

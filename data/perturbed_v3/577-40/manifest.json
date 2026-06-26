@@ -1,0 +1,48 @@
+{
+  "task_id": "577-40",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date": "Dt",
+        "xgad": "xref",
+        "short code": "brief code",
+        "pillar#": "pillar_id",
+        "key#": "key_id",
+        "header1": "hdr1",
+        "header2": "hdr2",
+        "header3": "hdr3",
+        "header4": "hdr4",
+        "sub": "subtot",
+        "total": "grand"
+      },
+      "sheet_rename_map": {
+        "Sheet2": "DataTab"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "notes",
+      "target_sheet": "DataTab",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves deleting rows based on conditions in Column J and Column K. The instruction explicitly references 'Column J' and 'Column K' by letter, so renaming the headers does not change the column-letter references in the instruction — it only tests whether the agent hardcodes header names vs. uses column positions. We rename all headers at the same descriptiveness level (abbreviation→abbreviation, short→short). We also rename the sheet from 'Sheet2' to 'DataTab' to break hardcoded sheet references. A distractor column 'notes' is added after the last column (new column L) to test whether the agent incorrectly expands its data range or confuses column boundaries. We skip blank_row_insert and title_row_insert because the risk flags indicate the task deletes/inserts rows and depends on blank row positions — inserting blank rows could change the expected answer. instruction_paraphrase is false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet2": "DataTab"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

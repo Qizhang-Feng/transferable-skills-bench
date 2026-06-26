@@ -1,0 +1,50 @@
+{
+  "task_id": "455-35",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Action": "Activity",
+        "User": "Operator",
+        "Date": "Timestamp",
+        "Client": "Customer",
+        "Packslip": "Slip Number",
+        "PO Number": "Purchase Order",
+        "Quantity": "Qty",
+        "Packsize": "Pack Size",
+        "Extended Product Code": "Ext Product ID",
+        "Bin Label": "Bin Tag"
+      },
+      "sheet_rename_map": {
+        "Worksheet1": "DataLog"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataLog"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Operator Notes",
+      "target_sheet": "DataLog",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task filters rows based on the first character in column B cells. The perturbation renames all columns (including column B from 'User' to 'Operator') to break any hardcoded column name references, while keeping the same descriptiveness level. A distractor column 'Operator Notes' is added after the last column — it is plausibly similar to the renamed 'Operator' column but clearly different, testing whether agents confuse it with the condition column. The sheet is renamed from 'Worksheet1' to 'DataLog'. No title row insertion or blank row insertion is used because the risk flag 'task_deletes_or_inserts_rows' is present, and inserting rows could interfere with the row-deletion logic. The instruction is not paraphrased. The condition values ('H' and 'A') and the column position (B) are unchanged, preserving the task's logic and difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Worksheet1": "DataLog"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

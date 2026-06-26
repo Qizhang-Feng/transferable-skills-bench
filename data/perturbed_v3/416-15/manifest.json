@@ -1,0 +1,40 @@
+{
+  "task_id": "416-15",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date": "Timestamp"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Records"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Records"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "DateModified",
+      "target_sheet": "Records",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (A2, column A) which makes blank_row_insert risky as shown in the failed attempt. Instead, I use two safe perturbation types: (1) Lexical renames — renaming the column header 'Date' to 'Timestamp' (same descriptiveness level, full word to full word) and renaming the sheet from 'Sheet1' to 'Records'. The word 'Date' does appear in the instruction but as a general English word describing the data content ('column of dates', 'just the date'), not as a column reference — however, the header 'Date' is a column label and renaming it tests whether the model hardcodes the header name. The instruction refers to 'column A' positionally, not by header name, so this rename is safe for task logic. (2) Distractor column — adding a 'DateModified' column after column A. This is plausibly similar to the real 'Timestamp' column but clearly different. It tests whether the model gets confused by a similarly-named column. The answer position shifts from A2:A19 to A2:A19 (unchanged since the distractor is added after the last column, i.e., column B). No blank_row_insert is used to avoid the issues from the previous failed attempt with cell address references."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Records"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

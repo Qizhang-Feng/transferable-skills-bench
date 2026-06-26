@@ -1,0 +1,50 @@
+{
+  "task_id": "433-47",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "unit1": "block1",
+        "unit2": "block2",
+        "unit3": "block3",
+        "unit4": "block4",
+        "unit5": "block5",
+        "residuals": "remainders"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "BalanceSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "BalanceSheet"
+      ],
+      "params": {
+        "title_text": "Unit Balance Adjustment Table"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "block_total",
+      "target_sheet": "BalanceSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used. (1) Lexical: All column names are renamed — 'unit1'–'unit5' become 'block1'–'block5' and 'residuals' becomes 'remainders'. These are semantically equivalent at the same descriptiveness level (abbreviation+number to abbreviation+number, full word to full word). The word 'unit' does appear in the instruction but only as a reference to the column names ('unit 1 to unit 5', 'unit column'), so renaming them is valid and the instruction references must be updated by the user accordingly. 'residuals' appears in the instruction as a column reference so renaming to 'remainders' is appropriate. (2) Positional title row insert: A title row is inserted at row 1, pushing headers to row 2 and data down by one row. This tests whether the model hardcodes row positions. The task does not delete/insert rows itself — it modifies cell values in place — so this is safe. The answer position shifts from A1:I21 to A1:I22. (3) Distractor column: 'block_total' is added after the last column. It is plausibly related (sounds like a sum of block columns) but is clearly different from any existing column, testing whether the model incorrectly incorporates it."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "BalanceSheet"
+    },
+    "row_shifts": {
+      "BalanceSheet": 1
+    },
+    "col_inserts": {}
+  }
+}

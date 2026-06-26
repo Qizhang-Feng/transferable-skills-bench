@@ -1,0 +1,46 @@
+{
+  "task_id": "48257",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Movement": "Transaction",
+        "Amount": "Value",
+        "I need: ": "Expected: "
+      },
+      "sheet_rename_map": {
+        "Sheet1": "CurrencyData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "CurrencyData"
+      ],
+      "params": {
+        "title_text": "Currency Extraction Worksheet"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Currency Code",
+      "target_sheet": "CurrencyData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe perturbation strategies are applied: (1) positional_title_row — inserting a title row at row 1 shifts the header to row 2 and data to rows 3–6, which tests whether the model hardcodes row positions. The answer position shifts from C2:C5 to C3:C6. (2) distractor_column — adding a 'Currency Code' column after the last column introduces a plausibly related but irrelevant column that could mislead models into referencing it. (3) Column and sheet renames are included as supporting changes: 'Movement' → 'Transaction', 'Amount' → 'Value', and 'I need: ' → 'Expected: ' are semantically equivalent renames at the same descriptiveness level. The sheet is renamed from 'Sheet1' to 'CurrencyData'. None of these column names appear as common English words in the instruction body — the instruction mentions 'currency' and 'numerical values' but not 'Movement', 'Amount', or 'I need'. No data values need renaming since the renamed headers don't appear as data values elsewhere."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "CurrencyData"
+    },
+    "row_shifts": {
+      "CurrencyData": 1
+    },
+    "col_inserts": {}
+  }
+}

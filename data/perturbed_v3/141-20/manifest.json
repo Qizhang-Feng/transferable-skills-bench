@@ -1,0 +1,55 @@
+{
+  "task_id": "141-20",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Transaction Date": "Txn Date",
+        "Branch": "Office",
+        "Invoice No.": "Inv No.",
+        "Amount": "Value",
+        "Code": "Identifier",
+        "Name": "Description",
+        "Transaction Category Type": "Txn Category Type",
+        "Period Month": "Cycle Month",
+        "Period Year": "Cycle Year",
+        "Reference": "Ref No.",
+        "Run": "Batch",
+        "Date Processed": "Processing Date",
+        "Total Invoice Value": "Total Inv Value"
+      },
+      "sheet_rename_map": {
+        "PL Recon Items": "PL Reconciliation Items",
+        "Statement Recon Items": "Statement Reconciliation Items"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "PL Reconciliation Items",
+        "Statement Reconciliation Items"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "PL Reconciliation Items",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task involves deleting/inserting rows across two sheets, so blank_row_insert and title_row_insert are risky. Instead, I use lexical renames (columns and sheets) plus a distractor column. All column renames maintain the same descriptiveness level: abbreviations stay abbreviated (e.g., 'Invoice No.' → 'Inv No.', 'Transaction Date' → 'Txn Date'), full words stay full words (e.g., 'Branch' → 'Office', 'Name' → 'Description'). Sheet names go from abbreviated 'Recon' to full 'Reconciliation' but both are descriptive. The instruction references specific sheet names ('PL Recon Items', 'Statement Recon Items') and column letters (C, D, F, I) along with column semantics ('invoice number', 'reference number', 'value'). Renaming sheets and columns tests whether the agent hardcodes these names. The distractor column 'Notes' on the PL sheet adds an extra column that could confuse column-count-based logic. The instruction text uses 'invoice number' and 'reference number' as general English descriptions of the matching logic, and the column renames ('Invoice No.' → 'Inv No.', 'Reference' → 'Ref No.') are close variants that preserve meaning without conflicting with the instruction's English phrasing. No data_value_renames needed since headers don't appear as data values."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "PL Recon Items": "PL Reconciliation Items",
+      "Statement Recon Items": "Statement Reconciliation Items"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

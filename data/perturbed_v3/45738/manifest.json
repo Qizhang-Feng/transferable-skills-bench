@@ -1,0 +1,43 @@
+{
+  "task_id": "45738",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Principal": "Face Value",
+        "Interest": "Coupon",
+        "Frequnecy": "Pay Freq",
+        "Maturity": "Mat Date"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "BondCashflows"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "BondCashflows"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Yield",
+      "target_sheet": "BondCashflows",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references columns A-D by letter and by name (principal, interest, frequency, maturity). Renaming these headers to semantically equivalent alternatives (Face Value, Coupon, Pay Freq, Mat Date) tests whether the model hardcodes column names. The sheet rename from Sheet1 to BondCashflows tests hardcoded sheet references. A distractor column 'Yield' is added after the last column — it is plausibly related to bond data but clearly different from existing columns. I avoided title_row_insert because the risk flags indicate header_not_in_row_1 (header is in row 4) and the instruction references absolute rows (row 4, row 5, rows 6-25), so inserting a title row would shift these and break the task. Column reorder is unsafe here because the instruction explicitly references columns A-D by letter. The date columns E-AB are also referenced by letter, so reordering any columns would change the task logic."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "BondCashflows"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

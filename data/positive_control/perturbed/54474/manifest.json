@@ -1,0 +1,29 @@
+{
+  "task_id": "54474",
+  "opaque_col_map": {
+    "EEG": "Branch",
+    "Dis": "Channel",
+    "LTU": "Index",
+    "YTD": "Origin",
+    "Go Live 1/3/18": "Tag",
+    "Referral Type": "Code"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "EEG",
+  "old_anchors": [
+    "EEG",
+    "Dis",
+    "LTU",
+    "YTD",
+    "Go Live 1/3/18",
+    "Referral Type"
+  ],
+  "new_anchors": [
+    "Branch",
+    "Channel",
+    "Index",
+    "Origin",
+    "Tag",
+    "Code"
+  ]
+}

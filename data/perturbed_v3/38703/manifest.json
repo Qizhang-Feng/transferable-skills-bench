@@ -1,0 +1,40 @@
+{
+  "task_id": "38703",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Posting Date": "Post Date",
+        "Posting Time": "Post Time",
+        "Document No.": "Doc No.",
+        "Quantity": "Qty",
+        "Bin Code": "Bin Cd"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Item Desc.",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific row ranges (E2:E10, E11:E20, E21:E24) and specific output cells (H10, H20, H24), and depends on blank row positions for grouping boundaries. Therefore, we CANNOT insert blank rows or title rows (risk flags: instruction_references_absolute_rows, task_references_specific_cell_addresses, task_depends_on_blank_row_positions). Instead, we use two safe strategies: (1) Distractor column: add 'Item Desc.' which is plausibly similar to 'Item No.' but clearly different, testing whether the agent confuses the two. (2) Column renames on columns NOT referenced in the instruction body as English words: 'Posting Date' -> 'Post Date', 'Posting Time' -> 'Post Time', 'Document No.' -> 'Doc No.', 'Quantity' -> 'Qty', 'Bin Code' -> 'Bin Cd'. We do NOT rename 'Item No.' since it appears explicitly in the instruction as a column reference that the task depends on, and we do NOT rename 'Bin Code' to something that loses the word 'Bin' since 'Bin' appears in the instruction — actually we renamed it to 'Bin Cd' which preserves 'Bin'. These renames are abbreviation-level consistent. No row layout changes are made to avoid breaking the absolute row references."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

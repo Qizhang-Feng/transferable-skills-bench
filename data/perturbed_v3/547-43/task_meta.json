@@ -1,0 +1,5 @@
+{
+  "id": "547-43",
+  "instruction": "How do I transpose a selected column from the 'Pay1-performance' range in the 'Staff' table to a row, while keeping the previous Varname constant? Additionally, how can I add two new columns ('Grp' and 'SubGrp') when the Varname from the 'Staff' table matches with the Varname in the RefTable table? The macro should be tested on a table with 50 columns and 60 rows to validate the result. The desired output structure is provided in the attached 'Datawork.xlsx' file.",
+  "answer_position": "'Result'!A2:H19"
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "52807",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Desc": "Description",
+        "Amount": "Value",
+        "Period": "Month",
+        "GL Desc": "GL Description",
+        "Total": "Grand Total"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references specific cell addresses (Data!$C$2:$C$13, Data!$A$2:$A$13, Data!$D$2:$D$13, Summary!$C6, Summary!E$5, D3) and sheet names ('Data', 'Summary'). Since the instruction explicitly references 'Data' and 'Summary' sheet names and absolute cell addresses, renaming sheets would require updating all those references in the instruction, which is risky. Instead, I rename columns that are NOT referenced by name in the instruction: 'Desc' -> 'Description', 'Amount' -> 'Value', 'Period' -> 'Month', 'GL Desc' -> 'GL Description', 'Total' -> 'Grand Total'. I do NOT rename 'GL Acct' or 'GL ACCT' since those are key identifiers referenced implicitly. I also add a distractor column 'Category' to the Data sheet to test whether the model is confused by extra columns. The sheet names are kept unchanged to avoid breaking the explicit cell references in the instruction."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

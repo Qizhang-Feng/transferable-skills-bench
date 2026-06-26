@@ -1,0 +1,57 @@
+{
+  "task_id": "50250",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "dee": "mox",
+        "sela": "tavi",
+        "120": "305"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": [
+        {
+          "sheet": "Sheet1",
+          "range": "A1:B18",
+          "find": "dee",
+          "replace": "mox"
+        },
+        {
+          "sheet": "Sheet1",
+          "range": "A1:B18",
+          "find": "sela",
+          "replace": "tavi"
+        },
+        {
+          "sheet": "Sheet1",
+          "range": "G1:G18",
+          "find": "sela",
+          "replace": "tavi"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "subtotal",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (G2, H2, columns A-E), so no row/column shifting is safe. Risk flag 'task_references_specific_cell_addresses' means layout changes that shift cells are dangerous. Risk flag 'data_values_match_headers' means I must rename data values consistently with header renames. I rename 'dee'→'mox', 'sela'→'tavi', '120'→'305' (all abbreviation-level names). Data value renames cover columns A-B (where dee/sela appear as grouping keys) and column G (where 'sela' appears as the lookup reference). A distractor column 'subtotal' is added after the last column to test if the agent incorrectly uses it. No blank row insert since cell addresses must remain stable."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

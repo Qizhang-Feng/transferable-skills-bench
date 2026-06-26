@@ -1,0 +1,45 @@
+{
+  "task_id": "438-18",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "ITEM": "PRODUCT",
+        "BRANDS": "LABEL",
+        "BATCH": "LOT",
+        "ORIGIN": "SOURCE"
+      },
+      "sheet_rename_map": {
+        "INPUT": "DATA_IN",
+        "OUPUT": "DATA_OUT"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DATA_IN"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "REGION",
+      "target_sheet": "DATA_IN",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I chose lexical renaming and a distractor column. For lexical changes: (1) Column renames: ITEM→PRODUCT, BRANDS→LABEL, BATCH→LOT, ORIGIN→SOURCE. These maintain the same descriptiveness level (single full words). I did NOT rename TYPE or DATE because 'TYPE' appears naturally in the instruction text ('TYPE' column is referenced contextually) and DATE is a very common word. I renamed ORIGIN→SOURCE in both sheets to preserve the alignment relationship. (2) Sheet renames: INPUT→DATA_IN, OUPUT→DATA_OUT, both abbreviation-style names at the same descriptiveness level. (3) Distractor column: Added 'REGION' to the input sheet after the last column — it's plausibly similar to SOURCE/ORIGIN but clearly different, testing whether the agent incorrectly uses it. No data_value_renames needed since no header names appear as data values in the cells."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "INPUT": "DATA_IN",
+      "OUPUT": "DATA_OUT"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

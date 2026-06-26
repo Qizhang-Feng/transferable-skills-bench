@@ -1,0 +1,171 @@
+{
+  "task_id": "43657",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Mon": "Monday",
+        "Tue": "Tuesday",
+        "Wed": "Wednesday",
+        "Thu": "Thursday",
+        "Fri": "Friday",
+        "Sat": "Saturday",
+        "Sun": "Sunday"
+      },
+      "sheet_rename_map": {
+        "Jul-22 (2)": "July-22 (2)"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "July-22 (2)",
+          "range": "C8:I8",
+          "find": "Mon",
+          "replace": "Monday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C8:I8",
+          "find": "Tue",
+          "replace": "Tuesday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C8:I8",
+          "find": "Wed",
+          "replace": "Wednesday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C8:I8",
+          "find": "Thu",
+          "replace": "Thursday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C8:I8",
+          "find": "Fri",
+          "replace": "Friday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C8:I8",
+          "find": "Sat",
+          "replace": "Saturday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C8:I8",
+          "find": "Sun",
+          "replace": "Sunday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C15:I15",
+          "find": "Mon",
+          "replace": "Monday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C15:I15",
+          "find": "Tue",
+          "replace": "Tuesday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C15:I15",
+          "find": "Wed",
+          "replace": "Wednesday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C15:I15",
+          "find": "Thu",
+          "replace": "Thursday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C15:I15",
+          "find": "Fri",
+          "replace": "Friday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C15:I15",
+          "find": "Sat",
+          "replace": "Saturday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C15:I15",
+          "find": "Sun",
+          "replace": "Sunday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C22:I22",
+          "find": "Mon",
+          "replace": "Monday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C22:I22",
+          "find": "Tue",
+          "replace": "Tuesday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C22:I22",
+          "find": "Wed",
+          "replace": "Wednesday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C22:I22",
+          "find": "Thu",
+          "replace": "Thursday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C22:I22",
+          "find": "Fri",
+          "replace": "Friday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C22:I22",
+          "find": "Sat",
+          "replace": "Saturday"
+        },
+        {
+          "sheet": "July-22 (2)",
+          "range": "C22:I22",
+          "find": "Sun",
+          "replace": "Sunday"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "July-22 (2)",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (L2, C3:G3, K2:K8) in the formula and instruction, so any row insertion (blank_row_insert or title_row_insert) would shift data and break those references — as the previous failed attempt demonstrated. Instead, I use two safe perturbation strategies: (1) Rename columns from abbreviations (Mon, Tue, etc.) to full words (Monday, Tuesday, etc.), along with renaming the sheet from 'Jul-22 (2)' to 'July-22 (2)'. Since these day-of-week headers also appear as data values in rows 8, 15, and 22, I include data_value_renames for those cells. These renames don't affect the formula logic since the formula references cell ranges, not column names. (2) Add a distractor column 'Notes' after the last column, which is plausibly related to a schedule but clearly different from existing columns. This doesn't shift any existing columns since it goes after the last one, preserving all cell address references."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Jul-22 (2)": "July-22 (2)"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

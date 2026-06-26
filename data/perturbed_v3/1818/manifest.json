@@ -1,0 +1,49 @@
+{
+  "task_id": "1818",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Student Number": "Pupil ID",
+        "Student Name": "Pupil Name"
+      },
+      "sheet_rename_map": {
+        "Summary": "Summary",
+        "Data": "Records"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Records"
+      ],
+      "params": {
+        "title_text": "Yearly Student Performance Data",
+        "title_cell": "B1"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Enrollment Year",
+      "target_sheet": "Records",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Lexical perturbation: Renamed 'Student Number' to 'Pupil ID' and 'Student Name' to 'Pupil Name' across both sheets — these are equally descriptive full-word names. Renamed 'Data' sheet to 'Records'. I did NOT rename 'Performance' because the instruction uses 'performing' as a general English word ('lowest performing students'), which would risk confusion per Rule 6. Positional title row insert: Added a title row to the Records (formerly Data) sheet, shifting the header row from row 1 to row 2, which tests whether agents hardcode the header position. Distractor column: Added 'Enrollment Year' as a plausible but irrelevant column on the Records sheet to test whether agents incorrectly reference it. No data_value_renames needed since the renamed columns ('Student Number', 'Student Name') don't appear as data values in cells."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Summary": "Summary",
+      "Data": "Records"
+    },
+    "row_shifts": {
+      "Records": 1
+    },
+    "col_inserts": {}
+  }
+}

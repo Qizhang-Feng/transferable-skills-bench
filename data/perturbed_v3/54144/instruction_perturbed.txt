@@ -1,0 +1,3 @@
+How can I create an Excel 365 formula to sum the quantities of vehicles listed on the 'Source' Sheet when the vehicle names are concatenated on the 'Summary' Sheet, but they are listed separately on the 'Source' Sheet?     Could you help me in my question, please?
+I need a formula to sum vehicles quantities from "Source" Sheet but the problem is that the Vehicles here are concatenated and in "Source" Sheet Vehicles are not concatenated
+Please help me

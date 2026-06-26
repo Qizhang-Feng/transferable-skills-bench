@@ -1,0 +1,47 @@
+{
+  "task_id": "5835",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Requested table": "Target Table",
+        "Basic Table": "Source Table"
+      },
+      "sheet_rename_map": {
+        "גיליון1": "Sheet1"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "row_position": 1,
+        "count": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "LOG REF",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I used lexical renaming to change the section headers ('Requested table' -> 'Target Table', 'Basic Table' -> 'Source Table') and the sheet name from Hebrew to English. These are full-word to full-word renames maintaining the same descriptiveness. I did NOT rename 'LOG VALUE' since it appears directly in the instruction text as a general reference. I inserted a blank row at the top (positional_title_row perturbation) to shift the title row down, testing whether the agent hardcodes row 1 as the header. I also added a distractor column 'LOG REF' which is plausibly similar to 'LOG VALUE' but clearly different, testing whether the agent confuses it with the actual data column."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "גיליון1": "Sheet1"
+    },
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

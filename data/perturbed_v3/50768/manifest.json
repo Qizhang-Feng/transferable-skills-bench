@@ -1,0 +1,41 @@
+{
+  "task_id": "50768",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "ID": "RiskID",
+        "Liklihood": "Probability"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "RiskData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "RiskData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Severity",
+      "target_sheet": "RiskData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "We use lexical renaming and a distractor column. Column 'ID' is renamed to 'RiskID' (same descriptiveness, abbreviation-level). 'Liklihood' is renamed to 'Probability' (full word to full word, same concept). 'Impact' is NOT renamed because the word 'Impact' appears as a general English word in the instruction body ('an Impact and a Likelihood number'). The sheet is renamed from 'Sheet1' to 'RiskData'. A distractor column 'Severity' is added after the last column — it is plausibly related to risk assessment but clearly different from 'Impact' or 'Probability'. We avoid title_row_insert because the risk flag 'task_references_specific_cell_addresses' means shifting rows would break cell references (as confirmed by the failed Attempt 1). The answer position F12:H14 is in the matrix area and is unaffected by these changes since we only add a column after column C and rename headers/sheet."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "RiskData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

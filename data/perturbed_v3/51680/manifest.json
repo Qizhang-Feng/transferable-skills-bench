@@ -1,0 +1,34 @@
+{
+  "task_id": "51680",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Yellow",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (A1:F1) and columns A to F with output in G. Given the risk flags about data_values_match_headers and task_references_specific_cell_addresses, I cannot safely insert a blank row (which would shift headers from row 1) or reorder columns (which would break A-F references). Instead, I add a distractor column 'Yellow' after the last column (column H). This is plausibly similar to the color-themed headers but clearly different. It does not affect columns A-F, the output column G, or the header reference A1:F1. The distractor tests whether the model incorrectly includes the new column in its formula logic. No column renames are applied because the header names (Blue, Black White, Green, Red Purple, Orange, Brown) appear as data values in the output column G (per data_header_overlaps), and the instruction references 'header colors' which directly ties to these names. Renaming them would require updating data values throughout and risk breaking the task semantics."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

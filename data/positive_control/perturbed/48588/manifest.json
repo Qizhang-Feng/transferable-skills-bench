@@ -1,0 +1,21 @@
+{
+  "task_id": "48588",
+  "opaque_col_map": {
+    "Product": "Tag",
+    "Unique ID (Expected Result)": "Factor"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Overview"
+  },
+  "primary_distractor": "Product",
+  "old_anchors": [
+    "Product",
+    "Unique ID (Expected Result)",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Tag",
+    "Factor",
+    "Overview"
+  ]
+}

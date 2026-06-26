@@ -1,0 +1,38 @@
+{
+  "task_id": "48924",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Date Sequence Analysis"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Date Difference",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task has a risk flag 'task_depends_on_blank_row_positions', but this task is about finding missing dates from a sequence in column A and placing them in column C — it does not delete or insert rows as part of its operation, so title_row_insert is safe. The title row insert shifts the header from row 1 to row 2 and all data down by one row, which tests whether the model hardcodes row positions (e.g., assuming header is always row 1). The answer position C2:C13 will shift to C3:C14 accordingly. I did not rename 'Date' because the word 'dates' appears naturally in the instruction body as a general English word, not purely as a column reference — renaming it would risk confusion per Rule 6. The column header 'Column B lists all missing dates' also contains the word 'dates' used in the instruction. A distractor column 'Date Difference' is added after the last column to test whether the model is distracted by a plausibly related but irrelevant column."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

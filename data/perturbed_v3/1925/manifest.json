@@ -1,0 +1,40 @@
+{
+  "task_id": "1925",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "A": "A"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Summary",
+        "Sheet2": "DataSource"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "DataSource",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has specific cell address references (C5, B6, F:F) and multi-sheet references throughout the instruction. The instruction explicitly mentions 'Sheet1' and 'Sheet2' by name, so renaming them to 'Summary' and 'DataSource' tests whether the agent can adapt to new sheet names rather than relying on hardcoded 'Sheet1'/'Sheet2'. The header 'A' in Sheet1 column B is a single letter used as a column label — it's not a common English word used descriptively in the instruction, so it's safe but there's no benefit to renaming it (it stays 'A'). A distractor column 'Notes' is added after the last column in DataSource (Sheet2) to test whether the agent incorrectly references it. The instruction references specific sheet names, so the agent must map 'Sheet1' → 'Summary' and 'Sheet2' → 'DataSource' in both the cell references and the formula logic. No blank row insertion is done because the task has header_not_in_row_1 risk flag and specific cell address references that would break with row shifts."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Summary",
+      "Sheet2": "DataSource"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

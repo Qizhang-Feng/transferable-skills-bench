@@ -1,0 +1,32 @@
+{
+  "task_id": "2768",
+  "opaque_col_map": {
+    "Line": "Level",
+    "Order issued Date": "Span",
+    "Request del date": "Source",
+    "Order Qty": "Ratio",
+    "Expected outcome": "Branch",
+    "Incoming Qty": "Impact",
+    "Item code": "Label"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "Line",
+  "old_anchors": [
+    "Line",
+    "Order issued Date",
+    "Request del date",
+    "Order Qty",
+    "Expected outcome",
+    "Incoming Qty",
+    "Item code"
+  ],
+  "new_anchors": [
+    "Level",
+    "Span",
+    "Source",
+    "Ratio",
+    "Branch",
+    "Impact",
+    "Label"
+  ]
+}

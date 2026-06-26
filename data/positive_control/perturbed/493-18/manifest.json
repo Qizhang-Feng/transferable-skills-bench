@@ -1,0 +1,27 @@
+{
+  "task_id": "493-18",
+  "opaque_col_map": {
+    "Car": "Factor",
+    "Mileage(Miles)": "Margin",
+    "Colour": "Source",
+    "Filter_List": "Impact"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Roster"
+  },
+  "primary_distractor": "Car",
+  "old_anchors": [
+    "Car",
+    "Mileage(Miles)",
+    "Colour",
+    "Filter_List",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Factor",
+    "Margin",
+    "Source",
+    "Impact",
+    "Roster"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "task_id": "440-24",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Reference Expansion Table",
+        "row_index": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Reference Notes",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references column B and column H by letter, and the answer position is B3:B22. The risk flag 'task_references_specific_cell_addresses' is noted, but the instruction only references column letters (B and H), not absolute cell addresses like $C$2. A title row insert shifts the header from row 2 to row 3 and data from rows 3-22 to rows 4-23, but since the instruction speaks in terms of 'column B' and 'column H' (not specific row numbers), the logic is preserved — the model must still figure out the new data range. The answer position will shift to B4:B23 accordingly. I avoided renaming columns because 'References' appears naturally in the instruction context as 'the data in column B' and the column H header is descriptive of the task result. A distractor column 'Reference Notes' is added after the last column to test whether the model is confused by a similarly named but irrelevant column. Column renaming was skipped because the instruction references columns by letter (B and H) rather than by name, so renaming headers would not test any meaningful anchor. The two perturbations (title row insert + distractor column) sufficiently test positional and lexical robustness."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "task_id": "41589",
+  "opaque_col_map": {
+    "CONTACT LIST": "Delta",
+    "Area of Operation": "Segment",
+    "Action": "Level"
+  },
+  "opaque_sheet_map": {
+    "Contact List": "Archive",
+    "Data": "Roster"
+  },
+  "primary_distractor": "CONTACT LIST",
+  "old_anchors": [
+    "CONTACT LIST",
+    "Area of Operation",
+    "Action",
+    "Contact List",
+    "Data"
+  ],
+  "new_anchors": [
+    "Delta",
+    "Segment",
+    "Level",
+    "Archive",
+    "Roster"
+  ]
+}

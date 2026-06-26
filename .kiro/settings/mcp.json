@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "builder-mcp": {
+      "command": "builder-mcp",
+      "autoApprove": [
+        "ReadInternalWebsites"
+      ]
+    }
+  }
+}

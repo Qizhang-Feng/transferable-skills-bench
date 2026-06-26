@@ -1,0 +1,60 @@
+{
+  "task_id": "50486",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "PALLET TYPE": "PLT TYPE",
+        "CHEP": "CHEP QTY",
+        "LOSCAM": "LOSCAM QTY"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "PalletData"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "PalletData",
+          "range": "A2:A5",
+          "find": "Chep",
+          "replace": "Chep"
+        },
+        {
+          "sheet": "PalletData",
+          "range": "A2:A5",
+          "find": "Loscam",
+          "replace": "Loscam"
+        }
+      ]
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "PalletData"
+      ],
+      "params": {
+        "title_text": "Pallet Tracking Report"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "PALLET COUNT",
+      "target_sheet": "PalletData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references 'Chep' and 'Loscam' as data values to write into column A, not as column header references. The risk flag 'data_values_match_headers' warns that header names overlap with data values in column A. The previous attempt failed because it renamed data values to match new headers, creating ambiguity. Here, I rename the CHEP and LOSCAM headers to 'CHEP QTY' and 'LOSCAM QTY' respectively, but critically I do NOT rename the data values 'Chep'/'Loscam' in column A since those are the literal output strings referenced in the instruction ('Chep' or 'Loscam'). The data_value_renames are identity mappings (no-ops) to explicitly document that these values are preserved. The instruction says to display 'Chep' or 'Loscam' — these are English words used in the instruction body as output values, but the column headers CHEP/LOSCAM are used as column references, so renaming headers is safe while keeping data values intact. Title row insert shifts headers from row 1 to row 2 and data down accordingly, breaking hardcoded row assumptions. A distractor column 'PALLET COUNT' is added to test robustness against extra columns."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "PalletData"
+    },
+    "row_shifts": {
+      "PalletData": 1
+    },
+    "col_inserts": {}
+  }
+}

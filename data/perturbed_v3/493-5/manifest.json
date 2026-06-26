@@ -1,0 +1,46 @@
+{
+  "task_id": "493-5",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Reference": "Ref No",
+        "Date": "Trans Date",
+        "Debit": "Debit Amt",
+        "Credit": "Credit Amt",
+        "Net Balance": "Running Balance",
+        "Narrative": "Description"
+      },
+      "sheet_rename_map": {
+        "Imported Data": "Bank Transactions"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Bank Transactions"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Memo",
+      "target_sheet": "Bank Transactions",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task deletes rows, so blank_row_insert and title_row_insert are risky (risk flag: task_deletes_or_inserts_rows). Instead I use: (1) Lexical rename — all column headers are renamed to equally descriptive alternatives (abbreviation-to-abbreviation for 'Reference'→'Ref No', full-word-to-full-word for others). The instruction references Column C/D/A/F by letter and mentions 'Reference', 'Narrative' by name, so renaming these tests whether the agent resolves names vs hardcoded letters. The sheet is also renamed. (2) Distractor column — 'Memo' is added after the last column (column G). It is plausibly similar to 'Description' (the renamed Narrative) but clearly different, testing whether the agent incorrectly picks up the extra column. The instruction text references column letters (A, C, D, F) and header names ('Reference', 'Narrative') which now map to renamed headers, so the agent must adapt. No instruction paraphrase is applied to avoid meaning drift."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Imported Data": "Bank Transactions"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

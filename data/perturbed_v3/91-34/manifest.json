@@ -1,0 +1,52 @@
+{
+  "task_id": "91-34",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "SSN": "SSN #",
+        "Last Name": "Surname",
+        "First Name": "Given Name",
+        "Date Of Birth": "DOB",
+        "Duplicate?": "Is Duplicate?",
+        "Gender": "Sex",
+        "Address": "Street Address",
+        "City": "Municipality",
+        "Zip": "Postal Code",
+        "Employee #": "Employee ID",
+        "Marital Status": "Marriage Status",
+        "Phone #": "Phone Number"
+      },
+      "sheet_rename_map": {
+        "SwiftMD": "MemberData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "MemberData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Coverage Type",
+      "target_sheet": "MemberData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task involves deleting rows, so we must NOT insert blank rows or a title row (risk flag: task_deletes_or_inserts_rows). Instead, we use lexical renames to change column headers and the sheet name, breaking hardcoded references. 'Last Name' → 'Surname', 'First Name' → 'Given Name', 'Date Of Birth' → 'DOB', 'Duplicate?' → 'Is Duplicate?', and 'Relationship' is kept unchanged because the instruction uses 'Relationship' as both a column reference and a meaningful English word in context. We also add a distractor column 'Coverage Type' after the last column to test whether agents hardcode column boundaries. The sheet is renamed from 'SwiftMD' to 'MemberData'. The instruction references 'Duplicate?' and 'Relationship' columns by name — 'Duplicate?' is renamed to 'Is Duplicate?' which is close enough that the instruction text ('Duplicate?' column) still clearly maps to it, and 'Relationship' is preserved since it appears naturally in the instruction. The answer position shifts from 'SwiftMD'!B2:O42 to 'MemberData'!B2:P42 (one extra distractor column, though the answer range depends on whether the distractor column is included — the actual data columns shift to P with the distractor)."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "SwiftMD": "MemberData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

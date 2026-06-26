@@ -1,0 +1,34 @@
+{
+  "task_id": "37378",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task explicitly references absolute cell addresses (A2, B2, A3, B3) and specific columns (column A, column B) in the instruction. The risk flags confirm instruction_references_absolute_rows and task_references_specific_cell_addresses. Both previous attempts failed because they shifted rows or columns, causing the hardcoded cell references in the instruction to point to wrong locations. The safest approach is to add a distractor column AFTER the last existing column (column C), which does not shift any existing columns. This preserves all cell addresses referenced in the instruction. Column A stays column A, column B stays column B. The distractor column 'Notes' is plausibly related to a data entry sheet but clearly different from the existing '#' and 'A' columns. No column or sheet renames are applied because the header 'A' is a single letter that could easily conflict with column references in the instruction (the instruction says 'column A'), and renaming '#' serves no useful perturbation purpose. No blank row insert is used because it would shift row positions and break the absolute row references."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

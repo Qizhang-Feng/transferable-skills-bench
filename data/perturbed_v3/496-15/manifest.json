@@ -1,0 +1,40 @@
+{
+  "task_id": "496-15",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "account": "acct",
+        "state": "region",
+        "amount": "total"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Ledger"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts all failed because inserting blank rows or distractor columns shifted the column positions, breaking the instruction's references to column D and column E. The instruction explicitly references columns D and E by letter, and the 'Check' column header matches data values (risk flag 'data_values_match_headers'), making any column insertion extremely dangerous. The safest approach is to only apply lexical renames to columns NOT referenced in the instruction (account, state, amount) and rename the sheet. The columns 'Check' and 'Payee' are referenced by position (columns D and E) in the instruction and must not be moved or renamed. No layout changes are applied to avoid shifting any columns or rows. This changes surface anchors (sheet name, unrelated column names) without affecting task logic."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Ledger"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

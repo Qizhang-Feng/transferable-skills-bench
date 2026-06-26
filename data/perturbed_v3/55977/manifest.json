@@ -1,0 +1,47 @@
+{
+  "task_id": "55977",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date": "Calendar Date",
+        "Day No.": "Weekday No.",
+        "Day": "Day Name"
+      },
+      "sheet_rename_map": {
+        "WEEKDAY": "DayCalc"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "DayCalc"
+      ],
+      "params": {
+        "title_text": "Weekly Day Mapping"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Week No.",
+      "target_sheet": "DayCalc",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical — all three column headers are renamed to semantically equivalent alternatives ('Date' → 'Calendar Date', 'Day No.' → 'Weekday No.', 'Day' → 'Day Name') and the sheet is renamed from 'WEEKDAY' to 'DayCalc'. The instruction references columns by letter (B, C) and uses 'WEEKDAY' as a function name context, not as a sheet reference, so these renames are safe. The word 'Day' appears in the instruction but only in the context of weekday semantics, not as a column reference — the instruction explicitly says 'Column B' and 'Column C', so renaming the headers is safe. (2) Positional title row insert — a title row is inserted at row 1, pushing headers to row 2 and data to rows 3-17. The instruction references 'Columns B:C' and 'Column A' by letter (not absolute row addresses), so the title row insert doesn't break the instruction. The answer position shifts from C2:C16 to C3:C17. (3) Distractor column — 'Week No.' is added after the last column, plausibly related to the weekday theme but clearly different from existing columns. None of these changes alter the underlying logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "WEEKDAY": "DayCalc"
+    },
+    "row_shifts": {
+      "DayCalc": 1
+    },
+    "col_inserts": {}
+  }
+}

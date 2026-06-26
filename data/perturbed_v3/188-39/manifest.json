@@ -1,0 +1,56 @@
+{
+  "task_id": "188-39",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Location": "Branch Location",
+        "Name of employee": "Employee Name",
+        "Contact no": "Phone Number",
+        "Mail id": "Email Address",
+        "Designation": "Job Title"
+      },
+      "sheet_rename_map": {
+        "main sheet": "employee data",
+        "result": "output"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "employee data",
+        "output"
+      ],
+      "params": {
+        "title_row_content": {
+          "employee data": "Employee Directory",
+          "output": "Lookup Results"
+        }
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Department Code",
+      "target_sheet": "employee data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical: All column headers are renamed across both sheets consistently — 'Location' → 'Branch Location', 'Contact no' → 'Phone Number', 'Mail id' → 'Email Address', 'Designation' → 'Job Title', 'Name of employee' → 'Employee Name'. These maintain the same descriptiveness level. Note: 'designation', 'contact', 'mail', and 'location' appear in the instruction as general English words describing the task logic, but the column names themselves ('Contact no', 'Mail id', 'Designation', 'Location') are used as column references in the schema. The renames are to equally descriptive alternatives. The instruction references concepts, not exact column names, so the task logic is preserved. (2) Positional/title_row_insert: A title row is inserted at the top of both sheets, shifting headers down by one row. This tests whether the agent hardcodes row 1 as the header row. (3) Distractor column: 'Department Code' is added after the last column in the source sheet to test whether the agent incorrectly includes it in lookups. Sheet names are also renamed to break hardcoded sheet references."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "main sheet": "employee data",
+      "result": "output"
+    },
+    "row_shifts": {
+      "employee data": 1,
+      "output": 1
+    },
+    "col_inserts": {}
+  }
+}

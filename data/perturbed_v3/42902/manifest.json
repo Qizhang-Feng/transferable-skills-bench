@@ -1,0 +1,47 @@
+{
+  "task_id": "42902",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "name": "label"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data1"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "Data1",
+          "range": "A4:A19",
+          "find": "name",
+          "replace": "label"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Data1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "notes",
+      "target_sheet": "Data1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The previous attempt failed because inserting a blank row disrupted the 3-row grouping logic. Since the task depends on consecutive row grouping, blank row insertion is too risky (as flagged). Instead, I use a distractor column (inserting an empty 'notes' column after column A) which doesn't affect the row-based grouping logic at all. I also rename the column header 'name' to 'label' (same descriptiveness level - both are single common words) and rename the sheet. The word 'name' appears as data values in cells A4, A7, A10, A13, A16, A19 per the schema overlap info, so those are also renamed. The distractor column tests whether the agent hardcodes column count or output positions. No blank rows are inserted to avoid breaking the 3-row grouping structure."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data1"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

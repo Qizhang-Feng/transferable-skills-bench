@@ -1,0 +1,59 @@
+{
+  "task_id": "55427",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "URN": "Ref_ID",
+        "DFES check": "DFES_verify",
+        "DfE Number": "DfE_Code",
+        "County": "Region",
+        "Address1": "Addr_Line1",
+        "Address2": "Addr_Line2",
+        "Address3": "Addr_Line3",
+        "Address4": "Addr_Line4",
+        "Address5": "Addr_Line5",
+        "Postcode": "ZipCode",
+        "Initial": "FirstInit",
+        "Surname": "LastName",
+        "Email": "ContactEmail",
+        "Phone": "ContactPhone",
+        "Website": "SiteURL",
+        "FSM": "FSM_Rate",
+        "ABS": "ABS_Rate",
+        "ATT8SCR": "ATT8_Score",
+        "P8PUP": "P8_Pupils",
+        "P8MEA": "P8_Measure"
+      },
+      "sheet_rename_map": {
+        "Compiled and located schools da": "Compiled and located schools da",
+        "URN lookup": "URN lookup"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "DFES_legacy",
+      "target_sheet": "Compiled and located schools da",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task involves fixing an INDEX/MATCH formula across sheets. The instruction explicitly references sheet names ('URN lookup') and specific cell addresses with absolute row references, so renaming sheets or changing layout near those rows is risky. Instead, I apply safe lexical perturbations: renaming columns in the destination sheet ('Compiled and located schools da') that are not referenced by name in the instruction text. Key columns like 'Name' and 'Type' are left unchanged since they appear as common English words. The column 'DFES check' (answer column B) is renamed to 'DFES_verify' — this tests whether the agent hardcodes column names. I also add a distractor column 'DFES_legacy' which is plausibly similar to 'DFES check'/'DFES_verify' but clearly different, testing whether the agent confuses it with the real DFES column. Sheet names are kept identical because the instruction explicitly references 'URN lookup' with absolute cell addresses, and the risk flags warn about multi-sheet references and specific cell addresses. The answer position (B2:B1461) remains unchanged since we only renamed the header, not the column position."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Compiled and located schools da": "Compiled and located schools da",
+      "URN lookup": "URN lookup"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

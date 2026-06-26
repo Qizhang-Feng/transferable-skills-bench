@@ -1,0 +1,21 @@
+{
+  "task_id": "52216",
+  "opaque_col_map": {
+    "Annual Asking Rent (P/SQM)": "Branch",
+    "Gross Potential Rent (GPR)": "Weight"
+  },
+  "opaque_sheet_map": {
+    "Sheet2": "Registry"
+  },
+  "primary_distractor": "Annual Asking Rent (P/SQM)",
+  "old_anchors": [
+    "Annual Asking Rent (P/SQM)",
+    "Gross Potential Rent (GPR)",
+    "Sheet2"
+  ],
+  "new_anchors": [
+    "Branch",
+    "Weight",
+    "Registry"
+  ]
+}

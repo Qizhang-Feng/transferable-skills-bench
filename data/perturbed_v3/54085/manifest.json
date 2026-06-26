@@ -1,0 +1,42 @@
+{
+  "task_id": "54085",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Item": "Exclude Value",
+        "List of Items": "Source Items",
+        "Desired Result": "Filtered Output"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "FilterSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "FilterSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Item Count",
+      "target_sheet": "FilterSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (C2:C4, column A, B, C) which are risk-flagged, so I avoid blank_row_insert or title_row_insert that would shift rows. Instead I use: (1) lexical perturbation — renaming all three columns ('Item' → 'Exclude Value', 'List of Items' → 'Source Items', 'Desired Result' → 'Filtered Output') and the sheet ('Sheet1' → 'FilterSheet') to break hardcoded column name references; (2) distractor_column — adding 'Item Count' as a plausibly similar but distinct column after the last column, which tests whether agents incorrectly reference column D instead of the correct columns. The instruction mentions 'item/items' as general English words describing the data, not as column name references, so renaming the column headers (which use different phrasing) is safe. No row shifts occur, so C2:C4/C2:C5 answer positions remain valid. The underlying filtering logic and difficulty are unchanged."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "FilterSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

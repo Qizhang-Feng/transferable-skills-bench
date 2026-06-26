@@ -1,0 +1,47 @@
+{
+  "task_id": "262-17",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "positional_title_row"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Sr. No": "Seq. No",
+        "Team": "Group",
+        "Start Date": "Begin Date",
+        "End Date": "Finish Date"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataInput",
+        "Sheet2": "ExpectedResult"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataInput",
+        "ExpectedResult"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Priority",
+      "target_sheet": "DataInput",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction explicitly references 'Task' and 'Responsibility' as header names that the VBA macro must find dynamically, so these columns must NOT be renamed (they appear as meaningful references in the instruction, not just column labels). I renamed the other four columns (Sr. No → Seq. No, Team → Group, Start Date → Begin Date, End Date → Finish Date) at the same descriptiveness level to test whether the agent hardcodes column names or positions for non-target columns. Sheets are renamed (Sheet1 → DataInput, Sheet2 → ExpectedResult) to break hardcoded sheet references. A distractor column 'Priority' is added after the last column on DataInput — it is plausibly related to task/project data but clearly distinct from existing columns, testing whether the agent incorrectly includes it in the sort range. I avoided blank_row_insert because the task involves sorting a contiguous data block and the risk flag 'multi_sheet_references' means inserted rows could shift the answer range; the distractor column is safer. The answer position updates from Sheet1!A1:F14 to DataInput!A1:F14 (column count unchanged since distractor is G and not part of the sorted output). instruction_paraphrase is false to avoid meaning drift."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataInput",
+      "Sheet2": "ExpectedResult"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

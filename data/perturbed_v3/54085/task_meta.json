@@ -1,0 +1,5 @@
+{
+  "id": "54085",
+  "instruction": "How can I create a formula in Excel that populates column C with all the items from column B, with the exception of excluding a specific value listed in column A? Answers should be in C2:C4 in the order they appear in column B.",
+  "answer_position": "C2:C5"
+}

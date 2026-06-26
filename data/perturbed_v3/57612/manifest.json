@@ -1,0 +1,34 @@
+{
+  "task_id": "57612",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "adjusted values",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task explicitly references cell addresses C4, D4, and a specific formula with those references. This means we cannot insert blank rows or title rows (which would shift data rows), and we cannot rename columns since 'values' and 'result' appear as common English words in the instruction. The safest perturbation is adding a distractor column with a plausibly similar name ('adjusted values') that could confuse a model into referencing the wrong column. We avoid any layout changes that would shift row positions since the instruction hardcodes cell addresses like C4 and D4. The previous attempt failed precisely because a blank row insertion shifted the data, so we use 'distractor_column' as the layout type which only adds a new column without affecting existing cell positions."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

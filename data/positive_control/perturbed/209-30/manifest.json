@@ -1,0 +1,27 @@
+{
+  "task_id": "209-30",
+  "opaque_col_map": {
+    "Location": "Level",
+    "URN": "Margin",
+    "Date": "Segment"
+  },
+  "opaque_sheet_map": {
+    "Data to Import": "Roster",
+    "Location Matrix": "Pipeline"
+  },
+  "primary_distractor": "Location",
+  "old_anchors": [
+    "Location",
+    "URN",
+    "Date",
+    "Data to Import",
+    "Location Matrix"
+  ],
+  "new_anchors": [
+    "Level",
+    "Margin",
+    "Segment",
+    "Roster",
+    "Pipeline"
+  ]
+}

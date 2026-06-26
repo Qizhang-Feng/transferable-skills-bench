@@ -1,0 +1,41 @@
+{
+  "task_id": "1563",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "OldColumn": "SourceData",
+        "NewColumn": "FilledResult"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "TempFlag",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task depends on blank cell positions in column A, so title_row_insert is unsafe (as shown by the failed attempt — it introduces a non-blank cell that disrupts the fill logic). Instead, I use two safe perturbation types: (1) distractor_column — adding a 'TempFlag' column after column B that is plausibly related but clearly different from the real columns, testing whether the model ignores irrelevant columns; (2) column and sheet renames — 'OldColumn' becomes 'SourceData' and 'NewColumn' becomes 'FilledResult' (same descriptiveness level, full words to full words), and 'Sheet1' becomes 'DataSheet'. The instruction references 'column A' and 'column B' positionally rather than by header name, so renaming headers tests whether the model can still map the correct columns. The distractor column does not affect the data or answer position (B2:B30 remains unchanged). No data values need renaming since headers don't appear as data."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

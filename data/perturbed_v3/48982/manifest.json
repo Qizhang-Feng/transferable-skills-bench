@@ -1,0 +1,36 @@
+{
+  "task_id": "48982",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "position": "after_last_column"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Chk Seq",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (B323, A323, B$7:B377) so we cannot insert blank rows (would shift row numbers) or insert columns before column B (would shift column letters). The distractor column is placed AFTER the last column (column B) so columns A and B remain unchanged. The distractor name 'Chk Seq' is plausibly similar to 'Check #' but clearly different. instruction_paraphrase is set to false per rules. This perturbation changes the surface appearance of the spreadsheet without affecting any referenced cells or the task logic."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "task_id": "41410",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Data Source:": "Source Table:",
+        "Output:": "Result:"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Summary:",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (B3:D22 and F3:H6), so inserting blank rows would shift data and break those references — as shown by the two failed attempts. Instead, I use safe perturbations that don't shift any rows or columns within the referenced ranges: (1) Rename the section headers 'Data Source:' and 'Output:' to 'Source Table:' and 'Result:' respectively — these are labels in B2 and F2 (outside the data ranges) and serve as surface anchors that agents might hardcode. The renames maintain the same descriptiveness level. (2) Add a distractor column 'Summary:' after the last used column. This tests whether the agent incorrectly expands its data range. Neither perturbation shifts any cells within B3:D22 or F3:H6, preserving the task's logic and the instruction's cell references."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

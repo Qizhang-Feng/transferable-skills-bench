@@ -1,0 +1,37 @@
+{
+  "task_id": "45707",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Occurence": "Occurrence Flag",
+        "Rolling month sum": "Monthly Rolling Total"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Daily Notes",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because (1) blank_row_insert shifted all rows but the instruction references absolute row numbers D2:D69, A1, C1, E1 which weren't updated, and (2) inserting a distractor column before the answer column shifted column letters referenced in the instruction. To avoid both issues: I skip any row/column layout shifts that would displace referenced cells. Instead, I place the distractor column AFTER the last existing column (column F), so columns A through E remain unchanged and all absolute cell references (D2:D69, A1, C1, E1) stay valid. I rename 'Occurence' to 'Occurrence Flag' and 'Rolling month sum' to 'Monthly Rolling Total' — these are column headers referenced only as column identifiers, not as English words in the instruction body. The instruction mentions 'column C' and 'column A' by letter, not by name, so renaming these headers doesn't conflict with instruction text. The distractor column 'Daily Notes' is plausibly related to a date-based dataset but clearly different from existing columns."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

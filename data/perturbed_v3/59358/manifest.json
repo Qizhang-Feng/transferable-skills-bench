@@ -1,0 +1,34 @@
+{
+  "task_id": "59358",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Operation long text",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references specific absolute cell addresses (B2:B23, D2:D23, F2:F23, L7:L9), which means we CANNOT insert blank rows or title rows as these would shift data and break the absolute references (this was exactly the failure in Attempt 1). The risk flags explicitly warn about 'instruction_references_absolute_rows' and 'task_references_specific_cell_addresses'. Column renames are also unsafe here because the instruction references columns by letter (B, D, F) not by name, so renaming headers wouldn't test anything meaningful and the column names like 'Order', 'Activity', 'Work center' could appear as general English words in context. Instead, we use a distractor column ('Operation long text') which is plausibly similar to the existing 'Operation short text' column. This tests whether the agent gets confused by a similarly-named column without changing any cell addresses or data. The distractor is placed after the last column to avoid shifting any existing column positions."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

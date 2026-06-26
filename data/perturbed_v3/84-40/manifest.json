@@ -1,0 +1,51 @@
+{
+  "task_id": "84-40",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "IMPORT": "INFLOW",
+        "EXPORT": "OUTFLOW",
+        "BATCH": "LOT",
+        "ITEMS": "NO.",
+        "SHEETS NAMES": "TAB NAMES",
+        "BALANCE": "DIFFERENCE"
+      },
+      "sheet_rename_map": {
+        "LIST": "SUMMARY"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "CA",
+        "MN",
+        "SDFRT"
+      ],
+      "params": {
+        "column_name": "REMARKS",
+        "position": "after_last_column",
+        "fill": ""
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "REMARKS",
+      "target_sheet": "CA,MN,SDFRT",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Using lexical renames and a distractor column. Column renames: IMPORT→INFLOW, EXPORT→OUTFLOW, BATCH→LOT, ITEMS→NO., SHEETS NAMES→TAB NAMES, BALANCE→DIFFERENCE. All maintain the same descriptiveness level (short descriptive labels). Sheet rename: LIST→SUMMARY. The instruction references columns C and D by letter and mentions 'excluding column B', so renaming column headers does not conflict with the instruction text — the instruction uses positional column letters, not header names. The answer position shifts from LIST!C2:E5 to SUMMARY!C2:E5. A distractor column 'REMARKS' is added after the last column on each data sheet, which is plausibly related but clearly not a numeric amount column. No data values need renaming since sheet names (CA, MN, SDFRT) are not renamed and no column header names appear as data values. No title_row_insert is used because the task deletes/inserts rows (risk flag). The underlying logic (summing columns C and D per sheet, writing to summary sheet, computing difference) is completely unchanged."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "LIST": "SUMMARY"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

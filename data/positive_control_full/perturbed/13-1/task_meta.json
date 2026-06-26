@@ -1,0 +1,6 @@
+{
+  "id": "13-1",
+  "instruction": "How can I combine data from a 'Snapshot' sheet to a 'Registry' sheet, by matching duplicates based on the 'DATE' and 'REF' columns in columns B and C, and add a 'TOTAL' row to sum up the amounts? Additionally, since new ranges with headers will be added to the 'Snapshot' sheet, how do I ensure to delete the old ranges in the 'Registry' sheet before populating the new data? I have given the correct answer of the \"STAGE\" table in the \"Registry\" table as a format reference, please help me complete the other answers. Each of the sections in \"Registry\" should be sorted based on data from lowest to highest, secondary sort key is alphabetical A to Z on column C.",
+  "answer_position": "A3:D32",
+  "instruction_type": "Sheet-Level Manipulation"
+}

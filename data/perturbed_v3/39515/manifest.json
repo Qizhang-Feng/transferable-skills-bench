@@ -1,0 +1,38 @@
+{
+  "task_id": "39515",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Month Available": "Month Offered",
+        "Year Available": "Year Offered",
+        "Increase Based on Availability": "Rate Based on Offering"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Adjustment Factor",
+      "target_sheet": "Sheet1",
+      "position": "after_col_B"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (e.g., $C2:$N2, $A2, $C$1:$N$1, O2:O13) and absolute rows, so we must not insert title rows or blank rows that would shift row positions. We apply two safe perturbation types: (1) Lexical rename of columns — 'Month Available' → 'Month Offered', 'Year Available' → 'Year Offered', and 'Increase Based on Availability' → 'Rate Based on Offering'. These maintain the same descriptiveness level. We do NOT rename the month abbreviation headers (JAN, FEB, etc.) because the instruction explicitly references 'January' and 'month' as English words, and the month columns are referenced by cell address rather than name. (2) Distractor column inserted after column B, which shifts the month columns (C through N) rightward by one, testing whether the agent blindly uses the cell addresses from the original formula or adapts to the new layout. Wait — actually, inserting a column after B would shift C:N to D:O, which changes the cell addresses the formula must reference. Since the task references specific cell addresses and the risk flag warns about this, inserting a distractor column between B and C would change the underlying logic. Instead, I'll place the distractor column after the last column (after O) so it doesn't shift any referenced cells."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

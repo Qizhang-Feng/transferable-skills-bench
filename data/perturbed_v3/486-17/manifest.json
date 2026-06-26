@@ -1,0 +1,34 @@
+{
+  "task_id": "486-17",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Blad1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Datum ontvangst",
+      "target_sheet": "Blad1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (B2:B130) and the instruction says 'Start in B2, no header'. This makes blank_row_insert risky (as shown in the failed attempt where it shifted data and broke the B2 reference). Title_row_insert has the same risk. Column reorder is not applicable since there's only one data column. Instead, I use a distractor_column strategy: adding a plausibly similar but clearly different column 'Datum ontvangst' (meaning 'Date received', compared to the existing 'Datum verzending' meaning 'Date sent'). This column is placed after the last column (column B area is reserved for the answer output). The distractor column goes into column B would conflict with the answer position, so it is placed after column A as column B... wait — the answer is in B2:B130 which is currently empty (the macro writes there). Placing a distractor after the last used column means it would go into column B. But B is the answer column. So I place the distractor column at a position that doesn't conflict — I'll put it in column C instead. The distractor tests whether the model incorrectly reads from or writes to the wrong column. No renaming is needed since the instruction doesn't reference the column name 'Datum verzending' and changing it could cause confusion with the data_header_overlaps. No layout shift is applied to avoid breaking the B2 cell reference."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

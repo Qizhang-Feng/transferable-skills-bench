@@ -1,0 +1,46 @@
+{
+  "task_id": "43589",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Count": "Entry",
+        "No. of days": "Day Count"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DateRanges"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "DateRanges"
+      ],
+      "params": {
+        "title_text": "Date Range Calculator"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Month",
+      "target_sheet": "DateRanges",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical — both column headers are renamed to semantically equivalent alternatives ('Count' → 'Entry', 'No. of days' → 'Day Count') and the sheet is renamed from 'Sheet1' to 'DateRanges'. Neither original header name appears as a common English word in the instruction body in a way that would cause confusion. (2) Positional title row insert — a title row is inserted at row 1, pushing the header to row 2 and data to row 3, which shifts the answer position from B2 to B3. This tests whether the model hardcodes row positions. (3) Distractor column — a 'Month' column is added after the last column, which is plausibly related to date ranges but clearly distinct from the existing columns. None of these changes alter the underlying logic or difficulty of the task."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DateRanges"
+    },
+    "row_shifts": {
+      "DateRanges": 1
+    },
+    "col_inserts": {}
+  }
+}

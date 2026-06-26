@@ -1,0 +1,76 @@
+{
+  "task_id": "290-1",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "A": "X",
+        "B": "Y",
+        "C": "Z",
+        "D": "W",
+        "E": "P",
+        "F": "Q",
+        "G": "R",
+        "H": "S"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "DataSheet"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "DataSheet",
+          "range": "D4:D6",
+          "find": "C",
+          "replace": "Z"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "D12",
+          "find": "B",
+          "replace": "Y"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "D16:D17",
+          "find": "C",
+          "replace": "Z"
+        },
+        {
+          "sheet": "DataSheet",
+          "range": "D18",
+          "find": "G",
+          "replace": "R"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "DataSheet"
+      ],
+      "params": {
+        "position": "after_last_data_column_before_transposed",
+        "note": "Insert distractor column AFTER column H (the last source data column) but BEFORE the transposed output area (columns K onward). This means inserting at column I, which is already likely empty. Instead, insert after column V (after the entire used range) so that the transposed columns K-V remain untouched."
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "T",
+      "target_sheet": "DataSheet",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific column letters K to V for the transposed output area. Previous attempts failed because inserting a distractor column before the transposed area shifted those columns. To avoid this, the distractor column is placed AFTER the last used column (after column V), so columns K-V remain in their original positions and the answer position K2:U10 is unaffected. Column headers A-H are renamed to single-letter alternatives (X, Y, Z, W, P, Q, R, S) maintaining the same abbreviation style. The sheet is renamed from Sheet1 to DataSheet. Data values that overlap with header names (C appearing in D4:D6, D16:D17; B in D12; G in D18) are also renamed to match the new header names. The distractor column is named 'T' which is plausibly similar to the existing single-letter headers but clearly distinct."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "DataSheet"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

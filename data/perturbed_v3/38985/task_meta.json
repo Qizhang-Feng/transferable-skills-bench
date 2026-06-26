@@ -1,0 +1,5 @@
+{
+  "id": "38985",
+  "instruction": "I'm dealing with two tables in Excel. In Dataset A, I have a column with duplicate names, and in Dataset B, I have those same names but each is associated with different values. I need to find a way to retrieve the corresponding data from Dataset B and place it into Dataset A in a transposed manner, i.e., going across the row instead of down a column. Is there a method to achieve this, especially given the challenge of handling duplicate lookup values?",
+  "answer_position": "D8:D11"
+}

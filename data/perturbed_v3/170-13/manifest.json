@@ -1,0 +1,47 @@
+{
+  "task_id": "170-13",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Entry": "Record",
+        "Output": "Result",
+        "U4_ComponentPropertyForm": "U4_ComponentPropertyForm",
+        "U4_PackageDetailsForm": "U4_PackageDetailsForm",
+        "U4_VisualPerformanceForm": "U4_VisualPerformanceForm",
+        "U4_ApprvdPolymerDetailLForm": "U4_ApprvdPolymerDetailLForm",
+        "U4_LayerStructureForm": "U4_LayerStructureForm"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": [
+        {
+          "sheet": "Sheet1",
+          "range": "A2:A14",
+          "find": "Entry",
+          "replace": "Record"
+        }
+      ]
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task has risk flags for row insertion and multi-sheet references, so I avoid title_row_insert and sheet renaming to keep things safe. I apply two perturbation strategies: (1) Lexical rename of 'Entry' to 'Record' and 'Output' to 'Result' — these are column-reference names in the instruction, not common English words used in a general sense. The Sheet2 headers (U4_ComponentPropertyForm, etc.) are kept unchanged because they appear as data values in Sheet1 that must match Sheet2 headers — renaming them would require careful coordination across sheets and the instruction explicitly references 'U4_ComponentPropertyForm' as an example. Data value renames are included for Sheet1 in case 'Entry' appears as a data value. (2) A distractor column 'Category' is added to Sheet1 after the last column — it's plausibly related but clearly different from 'Record' (the renamed Entry column), testing whether the agent correctly identifies which column to use."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

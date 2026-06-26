@@ -1,0 +1,45 @@
+{
+  "task_id": "42354",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Result": "Output"
+      },
+      "sheet_rename_map": {
+        "Query": "Lookup"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Lookup"
+      ],
+      "params": {
+        "title_text": "Priority Evaluation Table"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "D_Backup",
+      "target_sheet": "Lookup",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Columns A, B, and C are explicitly referenced in the instruction as both column names and column letters integral to the task logic (e.g., 'column A', 'column B', 'column C'). Renaming them would risk changing the instruction's meaning since these names are used as general English references to spreadsheet columns. However, 'Result' is only a header label not mentioned in the instruction, so renaming it to 'Output' (same descriptiveness level, full word to full word) is safe. The sheet rename from 'Query' to 'Lookup' tests hardcoded sheet name assumptions. The title row insert shifts the header from row 1 to row 2 and data rows down by 1, testing positional anchoring (answer position moves from D2:D8 to D3:D9). The distractor column 'D_Backup' is plausibly similar to the result column but clearly different, testing whether the model gets confused by extra columns."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Query": "Lookup"
+    },
+    "row_shifts": {
+      "Lookup": 1
+    },
+    "col_inserts": {}
+  }
+}

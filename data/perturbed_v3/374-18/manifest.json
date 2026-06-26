@@ -1,0 +1,47 @@
+{
+  "task_id": "374-18",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Code": "ItemCode",
+        "Name": "Description",
+        "Reference": "RefNum",
+        "Date Processed": "ProcessDate",
+        "Outstanding": "Outstanding",
+        "AccntngGroup": "AcctGroup",
+        "Branch": "Location"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Imported Data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Imported Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "OutstandingPrev",
+      "target_sheet": "Imported Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references 'Imported Data' sheet and Column E ('Outstanding'). I renamed the sheet from 'Sheet1' to 'Imported Data' to match the instruction's sheet reference (the task expects the macro to run on 'Imported Data'). Column headers are renamed to similar-descriptiveness alternatives (abbreviation to abbreviation, full word to full word), except 'Outstanding' which is kept since it's referenced in the instruction as Column E content. A distractor column 'OutstandingPrev' is added after the last column - it's plausibly similar to 'Outstanding' but clearly different, testing whether the agent correctly identifies Column E vs being confused by similar column names. I avoided blank_row_insert and title_row_insert since the task deletes/inserts rows (risk flag). The answer position updates to 'Imported Data'!A2:G6."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Imported Data"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "510-3",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Sum": "Total"
+      },
+      "sheet_rename_map": {
+        "Data": "Records"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Records"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Cumulative",
+      "target_sheet": "Records",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Renaming 'Sum' to 'Total' (same descriptiveness, both full words for aggregation). Renaming sheet 'Data' to 'Records' (semantically equivalent). Cannot rename 'Year', 'Month', 'Day' because they appear as common English words in the instruction body ('year/month/day format'). Cannot rename 'Data' column because 'data' appears as English word ('split the data'). Adding distractor column 'Cumulative' which is plausibly similar to 'Total' but clearly different. Avoiding title_row_insert since previous attempt failed due to structural interference with 'Recreate Data sheet' instruction. The data_values_match_headers flag is noted but 'Data' column is not being renamed so no data_value_renames needed."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Data": "Records"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

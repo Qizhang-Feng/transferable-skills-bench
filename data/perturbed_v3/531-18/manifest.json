@@ -1,0 +1,51 @@
+{
+  "task_id": "531-18",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "ITEM": "PART_NUM",
+        "DESCRIPTION": "SPEC",
+        "UOM": "UNIT",
+        "SUPPLIER_NAME": "VENDOR_NAME",
+        "SUPPLIER_SITE_NAME": "VENDOR_SITE_NAME",
+        "Supplier ID": "Vendor ID",
+        "QTY": "QUANTITY"
+      },
+      "sheet_rename_map": {
+        "Data": "Source",
+        "Transpose": "Unpivot"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Source"
+      ],
+      "params": {
+        "column_name": "LEAD_TIME",
+        "position": "after_last_column"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "LEAD_TIME",
+      "target_sheet": "Source",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references ITEM, DATE, and QTY columns by name, plus sheet names 'Data' and 'Transpose'. We rename columns and sheets to break hardcoded references: ITEM→PART_NUM, QTY→QUANTITY (the instruction mentions QTY so the agent must find the renamed column), and sheets Data→Source, Transpose→Unpivot. We also rename supporting columns (DESCRIPTION→SPEC, UOM→UNIT, SUPPLIER_NAME→VENDOR_NAME, etc.) for consistency. A distractor column LEAD_TIME is added after the last column on the Source sheet to test whether the agent incorrectly includes extra columns. Note: the instruction text says 'ITEM, DATE, and QTY' — ITEM and QTY are column names being renamed, while DATE refers to the date columns (which are timestamps, not a single header called DATE), so the rename is safe. We keep instruction_paraphrase false to avoid meaning drift; the instruction still references old names but the agent must map them to the new schema."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Data": "Source",
+      "Transpose": "Unpivot"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

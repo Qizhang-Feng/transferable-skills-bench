@@ -1,0 +1,48 @@
+{
+  "task_id": "370-43",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Item ID": "Product Code",
+        "Description": "Item Detail",
+        "2019 Quarter 4": "2019 Q4",
+        "2020 Quarter 1": "2020 Q1",
+        "2020 Quarter 2": "2020 Q2",
+        "2020 Quarter 3": "2020 Q3",
+        "2020 Quarter 4": "2020 Q4",
+        "2021 Quarter 1": "2021 Q1",
+        "2021 Quarter 2": "2021 Q2",
+        "2021 Quarter 3": "2021 Q3",
+        "Total Ships 8 Qtrs": "Cumulative Ships 8 Qtrs"
+      },
+      "sheet_rename_map": {
+        "Before Insert Row": "Pre Row Insert"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Avg Ships Per Qtr",
+      "target_sheet": "Pre Row Insert",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flags indicate the task inserts/deletes rows, references absolute row numbers (A7:A1000), and depends on blank row positions. Therefore, inserting blank rows is extremely dangerous — it would shift data and break the hardcoded range reference in the instruction, and any extra blank rows could interfere with the macro's row-insertion logic. I skip blank_row_insert entirely. Instead I use: (1) Column renames — all headers are renamed at the same descriptiveness level (full names to full names, abbreviations to abbreviations like 'Quarter 4' → 'Q4'). None of these column names appear as general English words in the instruction. (2) Sheet rename — 'Before Insert Row' → 'Pre Row Insert' at the same descriptiveness level. (3) Distractor column — 'Avg Ships Per Qtr' is plausibly related to the shipping data but clearly distinct from existing columns. This tests whether the agent hardcodes column count. The instruction references Column A and range A7:A1000 which remain unchanged, preserving task logic."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Before Insert Row": "Pre Row Insert"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

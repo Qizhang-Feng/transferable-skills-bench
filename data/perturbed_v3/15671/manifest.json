@@ -1,0 +1,34 @@
+{
+  "task_id": "15671",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Formatted",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references Column A (data) and Column B (answer output). The header '911313316543722' is a numeric string that also appears as data (risk flag 'data_values_match_headers'), but since the instruction doesn't reference the header by name, renaming it is unnecessary and could cause confusion. A blank_row_insert failed previously because it shifted data positions and introduced a blank cell that formulas would process incorrectly. Instead, I add a distractor column 'Formatted' after the last column (placed in column C, after B which is the answer column). This column name is plausibly related to the task context (formatting/converting numbers to text) but clearly different from the actual columns. This tests whether the model is distracted by a similarly-themed column without changing any data values, layout positions, or task logic. No column or sheet renames are applied since the header is a numeric ID (not a descriptive name worth renaming) and the instruction references columns by letter, not by name."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

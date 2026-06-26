@@ -1,0 +1,38 @@
+{
+  "task_id": "44913",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "UNIQUE ID ": "UNIQUE ID ",
+        "AMOUNT": "AMOUNT",
+        "DATE": "DATE"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "REGION",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The previous attempt failed because a title_row_insert shifted data rows down, which is risky given the task_depends_on_blank_row_positions flag. To avoid this, I skip the title_row_insert entirely. Instead, I use a distractor_column strategy: I add a plausible but irrelevant column 'REGION' after the last column (which will push it to column E, after the answer column D). This tests whether the model is distracted by extra columns. I do not rename any columns because the instruction explicitly references 'turnover amounts' (closely related to 'AMOUNT'), 'IDs' (closely related to 'UNIQUE ID'), and 'months' (closely related to 'DATE') — renaming these would risk violating Rule 6 since these names appear as general English words in the instruction. The column letters A, B, C are explicitly referenced in the instruction, so column reorder is also unsafe. The distractor column after column D does not affect the answer range D2:D13 since it is placed after it."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "task_id": "52541",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Customer Name": "Client Name",
+        "Invoice Date": "Billing Date",
+        "Invoice Amount": "Billed Amount",
+        "Payment Terms": "Payment Conditions",
+        "Date Recived": "Date Received",
+        "Due Date": "Payment Due Date"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "AR_Tracker"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "AR_Tracker"
+      ],
+      "params": {
+        "title_text": "Accounts Receivable Tracking Report",
+        "merge_range": "A1:J1"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Outstanding Balance",
+      "target_sheet": "AR_Tracker",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical — renamed 6 columns that are not referenced by name in the instruction. The instruction explicitly mentions 'amount outstanding', 'Over Due Days', 'Amount Received' is not mentioned, and 'Remarks' is mentioned, so those columns are kept unchanged. Columns like 'Customer Name', 'Invoice Date', 'Invoice Amount', 'Payment Terms', 'Date Recived', and 'Due Date' are only structural headers not referenced in the instruction text, so they are safely renamed to semantically equivalent names. The sheet is also renamed. (2) Positional title row insert — inserts a title row at row 1, pushing the header from row 5 to row 6 and data from rows 6-10 to rows 7-11. This breaks any hardcoded row references. (3) Distractor column — 'Outstanding Balance' is plausibly similar to 'Amount Outstanding' but clearly different, which could confuse models that pattern-match on partial column names. None of these changes alter data values, formula logic, or task difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "AR_Tracker"
+    },
+    "row_shifts": {
+      "AR_Tracker": 1
+    },
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "task_id": "59224",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "On or after": "Start Date",
+        "To": "End Date",
+        "Initial Date": "Period Status"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Duration (Days)",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific absolute cell addresses (B2, C4, D4, E4:E8) and the header is not in row 1 (it's in row 3). This makes blank_row_insert extremely risky — the previous attempt failed precisely because inserting a blank row shifted all cell references without updating the instruction. Instead, I use two safe perturbations: (1) Rename columns — 'On or after' → 'Start Date', 'To' → 'End Date', 'Initial Date' → 'Period Status'. These are semantically equivalent names at the same descriptiveness level. None of these header names appear as general English words in the instruction body (the instruction references columns by letter C, D, E, not by name). (2) Add a distractor column 'Duration (Days)' after the last column. This is plausibly related to a date-range spreadsheet but clearly different from existing columns. Neither perturbation shifts any rows or columns that the instruction references, so all absolute cell addresses (B2, C4, D4, E4:E8) and the answer position E4:E14 remain valid."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

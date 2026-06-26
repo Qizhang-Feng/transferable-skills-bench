@@ -1,0 +1,54 @@
+{
+  "task_id": "49333",
+  "opaque_col_map": {
+    "SR. NO.": "Phase",
+    "TRACK": "Rating",
+    "RACE": "Metric",
+    "AVB NO": "Margin",
+    "CORRECT": "Impact",
+    "RESULTS ": "Sector",
+    "MANUALLY": "Vendor",
+    "NO": "Origin",
+    "RN": "Volume",
+    "TN": "Priority",
+    "SEL": "Span"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Roster",
+    "Sheet2": "Ledger",
+    "Sheet3": "Pipeline"
+  },
+  "primary_distractor": "SR. NO.",
+  "old_anchors": [
+    "SR. NO.",
+    "TRACK",
+    "RACE",
+    "AVB NO",
+    "CORRECT",
+    "RESULTS ",
+    "MANUALLY",
+    "NO",
+    "RN",
+    "TN",
+    "SEL",
+    "Sheet1",
+    "Sheet2",
+    "Sheet3"
+  ],
+  "new_anchors": [
+    "Phase",
+    "Rating",
+    "Metric",
+    "Margin",
+    "Impact",
+    "Sector",
+    "Vendor",
+    "Origin",
+    "Volume",
+    "Priority",
+    "Span",
+    "Roster",
+    "Ledger",
+    "Pipeline"
+  ]
+}

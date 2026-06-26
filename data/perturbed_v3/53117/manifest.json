@@ -1,0 +1,47 @@
+{
+  "task_id": "53117",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Customer": "Client",
+        "Total": "Invoice Amount",
+        "Output Need": "Result"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "InvoiceData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "InvoiceData"
+      ],
+      "params": {
+        "title_text": "Customer Invoice Analysis"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Region",
+      "target_sheet": "InvoiceData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Three safe anchor types are used: (1) Lexical — 'Customer' renamed to 'Client', 'Total' renamed to 'Invoice Amount' (the instruction references 'invoice amount' as a concept, but 'Total' is the actual column header name, so renaming it to match the instruction's language tests whether the model can adapt to the new header), and 'Output Need' renamed to 'Result'. Sheet renamed to 'InvoiceData'. 'Country' is NOT renamed because the instruction uses 'countries' and 'non-US countries' as general English words, making it risky to rename per Rule 6. (2) Positional title row insert — inserts a title row at row 1, pushing headers to row 2 and data to rows 3-28. This shifts the answer position from D2:D27 to D3:D28, testing whether the model hardcodes row numbers. (3) Distractor column — 'Region' is added after the last column, plausibly similar to 'Country' but clearly different, testing whether the model confuses it with the actual Country column."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "InvoiceData"
+    },
+    "row_shifts": {
+      "InvoiceData": 1
+    },
+    "col_inserts": {}
+  }
+}

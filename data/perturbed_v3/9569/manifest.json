@@ -1,0 +1,40 @@
+{
+  "task_id": "9569",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Contract #": "Agreement #"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "ContractData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "ContractData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Earliest Date",
+      "target_sheet": "ContractData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The previous attempt failed because title_row_insert shifted all data rows down, breaking the row-based references in the instruction (e.g., '1st row' for contract #10007, column 'AO' as the answer position at AO9:AO1288). Since the task heavily references specific cell addresses and row positions (risk flag: task_references_specific_cell_addresses), title_row_insert is unsafe. Instead, I use two safe perturbation types: (1) Lexical renames — renaming 'Contract #' to 'Agreement #' (same descriptiveness, both are noun + symbol) and renaming 'Sheet1' to 'ContractData' to break hardcoded sheet name references. The column 'Contract #' is only referenced as a column identifier in the instruction, not as a general English word. (2) Distractor column — adding an 'Earliest Date' column after the last column, which is plausibly related to the task (finding earliest values) but clearly different from the actual answer column 'AO'. This tests whether the model gets confused by a similarly-themed but irrelevant column. No title_row_insert or blank_row_insert is used, preserving all row positions and the answer range AO9:AO1288. The month date columns are not renamed since they are date-formatted headers and changing them could affect formula logic. No data values need renaming since 'Contract #' doesn't appear as a data value in the month columns."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "ContractData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

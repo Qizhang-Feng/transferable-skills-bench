@@ -1,0 +1,38 @@
+{
+  "task_id": "45300",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Transaction Records"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Transaction Notes",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Two safe perturbation strategies are applied. (1) Title row insert: A title row ('Transaction Records') is inserted at row 1 of Sheet1, pushing the header down to row 2 and data to rows 3-5. This tests whether the model hardcodes row 1 as the header row. The instruction references 'Column B' for output (B1:B4 becomes B2:B5 in the new layout), but since the instruction says 'output the answer in Column B' generically and the answer position will be adjusted accordingly, this is a safe surface change. (2) Distractor column: A plausible but irrelevant column 'Transaction Notes' is added after the last column. This tests whether the model gets confused by extra columns. The header name in column A is extremely long and unique — it is essentially a data value serving as a header — so renaming it would risk changing the data content, which is unsafe. No column or sheet renames are applied to keep data integrity intact."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

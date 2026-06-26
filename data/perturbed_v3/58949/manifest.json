@@ -1,0 +1,44 @@
+{
+  "task_id": "58949",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Person": "Client",
+        "Car": "Model",
+        "Value": "Amount"
+      },
+      "sheet_rename_map": {
+        "Extract": "Source Data",
+        "Desired Result": "Desired Output"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Source Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "Source Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "I chose lexical renaming and a distractor column. For lexical: 'Person' → 'Client', 'Car' → 'Model', 'Value' → 'Amount' are all same-descriptiveness-level full-word renames. Sheet names 'Extract' → 'Source Data' and 'Desired Result' → 'Desired Output' are similarly descriptive. Note that 'Person' appears both as a header in both sheets, so both get renamed to 'Client' consistently (via column_rename_map applying to all sheets). The car model names (Mondeo, Giulia, etc.) in the Desired Result headers also appear as data values in the 'Car'/'Model' column of Extract — but since we are renaming 'Car' to 'Model' (not renaming the individual car names themselves), no data_value_renames are needed for those. The distractor column 'Category' is plausibly related to the data (could be a vehicle category) but clearly different from existing columns 'Client', 'Model', 'Amount'. This tests whether the agent ignores irrelevant columns. I avoided renaming any header whose name appears as a common English word in the instruction (e.g., 'Value' is used purely as a column reference, not in the instruction text as general English, so it's safe to rename)."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Extract": "Source Data",
+      "Desired Result": "Desired Output"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "task_id": "49945",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Year": "Yr",
+        "Qty": "Quantity",
+        "Total": "Sum"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Data"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Amount",
+      "target_sheet": "Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (D4:D4, C4:C11, G4) and has a header not in row 1 (row 3), so blank_row_insert and title_row_insert are risky as they would shift rows and break the cell references in the instruction. Instead, I use lexical perturbation (renaming columns and the sheet) and a distractor column. Column renames: 'Year'->'Yr' (abbreviation level preserved), 'Qty'->'Quantity' (expanding abbreviation to full word is acceptable since both are clear references), 'Total'->'Sum' (same descriptiveness). The sheet is renamed from 'Sheet1' to 'Data'. A distractor column 'Amount' is added after the last column — it's plausibly similar to 'Quantity' but clearly different. The word 'model' appears in the instruction as both a column reference and general English, so I do NOT rename 'Model'. None of these changes affect the cell positions, data values, or aggregation logic."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

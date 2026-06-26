@@ -1,0 +1,30 @@
+{
+  "task_id": "32612",
+  "opaque_col_map": {
+    "IN": "Segment",
+    "OUT": "Rating",
+    "TOTAL HOURS": "Channel",
+    "Holiday Name": "Severity",
+    "Type": "Source"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Snapshot"
+  },
+  "primary_distractor": "IN",
+  "old_anchors": [
+    "IN",
+    "OUT",
+    "TOTAL HOURS",
+    "Holiday Name",
+    "Type",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Segment",
+    "Rating",
+    "Channel",
+    "Severity",
+    "Source",
+    "Snapshot"
+  ]
+}

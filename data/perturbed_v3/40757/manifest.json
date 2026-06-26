@@ -1,0 +1,38 @@
+{
+  "task_id": "40757",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title": "Monthly Summary Report"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Balance",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction explicitly references 'the second column' and 'the first column' positionally, and uses 'Date' and 'Amount' as common English words ('values', 'month', 'date', 'amount' all appear naturally in the instruction text). Per Rule 6, we must NOT rename columns whose names appear as general English words in the instruction body — 'values' relates to Amount and 'month' relates to Date, both used as common English. So we skip column renames entirely. Instead we apply two safe perturbations: (1) A title row insert pushes the header from row 2 to row 3 and shifts the answer position from B10:B11 to B11:B12, testing whether the agent hardcodes row positions. (2) A distractor column 'Balance' is added after column B — it's plausibly related to financial data (Amount) but clearly different, testing whether the agent incorrectly references it. These two perturbations change surface anchors without altering the underlying logic or difficulty."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

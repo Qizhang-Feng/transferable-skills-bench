@@ -1,0 +1,34 @@
+{
+  "task_id": "54242",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction explicitly references absolute cell addresses (B6:B13, column E, E6:E13) and the risk flags confirm instruction_references_absolute_rows and task_references_specific_cell_addresses. This means we CANNOT insert blank rows or title rows (which would shift data and break the absolute references). Column reorder is also unsafe because the instruction references column B and column E by letter. Column renaming is risky because 'Description' and 'Type' could be considered common English words contextually tied to the instruction's logic (the instruction talks about what a cell 'contains' and the result 'Type'). The safest perturbations are: (1) adding a distractor column 'Category' after the last column — this is plausibly similar to 'Type' but clearly different, and it doesn't affect any existing column letters or row positions; (2) we avoid paraphrasing per the rules. We keep all column names, sheet names, and data values unchanged to preserve the absolute references in the instruction."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

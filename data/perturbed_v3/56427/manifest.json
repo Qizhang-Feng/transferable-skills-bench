@@ -1,0 +1,44 @@
+{
+  "task_id": "56427",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Race": "Course",
+        "Runner": "Entrant",
+        "Runners": "Entrants",
+        "Starters": "Partants",
+        "Distance": "Dist",
+        "Arrivees": "Finishers",
+        "Odds": "Cote"
+      },
+      "sheet_rename_map": {
+        "Taul1": "Données"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Données",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references absolute cell ranges (H2:S28) and depends on row positions for the transposition logic, so inserting blank rows is unsafe (as shown by the failed attempt). Instead, I use lexical renames on columns that are referenced purely as column identifiers in the instruction (Race→Course, Runner→Entrant, Runners→Entrants, Starters→Partants, Distance→Dist, Arrivees→Finishers, Odds→Cote). The column names referenced in the instruction (column B 'Runner', column C 'Runners', column G 'Odds') are renamed to test whether the agent hardcodes column names. I also rename the sheet and add a distractor column at the end. I avoid blank row insertion entirely due to the risk flags about absolute row references and formula logic depending on sequential row positions. The numbered columns (#1 through #26) are left unchanged since they serve as positional output headers and renaming them would not add meaningful perturbation value."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Taul1": "Données"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

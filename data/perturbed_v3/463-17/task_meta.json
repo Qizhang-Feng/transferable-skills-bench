@@ -1,0 +1,5 @@
+{
+  "id": "463-17",
+  "instruction": "I have a list of firm names in column A and their respective frequencies in column B of an Excel sheet. I need to generate a list where each firm name from column A is repeated based on the number indicated in column B next to it. Place the resulting list of firm names into column D where it has been started.",
+  "answer_position": "'Data'!D3:D47"
+}

@@ -1,0 +1,41 @@
+{
+  "task_id": "43213",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Value": "DataPoint",
+        "Average": "Mean"
+      },
+      "sheet_rename_map": {
+        "Blad1": "Sheet1"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "RunningTotal",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references absolute cell addresses (B12, B13, B11:B12, B11:B13, B12:B15) so we must NOT do title_row_insert or column_reorder that would shift column B or row positions. Safe perturbations: (1) Lexical rename — 'Value' → 'DataPoint' and 'Average' → 'Mean' are same-level descriptive renames. The word 'average' appears in the instruction as a general English concept, but the column name 'Average' is a direct column header reference; however, since the instruction doesn't say 'the Average column' but rather talks about computing 'the average', and the answer is placed in column B which is the Average column, renaming it to 'Mean' is safe because the instruction references B12:B15 by cell address, not by column name. Sheet rename from 'Blad1' to 'Sheet1' is a neutral rename. (2) Distractor column — 'RunningTotal' is plausibly related (cumulative computation) but clearly different from 'Mean' or 'DataPoint'. Placed after last column so it doesn't shift any existing column positions. No title_row_insert due to risk flag about absolute row references."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Blad1": "Sheet1"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

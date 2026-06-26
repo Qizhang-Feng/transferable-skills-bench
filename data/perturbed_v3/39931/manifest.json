@@ -1,0 +1,54 @@
+{
+  "task_id": "39931",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Table": "Grid",
+        "Data": "Info"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Worksheet1"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "Worksheet1",
+          "range": "A1:K22",
+          "find": "Table",
+          "replace": "Grid"
+        },
+        {
+          "sheet": "Worksheet1",
+          "range": "A1:K22",
+          "find": "Data",
+          "replace": "Info"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Worksheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Worksheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task belongs to the Lookup/Match/Merge family. I chose lexical renaming (columns 'Table' → 'Grid', 'Data' → 'Info', and sheet 'Sheet1' → 'Worksheet1') to break hardcoded column/sheet name references. Both renames maintain the same descriptiveness level (short common words). Since the risk flag 'data_values_match_headers' is present, I included data_value_renames to update any occurrences of 'Table' and 'Data' appearing as data values within the sheet, ensuring consistency. I also added a distractor column 'Notes' after the last column — a plausibly related but clearly different column name that tests whether the agent incorrectly references it. Neither 'Table' nor 'Data' appear as general English words in the instruction text (the instruction uses 'data' in lowercase as a general term, but the header 'Data' is a column reference; however, to be safe I note the instruction says 'data contained within' — but 'Data' as a header is capitalized and used as a column label, so renaming is acceptable). instruction_paraphrase is set to false to avoid meaning drift."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Worksheet1"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

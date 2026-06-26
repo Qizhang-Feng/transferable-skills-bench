@@ -1,0 +1,36 @@
+{
+  "task_id": "31746",
+  "spec": {
+    "anchor_types_used": [
+      "positional_blank_row",
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "FTE Productivity Benefit (GBP)": "FTE Productivity Saving (GBP)",
+        "note contract has 81 months to run": "note contract has 81 months remaining"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Cumulative Savings (GBP)",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references specific cell addresses Q38 and column Q, so we cannot insert blank rows (which would shift row 38 to row 39) or insert distractor columns before column Q (which would shift Q to R). Instead, we: (1) Rename both headers to semantically equivalent alternatives — 'FTE Productivity Benefit (GBP)' becomes 'FTE Productivity Saving (GBP)' and the note header gets a minor rewording. These column names do not appear as general English words in the instruction. (2) Add a distractor column AFTER the last column (after column Q, so it goes to column R). This does not shift column Q at all, preserving the Q3:Q38 answer range and Q38 grand total reference. The distractor 'Cumulative Savings (GBP)' is plausibly related but clearly different from the actual task columns. No blank row insert is used because the instruction hard-references row 38."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

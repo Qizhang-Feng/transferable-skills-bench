@@ -1,0 +1,6 @@
+{
+  "id": "438-18",
+  "instruction": "How can I replace specific values in an array with new values while copying data from a 'sheet Digest' to designated 'sheet OUTPUT' in Excel? In the 'sheet Digest', column F contains values ('UNATIDE STATES AMERICAN', 'FRANCE', 'KOREA', 'GERMANY', 'ITALY'), which need to be replaced by the corresponding shortened values ('USA', 'FRA', 'KOR', 'GR', 'IT') respectively, and this result should appear in the 'sheet OUTPUT', maintaining the rest of the data intact.\nrespectively.",
+  "answer_position": "'Records'!A1:D6",
+  "instruction_type": "Sheet-Level Manipulation"
+}

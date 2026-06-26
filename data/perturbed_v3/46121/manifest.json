@@ -1,0 +1,57 @@
+{
+  "task_id": "46121",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Income": "Revenue",
+        "Expenses": "Costs",
+        "Total": "Sum"
+      },
+      "sheet_rename_map": {
+        "Transactions": "Ledger",
+        "2022": "Annual2022"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "Annual2022",
+          "range": "A1:A20",
+          "find": "Total",
+          "replace": "Sum"
+        },
+        {
+          "sheet": "Annual2022",
+          "range": "N1:N3",
+          "find": "Total",
+          "replace": "Sum"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Ledger"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Ledger",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "We rename both sheets: 'Transactions' → 'Ledger' and '2022' → 'Annual2022' (both descriptive full words, and 'Annual2022' is clearly not a cell reference unlike the failed 'FY2022'). We rename 'Income' → 'Revenue', 'Expenses' → 'Costs', and 'Total' → 'Sum' — all same-level descriptive synonyms. The word 'income' does appear in the instruction but only as a section label reference ('income section'), and the column rename is consistent across both sheets so the task logic is preserved. 'Total' appears as both a header and data values in the '2022' sheet (at A9, A15, A20 and N3), so we include data_value_renames to update those. We also add a distractor column 'Notes' at the end of the Ledger sheet to test whether the agent hardcodes column positions. Month names in the '2022' sheet headers are left unchanged since they appear as common English words in the instruction context (e.g., 'April', 'March')."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Transactions": "Ledger",
+      "2022": "Annual2022"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

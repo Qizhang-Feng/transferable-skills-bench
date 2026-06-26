@@ -1,0 +1,43 @@
+{
+  "task_id": "40892",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column",
+      "positional_title_row"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Product Name": "Item Description",
+        "Needs to return value from list when A2 etc matches ": "Extracted Color",
+        "List": "Color List"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Inventory"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Inventory"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Item Category",
+      "target_sheet": "Inventory",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Using lexical perturbation to rename all three headers to equally descriptive alternatives: 'Product Name' → 'Item Description', the long output header → 'Extracted Color', and 'List' → 'Color List'. These maintain the same descriptiveness level. The instruction references columns by position ('column 1', 'column 2', 'Column D') rather than by header name, so renaming headers won't break the instruction's meaning. Sheet renamed from 'Sheet1' to 'Inventory'. A distractor column 'Item Category' is added after the last column to test whether the agent incorrectly uses it. No data_value_renames needed since header names don't appear as data values in cells. The task logic (extracting colors from column A using the list in column D and outputting to column B) remains completely unchanged."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Inventory"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

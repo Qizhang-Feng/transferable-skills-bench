@@ -1,0 +1,37 @@
+{
+  "task_id": "53167",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Serial Number": "Batch ID",
+        "Weight": "Net Weight"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Cumulative Usage",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The previous attempts failed because title_row_insert shifted rows and broke the instruction's references to columns A-E and the answer position E4:E16. The risk flags explicitly warn about 'instruction_references_absolute_rows' and 'task_depends_on_blank_row_positions', making title_row_insert unsafe. Instead, I use two safe strategies: (1) Rename columns that are NOT referenced as English words in the instruction — 'Serial Number' becomes 'Batch ID' and 'Weight' becomes 'Net Weight'. I do NOT rename 'Amount Used' because the instruction discusses 'amount of product used' which closely matches that header, and I do NOT rename 'Date' as it's a common word. (2) Add a distractor column 'Cumulative Usage' after column E (in column F), which is plausibly related to the domain but clearly different from 'Amount Used'. This does not shift columns A-E, preserving the instruction's column references and the answer position E4:E16. No layout row changes are made, avoiding the row-shift issues from previous attempts."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

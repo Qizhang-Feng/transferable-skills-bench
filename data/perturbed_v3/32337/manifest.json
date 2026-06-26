@@ -1,0 +1,40 @@
+{
+  "task_id": "32337",
+  "spec": {
+    "anchor_types_used": [
+      "lexical"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "NAME": "FULL NAME",
+        "GENDER": "SEX",
+        "EASY FORMULA or DIRECT FORMULA ": "SIMPLE FORMULA or LOOKUP FORMULA ",
+        "Expected Result": "Anticipated Output",
+        "YEAR (age)": "AGE (years)",
+        "age (year)": "years (age)"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "none",
+      "name": "",
+      "target_sheet": "",
+      "position": ""
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because distractor column insertion shifted columns E and O which are explicitly referenced by letter in the instruction. Since instruction_paraphrase is false, I cannot update those references. Title row insertion is also unsafe due to the risk flag about absolute row references (answer is at E3:E15). Instead, I use only lexical renaming on columns that are used purely as column references in the instruction, avoiding 'DATE OF BIRTH' (used as general English 'date of birth') and 'CATEGORY' (used as general English 'the category should adjust'). The renamed columns maintain the same descriptiveness level."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

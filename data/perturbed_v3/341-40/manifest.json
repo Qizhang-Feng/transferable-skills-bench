@@ -1,0 +1,38 @@
+{
+  "task_id": "341-40",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Sales Data Report"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Product Category",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction explicitly references columns A, B, C, and Q by letter, and assumes the header is in row 1. By inserting a title row, the header shifts from row 1 to row 2, and all data rows shift down by one. This tests whether the VBA solution hardcodes row ranges (e.g., starting from row 2) or dynamically finds the header row. The column letters remain unchanged so the A/B/C/Q references in the instruction still hold. I did NOT rename 'Segment', 'Country', or 'Product' columns because the instruction uses the words 'Government', 'Germany', and 'Carretera' as data values and references columns by letter (A, B, C, Q) rather than by header name — renaming headers would not test anything meaningful here. I also avoided renaming columns whose names appear as common English words in the instruction context. A distractor column 'Product Category' is added after the last column — it is plausibly similar to the existing 'Product' column but clearly different, and its placement after column Q (now column R) tests whether the solution hardcodes the last column or dynamically determines it. The answer position shifts from A1:Q701 to A1:R702 due to the title row insert and distractor column addition."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

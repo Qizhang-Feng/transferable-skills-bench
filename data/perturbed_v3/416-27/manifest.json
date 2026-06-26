@@ -1,0 +1,47 @@
+{
+  "task_id": "416-27",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Ref": "ID"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data1"
+      },
+      "data_value_renames": [
+        {
+          "sheet": "Data1",
+          "range": "A3",
+          "find": "Ref",
+          "replace": "ID"
+        }
+      ]
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Data1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Tag",
+      "target_sheet": "Data1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flags indicate the task deletes/inserts rows and depends on blank row positions, so inserting blank rows (even above/below data) is unsafe — it would change which rows are blank and shift the answer range. Title row insert is also flagged as unsafe for row-deleting tasks. Therefore I use only safe anchors: (1) Rename column 'Ref' to 'ID' (same abbreviation-level descriptiveness) and rename sheet 'Sheet1' to 'Data1' to break hardcoded references. The header 'Ref' also appears as a data-header overlap at A3, so we rename that cell too. (2) Add a distractor column 'Tag' after the last column to test whether the agent hardcodes column count. The column name 'Ref' does not appear as a common English word in the instruction body (the instruction references 'Column A' not 'Ref'), so renaming is safe. No blank row insertion is performed because the task logic depends on detecting and deleting blank rows, and any inserted blanks would alter the expected outcome."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data1"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

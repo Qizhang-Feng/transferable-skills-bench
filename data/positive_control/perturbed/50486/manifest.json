@@ -1,0 +1,24 @@
+{
+  "task_id": "50486",
+  "opaque_col_map": {
+    "PALLET TYPE": "Span",
+    "CHEP": "Channel",
+    "LOSCAM": "Phase"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Catalog"
+  },
+  "primary_distractor": "PALLET TYPE",
+  "old_anchors": [
+    "PALLET TYPE",
+    "CHEP",
+    "LOSCAM",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Span",
+    "Channel",
+    "Phase",
+    "Catalog"
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "id": "384-4",
+  "instruction": "How can I use VBA to determine the differences in values between two data sources in Excel? Please copy values that appear in the 'DataSet1' table, but not in the 'DataSet2' table, to the 'Output' table, unless the value is 2. If the value '2' is present in both sources, include it in the 'Output' table. Make sure to include it only once.",
+  "answer_position": "'Output'!A2:A8"
+}

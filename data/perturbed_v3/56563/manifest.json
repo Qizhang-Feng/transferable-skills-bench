@@ -1,0 +1,34 @@
+{
+  "task_id": "56563",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "AB"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Total",
+      "target_sheet": "AB",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (SUM(C2:C13) and answer at C14), which makes positional_blank_row risky — as shown by the failed Attempt 1 where inserting a blank row shifted data and broke the formula reference. Instead, I use a distractor_column ('Total') inserted after the last column. This column name is plausibly similar to 'Amount' but clearly different, and it does not shift any existing columns (it goes after column C). The instruction mentions 'Amount' as a general English word in context, so I avoid renaming it. No column reorder is performed because the Amount column is in C and the formula explicitly references C2:C13 — moving it would break the reference. This perturbation adds a surface-level distraction without altering the task logic, data values, or cell references."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

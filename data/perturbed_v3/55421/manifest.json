@@ -1,0 +1,49 @@
+{
+  "task_id": "55421",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "MRN": "Patient ID",
+        "Appt Time": "Scheduled Time",
+        "Appt Status": "Visit Status",
+        "Next Appt Date": "Upcoming Appt Date",
+        "Recshed/New Appt": "Follow-Up Action"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "PatientData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "PatientData"
+      ],
+      "params": {
+        "title_text": "Patient Appointment Tracker"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Provider Name",
+      "target_sheet": "PatientData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references columns by letter (A, D, E, F) and uses status values like 'SCH' and 'NO SHOW' as data-level references, not column names. I renamed columns whose header names are NOT used as common English words in the instruction: MRN→Patient ID, Appt Time→Scheduled Time, Appt Status→Visit Status, Next Appt Date→Upcoming Appt Date, Recshed/New Appt→Follow-Up Action. I did NOT rename 'Date' because 'date' appears as a common English word in the instruction body ('a date is present', 'empty date field'). The title_row_insert shifts the header from row 1 to row 2 and data down by one row, which tests whether the model hardcodes row positions. The answer position shifts from F2:F20 to F3:F21. A distractor column 'Provider Name' is added after the last column to test if the model gets confused by extra columns. The sheet is renamed from Sheet1 to PatientData. None of these changes alter the underlying logic or data values."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "PatientData"
+    },
+    "row_shifts": {
+      "PatientData": 1
+    },
+    "col_inserts": {}
+  }
+}

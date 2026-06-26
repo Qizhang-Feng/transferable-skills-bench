@@ -1,0 +1,38 @@
+{
+  "task_id": "51354",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "My attempts": "My formulas",
+        "Successful attempts": "Working formulas",
+        "Year extraction": "Year parsed"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Expected Output",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell address B5 in the formula, so blank_row_insert is risky (as shown in the failed attempt) and title_row_insert is similarly dangerous. Instead I use two safe strategies: (1) distractor_column — adding an 'Expected Output' column after column E that is plausibly similar to 'Desired Result' but clearly different, which tests whether the model anchors on column position vs. column name; (2) column renames — renaming 'My attempts' → 'My formulas', 'Successful attempts' → 'Working formulas', and 'Year extraction' → 'Year parsed'. These are semantically equivalent at the same descriptiveness level. I do NOT rename 'Data' (appears as a general word and is column A referenced in the instruction), 'Desired Result' (the answer column E explicitly referenced), or the sheet name. The instruction text references column A, column D, column E, and cell B5 — none of these references are broken by the perturbation. The answer position E2:E6 remains unchanged."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

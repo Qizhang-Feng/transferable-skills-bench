@@ -1,0 +1,39 @@
+{
+  "task_id": "44296",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Year": "Period",
+        "Year ": "Period ",
+        "Class": "Category",
+        "units": "volume"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Volume Index",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "We apply two safe anchor types: lexical (column renames) and distractor_column. For lexical renames: 'Year' (Sheet1 col K) and 'Year ' (Sheet2 col B) are both renamed to 'Period'/'Period ' to maintain alignment. 'Class' becomes 'Category' and 'units' becomes 'volume' — both same descriptiveness level. We do NOT rename 'State ' because the instruction mentions 'states' as a general English word. The year columns (2015-2021) are literal year numbers and are left unchanged. We also do NOT rename sheets since the instruction explicitly references 'Sheet 1' and 'Sheet 2'. A distractor column 'Volume Index' is added after the last column in Sheet1 — plausibly similar to 'volume' (the renamed 'units') but clearly different. No blank_row_insert is used to avoid the layout_impact failure from the previous attempt, respecting the multi_sheet_references risk flag."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

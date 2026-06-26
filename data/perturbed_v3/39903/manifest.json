@@ -1,0 +1,42 @@
+{
+  "task_id": "39903",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Product ID": "Item Code",
+        "Current Location(s)": "Bin Location(s)",
+        "# of Bins": "# of Positions"
+      },
+      "sheet_rename_map": {
+        "SKUs as Bins": "Product Bin Mapping"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Product Bin Mapping"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Warehouse Zone",
+      "target_sheet": "Product Bin Mapping",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The previous attempts failed because title_row_insert shifted the data rows, breaking the explicit C2:C6 range reference in the instruction. Since the instruction contains absolute row references (C:2-6) and the risk flags include 'instruction_references_absolute_rows' and 'task_references_specific_cell_addresses', title_row_insert is too dangerous. Instead, I use: (1) column renames — 'Product ID' → 'Item Code', 'Current Location(s)' → 'Bin Location(s)', '# of Bins' → '# of Positions' — these are semantically equivalent and none of these header names appear as general English words in the instruction body; (2) sheet rename 'SKUs as Bins' → 'Product Bin Mapping'; (3) a distractor column 'Warehouse Zone' added after the last column, which is plausibly related but clearly different from existing columns. No title row insert is used, so the C2:C6 answer position and formatting range remain valid. No layout shift occurs."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "SKUs as Bins": "Product Bin Mapping"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

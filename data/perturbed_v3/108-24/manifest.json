@@ -1,0 +1,48 @@
+{
+  "task_id": "108-24",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_blank_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "BZTB": "BZTB_Data",
+        "Manual Extraction": "Manual Extract",
+        "Tema UV COS": "Tema UV COS Output"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "blank_row_insert",
+      "target_sheets": [
+        "BZTB_Data"
+      ],
+      "params": {
+        "position": "after_last_row",
+        "count": 3
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "BZTB_Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references sheet names 'BZTB' and 'Tema UV COS' which are surface anchors that can be renamed without changing logic. I renamed 'BZTB' to 'BZTB_Data', 'Manual Extraction' to 'Manual Extract', and 'Tema UV COS' to 'Tema UV COS Output' - all maintaining similar descriptiveness levels. I did not rename any columns because the headers in this spreadsheet are actually data values (like '398725', 'Sale Retail 28 CX 3 New') rather than traditional column headers, and the instruction references columns by letter (A, B, C, D) not by name. I added 3 blank rows after the last row in BZTB_Data to test if agents hardcode the row range (141 rows). I also added a distractor column 'Notes' after column D to test if agents correctly limit extraction to columns A-D. The instruction must be updated to reference the new sheet names."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "BZTB": "BZTB_Data",
+      "Manual Extraction": "Manual Extract",
+      "Tema UV COS": "Tema UV COS Output"
+    },
+    "row_shifts": {
+      "BZTB_Data": 1
+    },
+    "col_inserts": {}
+  }
+}

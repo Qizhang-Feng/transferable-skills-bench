@@ -1,0 +1,42 @@
+{
+  "task_id": "52050",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Date": "Calendar Date",
+        "Week no.": "Week Number",
+        "Total from this week": "Cumulative Future Achievements"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Achievements"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Achievements"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Weekly Target",
+      "target_sheet": "Achievements",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references absolute cell addresses like $B$2, D$2, row 2 headers, and column BE explicitly. Since the risk flags indicate 'instruction_references_absolute_rows' and 'header_not_in_row_1', I avoid title_row_insert which would shift rows and break the absolute references in the instruction. Instead I use lexical renaming of columns and sheet (safe because the instruction references columns by letter/address, not by name, except 'column BE' which remains in the same position). I also add a distractor column 'Weekly Target' which is plausibly related but clearly different from existing columns. The column 'Weeks' is not renamed because 'weeks' appears as a general English word in the instruction body."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Achievements"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

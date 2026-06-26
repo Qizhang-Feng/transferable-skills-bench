@@ -1,0 +1,43 @@
+{
+  "task_id": "230-16",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "string1": "substr1"
+      },
+      "sheet_rename_map": {
+        "Before": "Input",
+        "After": "Output"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Input",
+        "Output"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "notes",
+      "target_sheet": "Input",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flag 'task_deletes_or_inserts_rows' prevents title_row_insert since the macro modifies rows (deletes strings in column A). Instead I use two safe anchors: (1) distractor_column — adding a 'notes' column after the last column in the Input sheet, which is plausibly related but clearly different from 'data' and 'substr1'; (2) sheet renames — 'Before' → 'Input' and 'After' → 'Output' (same descriptiveness, both short labels). I also rename 'string1' → 'substr1' (abbreviation to abbreviation, same descriptiveness level). The column 'data' is NOT renamed because the word 'data' does not appear as a common English word in the instruction body in a way that would conflict, but more importantly the instruction explicitly references 'column A' and 'column B' by letter, not by header name, so renaming 'data' is safe — however, 'data' is a very generic term and the instruction doesn't reference it by name, so renaming it is unnecessary. The key instruction references are to column A and column B by letter, which remain unchanged. The answer position updates from 'Before'!A1:A12 to 'Input'!A1:A12 via the sheet rename."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Before": "Input",
+      "After": "Output"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

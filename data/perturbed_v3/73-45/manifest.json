@@ -1,0 +1,36 @@
+{
+  "task_id": "73-45",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "ID": "RecID"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "29",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references 'column BD' explicitly, so distractor columns must be placed AFTER the last column (BD) to avoid shifting BD's column letter. Previous attempt 2 failed by inserting columns that shifted BD. I rename 'ID' to 'RecID' (same descriptiveness level, abbreviation to abbreviation) since 'ID' is not used as English in the instruction. I avoid sheet rename since attempt 1 failed with it and the answer references Sheet1. I skip layout changes (no blank_row_insert or title_row_insert) because the risk flag 'instruction_references_absolute_rows' means row 2:308 is hardcoded in the answer position. The distractor column '29' follows the existing numeric naming pattern (columns named 1-28) and is plausibly similar but clearly different from existing columns."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "task_id": "49801",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Sheet1": "WorkArea"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "WorkArea"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "WorkArea",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (A1) and column letters (B, C) in the instruction, so column reorder and blank_row_insert are unsafe (as proven by Attempt 3). Headers are also data values in this single-row layout, so column renames would require changing data too and risk breaking formula references in the instruction. I use sheet rename (Sheet1→WorkArea) as a lexical perturbation since the instruction never references the sheet name. I add a distractor column 'Notes' after column C to test whether the model is distracted by an extra column. No formulas should remain in the golden file — all existing formulas (B1 and C1) must be baked to their computed string values ('SL' and '-0035' respectively) before the model writes its answer to C1."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "WorkArea"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

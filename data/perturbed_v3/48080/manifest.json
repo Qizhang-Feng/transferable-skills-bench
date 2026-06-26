@@ -1,0 +1,41 @@
+{
+  "task_id": "48080",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Data": "Source",
+        "Desired Results": "Expected Output"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "NthRow"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "NthRow"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Intermediate",
+      "target_sheet": "NthRow",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references 'column A' and 'column C' by letter, and mentions 'data' generically. Renaming 'Data' to 'Source' and 'Desired Results' to 'Expected Output' are semantically equivalent at the same descriptiveness level. Renaming the sheet from 'Sheet1' to 'NthRow' tests hardcoded sheet references. Adding a distractor column 'Intermediate' after the last column doesn't interfere with the task logic (answer is still in column C at the same position). I avoided title_row_insert because the risk flags indicate the task references absolute rows and depends on blank row positions—inserting a title row would shift data and break OFFSET formulas. The distractor column is placed after column C so it doesn't shift column positions. No data values need renaming since the column names don't appear as data values."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "NthRow"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "130-9",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "b2b, sez, de": "b2b, sez, de",
+        "cdnr": "cdnr"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "cdnr"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Remarks",
+      "target_sheet": "cdnr",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has significant constraints: the instruction explicitly references sheet names 'cdnr' and 'b2b, sez, de', column letters H, I, L, M, and row 7. The headers are single letters (A, B, C...) which match column letters and are also common English letters used in the instruction body (e.g., 'column H', 'column I', 'columns L and M'). Per rule 6, we cannot rename columns whose names appear in the instruction body as references. Since all headers are single letters that are directly referenced in the instruction, renaming them would change the instruction's meaning or require instruction modification (which we avoid per rule 7). The sheet names are also explicitly referenced in the instruction. Therefore, the safest perturbation is adding a distractor column to the source sheet 'cdnr' to test whether the agent correctly matches only by header text alignment and ignores extra columns. This tests robustness without changing any referenced anchors."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "b2b, sez, de": "b2b, sez, de",
+      "cdnr": "cdnr"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

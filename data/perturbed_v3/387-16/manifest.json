@@ -1,0 +1,44 @@
+{
+  "task_id": "387-16",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Value": "Amount",
+        "Binaries": "Flags",
+        "Target value :": "Goal amount :",
+        "Solver result": "Computed total",
+        "Difference:": "Deviation:"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Data1"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Data1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Data1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task has risk flags for row insertion/deletion and blank row positions, so blank_row_insert and title_row_insert are unsafe. I chose lexical renames and a distractor column as the two safe perturbation types. Column renames: 'Value' → 'Amount', 'Binaries' → 'Flags', 'Target value :' → 'Goal amount :', 'Solver result' → 'Computed total', 'Difference:' → 'Deviation:'. These maintain the same descriptiveness level. The instruction references 'Value' column, 'Binaries' column, and 'Result values' column by name — 'Value' and 'Binaries' are renamed so the instruction must be updated to use the new names. 'Result values' appears only in the instruction (not as a header) so it likely refers to a data range label; I leave it or note it needs instruction update. The sheet is renamed from 'Sheet1' to 'Data1'. A distractor column 'Notes' is added after the last column to test whether the agent hardcodes column count. No data_value_renames needed since the header names don't appear as data values in the cells (the 'Value' header is a column name, not repeated as a data value in the data rows — the risk flag 'data_values_match_headers' refers to the overlap at A2 which is the header cell itself)."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Data1"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

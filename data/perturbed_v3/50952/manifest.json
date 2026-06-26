@@ -1,0 +1,38 @@
+{
+  "task_id": "50952",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {
+        "Munka1": "Adatlap1"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Adatlap1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Remark",
+      "target_sheet": "Adatlap1",
+      "position": "after_col_B"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Rule 6 prevents renaming any columns since 'ID', 'Comments', 'Parameter', and 'Found' all appear as common English words in the instruction body. Instead, I rename the sheet from 'Munka1' to 'Adatlap1' (both are Hungarian terms at the same descriptiveness level — 'Munka1' means 'Work1', 'Adatlap1' means 'Datasheet1'). I also insert a distractor column 'Remark' after column B (Comments), which is plausibly similar to Comments but clearly different. This shifts the positional layout of columns E/F/G rightward, testing whether the agent uses column names vs hardcoded positions. No data values need renaming since no columns were renamed."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Munka1": "Adatlap1"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

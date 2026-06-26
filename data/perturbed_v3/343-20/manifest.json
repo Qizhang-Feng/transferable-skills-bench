@@ -1,0 +1,47 @@
+{
+  "task_id": "343-20",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Division": "Department",
+        "Stock Number": "Item Number",
+        "Reference": "Ref Code",
+        "Balance": "Amount Due"
+      },
+      "sheet_rename_map": {
+        "Imported Data": "Import Data",
+        "Duplicates": "Duplicates"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Import Data",
+        "Duplicates"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Ref Note",
+      "target_sheet": "Import Data",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Lexical perturbation: Renamed 'Division' to 'Department', 'Stock Number' to 'Item Number', 'Reference' to 'Ref Code', and 'Balance' to 'Amount Due'. These are same-level descriptive synonyms. I did NOT rename 'Invoiced Date' because the instruction explicitly mentions 'Invoiced Date' and 'Invoice Date' as English terms describing the sorting requirement — renaming it would risk changing the instruction's meaning. The sheet 'Imported Data' is renamed to 'Import Data' to match what the instruction already says (the instruction references 'Import Data' sheet). Positional/title_row: The header row stays at row 1 on both sheets, preserving structure. Distractor column: Added 'Ref Note' as a plausibly similar but distinct column from 'Ref Code' (the renamed Reference column) on the Import Data sheet, to test whether agents incorrectly pick up the wrong column. No blank rows inserted due to the risk flag 'task_depends_on_blank_row_positions'. No data_value_renames needed since renamed columns don't appear as data values."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Imported Data": "Import Data",
+      "Duplicates": "Duplicates"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

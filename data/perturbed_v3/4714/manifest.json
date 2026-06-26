@@ -1,0 +1,43 @@
+{
+  "task_id": "4714",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Emp Code": "Employee ID",
+        "Month (YYYYMM)": "Period (YYYYMM)",
+        "Moving Average Amount": "Rolling Avg Value",
+        "Moving Aveage  (four months exceed 48)": "Rolling Avg (4-month exceeds 48)"
+      },
+      "sheet_rename_map": {
+        "Sheet2": "HoursData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "HoursData"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Avg Weekly Hours",
+      "target_sheet": "HoursData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task instruction references columns A (employee), C (month), D (hours), and E (answer). I avoid renaming 'Month' and 'Hours' because these words appear as general English in the instruction body ('months of data', 'average the Hours'). I rename 'Emp Code' → 'Employee ID', 'Month (YYYYMM)' → 'Period (YYYYMM)', and the two output headers to semantically equivalent names. The sheet is renamed from 'Sheet2' to 'HoursData'. I skip title_row_insert because the risk flag 'instruction_references_absolute_rows' is present and the previous attempt failed due to a title row shifting row positions. Instead, I add a distractor column 'Avg Weekly Hours' after the last column — it is plausibly related to hours data but clearly different from the existing 'Hours' and 'Moving Average' columns. This tests whether the model is confused by a similarly-named but irrelevant column."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet2": "HoursData"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

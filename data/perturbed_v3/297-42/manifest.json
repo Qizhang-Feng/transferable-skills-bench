@@ -1,0 +1,53 @@
+{
+  "task_id": "297-42",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Full Name": "Employee Name",
+        "Hire Date": "Start Date",
+        "Hire Month": "Start Month",
+        "Base Salary": "Base Pay",
+        "Total Compensation": "Total Pay",
+        "Employment type": "Work Type",
+        "PTO Days": "Vacation Days",
+        "Sick Days": "Sick Leave Days"
+      },
+      "sheet_rename_map": {
+        "combined": "merged",
+        "sindh": "region_south",
+        "punjab": "region_central",
+        "balochistan": "region_west",
+        "kpk": "region_north"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Pay Grade",
+      "target_sheet": "region_south",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Strategy 1 (Lexical): Rename columns across ALL sheets consistently so the alignment relationship is preserved. 'Full Name' → 'Employee Name', 'Hire Date' → 'Start Date', etc. All source sheets and the destination 'combined' (now 'merged') sheet get the same renames, maintaining the mapping. Sheet names are also renamed to break hardcoded sheet name assumptions. Strategy 2 (Distractor column): Insert a plausible but irrelevant column 'Pay Grade' after the last column in one source sheet ('region_south') to test whether the agent copies only the relevant columns based on header matching rather than assuming fixed column counts. No blank row insertion is used because the risk flags indicate 'task_creates_new_sheet' and the previous attempt failed due to blank row insertion corrupting the macro's header detection. No data_value_renames are needed because the renamed column names do not appear as data values in the cells (the Province column contains province names like 'Sindh' but we are not renaming the Province column header, and the sheet rename from 'sindh' to 'region_south' does not affect data values in the Province column which would contain 'Sindh' as a geographic name — these are different strings and the task copies data as-is)."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "combined": "merged",
+      "sindh": "region_south",
+      "punjab": "region_central",
+      "balochistan": "region_west",
+      "kpk": "region_north"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

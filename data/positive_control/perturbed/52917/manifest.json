@@ -1,0 +1,27 @@
+{
+  "task_id": "52917",
+  "opaque_col_map": {
+    "Day": "Status",
+    "Month": "Duration",
+    "Year": "Tag",
+    "Date": "Source"
+  },
+  "opaque_sheet_map": {
+    "whole date": "Metrics"
+  },
+  "primary_distractor": "Day",
+  "old_anchors": [
+    "Day",
+    "Month",
+    "Year",
+    "Date",
+    "whole date"
+  ],
+  "new_anchors": [
+    "Status",
+    "Duration",
+    "Tag",
+    "Source",
+    "Metrics"
+  ]
+}

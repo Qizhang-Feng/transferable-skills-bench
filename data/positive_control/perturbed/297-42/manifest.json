@@ -1,0 +1,51 @@
+{
+  "task_id": "297-42",
+  "opaque_col_map": {
+    "Full Name": "Priority",
+    "Hire Date": "Interval",
+    "Hire Month": "Volume",
+    "Base Salary": "Delta",
+    "Total Compensation": "Zone",
+    "Employment type": "Region",
+    "PTO Days": "Label",
+    "Sick Days": "Medium"
+  },
+  "opaque_sheet_map": {
+    "combined": "Archive",
+    "sindh": "Pipeline",
+    "punjab": "Registry",
+    "balochistan": "Ledger",
+    "kpk": "Metrics"
+  },
+  "primary_distractor": "Full Name",
+  "old_anchors": [
+    "Full Name",
+    "Hire Date",
+    "Hire Month",
+    "Base Salary",
+    "Total Compensation",
+    "Employment type",
+    "PTO Days",
+    "Sick Days",
+    "combined",
+    "sindh",
+    "punjab",
+    "balochistan",
+    "kpk"
+  ],
+  "new_anchors": [
+    "Priority",
+    "Interval",
+    "Volume",
+    "Delta",
+    "Zone",
+    "Region",
+    "Label",
+    "Medium",
+    "Archive",
+    "Pipeline",
+    "Registry",
+    "Ledger",
+    "Metrics"
+  ]
+}

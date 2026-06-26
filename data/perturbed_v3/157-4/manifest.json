@@ -1,0 +1,37 @@
+{
+  "task_id": "157-4",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "column_name": "N",
+        "position": "after_last_column"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Aux",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task is extremely sensitive to row-level perturbations: the instruction references absolute row numbers (F14:M83), and the task deletes rows where columns F-L are blank. Inserting blank rows above or within the data range would shift row positions and introduce new blank rows that would be incorrectly deleted, fundamentally changing the task. Renaming sheets is also risky because the instruction explicitly references 'Sheet4' (a sheet name in the user's broken code example) and the answer is on 'Sheet1' — renaming Sheet1 would require updating the answer position reference and the instruction, adding unnecessary risk. Column renames are not applicable because the sheet has no named headers (header_row is null). The safest perturbation is adding a distractor column (column N, named 'Aux') after the last real column (M). This tests whether the agent hardcodes the number of columns or correctly identifies the F-M data range. The distractor column is empty and plausibly similar to real data columns but clearly outside the F-M range. No blank rows are inserted to avoid the failures seen in Attempt 1. instruction_paraphrase is set to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "task_id": "3413",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Dept Code",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task references specific cell addresses (G3:G6) and specific column letters (A, B, E, F, G), so any row-shifting layout like blank_row_insert or title_row_insert would break the cell references unless the instruction is updated — which is risky as shown by the failed Attempt 1. Column reorder is also unsafe because the instruction explicitly references columns A, B, E, F, G by letter. Column renaming is unsafe because the schema headers are generic ('Data', 'Result') and the instruction doesn't reference them by name — it references columns by letter. Sheet renaming is safe but the instruction doesn't reference the sheet name, so it adds no perturbation value. The safest effective perturbation is adding a distractor column. 'Dept Code' is plausibly similar to the Department concept used in the task but clearly different from any existing column. This tests whether the model gets confused by an extra column that looks relevant. instruction_paraphrase is set to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

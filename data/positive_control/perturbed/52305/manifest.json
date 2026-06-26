@@ -1,0 +1,14 @@
+{
+  "task_id": "52305",
+  "opaque_col_map": {
+    "Destination": "Segment"
+  },
+  "opaque_sheet_map": {},
+  "primary_distractor": "Destination",
+  "old_anchors": [
+    "Destination"
+  ],
+  "new_anchors": [
+    "Segment"
+  ]
+}

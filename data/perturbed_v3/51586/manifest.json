@@ -1,0 +1,42 @@
+{
+  "task_id": "51586",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Store Name": "Outlet Name",
+        "City": "City",
+        "Formula Required to check if 2nd part of Store Name does not equal City": "Formula Required to check if 2nd part of Outlet Name does not equal City"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "WorkSheet1"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "WorkSheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Region",
+      "target_sheet": "WorkSheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The instruction references 'Store Name' as a column header and within the task logic ('2nd part of Store Name'). Since 'Store Name' is used as a column reference (not a general English phrase in the instruction body — the instruction says 'store names' generically but the column header is 'Store Name'), I rename it to 'Outlet Name' which is semantically equivalent and at the same descriptiveness level. The column C header is updated accordingly. 'City' appears both as a column name and as a common English word used extensively in the instruction ('city is mentioned', 'city name'), so per Rule 6 I do NOT rename it. Sheet1 is renamed to WorkSheet1. A distractor column 'Region' is added after the last column — it's plausibly related to geographic data (like City) but clearly different. I avoid blank_row_insert because the instruction references 'column C (not including title)' which assumes title is in row 1, and a blank row would shift that and cause ambiguity (as noted in the failed attempt). instruction_paraphrase is set to false per the rules."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "WorkSheet1"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

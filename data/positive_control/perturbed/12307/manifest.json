@@ -1,0 +1,18 @@
+{
+  "task_id": "12307",
+  "opaque_col_map": {
+    "Country": "Delta"
+  },
+  "opaque_sheet_map": {
+    "Sheet1": "Roster"
+  },
+  "primary_distractor": "Country",
+  "old_anchors": [
+    "Country",
+    "Sheet1"
+  ],
+  "new_anchors": [
+    "Delta",
+    "Roster"
+  ]
+}

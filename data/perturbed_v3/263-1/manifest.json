@@ -1,0 +1,38 @@
+{
+  "task_id": "263-1",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Mtrl": "Material",
+        "Width": "W",
+        "Height": "H"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Depth",
+      "target_sheet": "Sheet1",
+      "position": "after_col_C"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task groups by material type and computes total area (width × height) per type. We apply two safe perturbation strategies: (1) Column renames — 'Mtrl' → 'Material' (abbreviation to full word of same concept), 'Width' → 'W', 'Height' → 'H' (full words to abbreviations). These test whether the agent hardcodes column names. The instruction says 'material types, widths, and heights' using generic English, but the actual header 'Mtrl' is an abbreviation not literally in the instruction, so renaming it is safe. 'Width'/'Height' appear in the instruction but as descriptive words; renaming the headers to abbreviations W/H is acceptable since the instruction still describes the concept. (2) A distractor column 'Depth' is inserted after column C (now D), which is plausibly related to dimensional data but is not used in area calculation. This tests whether the agent incorrectly includes it. No title row is inserted because the risk flags indicate sensitivity to absolute row references and blank row positions, and the previous attempt failed precisely due to a title row insert shifting rows. The answer position H2:H4 and the summary area in column G onward remain unaffected since the distractor is inserted between C and the gap before G. No data values need renaming since material type values in column A are not being changed."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "task_id": "414-20",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Account Number: 25791QW": "Client Ref: 25791QW"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "Invoices"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Invoices"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Notes",
+      "target_sheet": "Invoices",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Risk flags indicate task_deletes_or_inserts_rows and header_not_in_row_1, so title_row_insert and blank_row_insert are unsafe (title_row_insert is explicitly banned for row-deleting tasks, and blank_row_insert above data would shift the target row and could confuse the deletion logic since the task deletes rows above a found text). Safe anchors chosen: (1) distractor_column — adds an empty column B 'Notes' which is plausibly related but clearly different from the single data column, testing whether the agent hardcodes column count or range width; (2) rename — sheet renamed from 'Sheet1' to 'Invoices' and the header renamed from 'Account Number: 25791QW' to 'Client Ref: 25791QW' (same descriptiveness: label+code → label+code). The instruction references 'column A' and the text 'Invoice No.' which are not renamed headers, so the instruction text remains valid. The column name 'Account Number: 25791QW' does not appear in the instruction body as a general English word, so renaming is safe. instruction_paraphrase is false per rules."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "Invoices"
+    },
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

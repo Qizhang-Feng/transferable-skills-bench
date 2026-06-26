@@ -1,0 +1,35 @@
+{
+  "task_id": "44628",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Quantity": "Qty",
+        "ProductSum": "SKUTotal"
+      },
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "skip",
+      "target_sheets": [],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "UnitPrice",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Previous attempts failed because blank_row_insert shifted the answer position D3:G3 (risk flag: task_references_specific_cell_addresses). I avoid layout changes entirely. I rename 'Quantity' to 'Qty' and 'ProductSum' to 'SKUTotal' — both are abbreviation-level renames and neither term appears as general English in the instruction. 'Product' is NOT renamed because it appears as a common English word in the instruction ('product's name', 'all products'). A distractor column 'UnitPrice' is added to test whether the agent incorrectly uses it instead of the actual sales/quantity data."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

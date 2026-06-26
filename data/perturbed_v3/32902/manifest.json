@@ -1,0 +1,39 @@
+{
+  "task_id": "32902",
+  "spec": {
+    "anchor_types_used": [
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {
+        "title_text": "Employee Bonus Calculation",
+        "insert_at_row": 1
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": ">$150,000   $.45",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task headers contain dollar amounts and rates that also appear as data values (data_header_overlaps), and the instruction references tier thresholds ($60,000, $90,000, $120,000) which closely match the header names. Renaming these headers would risk confusion since the header names encode the tier logic itself. Instead, I apply two safe perturbations: (1) Title row insert — pushes the header row from row 4 to row 5 and the answer range from C6:E9 to C7:E10, testing whether the model hardcodes row positions. (2) Distractor column — adding a plausible but unused '>$150,000   $.45' column after the last column, which looks like a natural Tier 4 extension but is not part of the task. This tests whether the model incorrectly tries to populate it. Column renaming is skipped due to the risk flag that data values match headers and because the header names encode the exact tier parameters referenced in the instruction."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {
+      "Sheet1": 1
+    },
+    "col_inserts": {}
+  }
+}

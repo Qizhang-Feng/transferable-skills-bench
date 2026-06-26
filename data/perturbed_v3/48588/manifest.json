@@ -1,0 +1,46 @@
+{
+  "task_id": "48588",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Product": "Item",
+        "Unique ID (Expected Result)": "Serial No (Expected Result)"
+      },
+      "sheet_rename_map": {
+        "Sheet1": "ProductData"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "ProductData"
+      ],
+      "params": {
+        "title_text": "Product Identification Table"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Category",
+      "target_sheet": "ProductData",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Lexical perturbation: Renamed 'Product' to 'Item' and 'Unique ID (Expected Result)' to 'Serial No (Expected Result)', and renamed the sheet from 'Sheet1' to 'ProductData'. The instruction references 'products' as a general English concept (not as a column reference), and refers to columns by letter (Column A, Column B), so renaming the header won't conflict with instruction wording. Positional title row insert: Added a title row to shift headers from row 1 to row 2, which tests whether the model hardcodes row positions. The answer position shifts from B2:B43 to B3:B44. Distractor column: Added 'Category' as a plausible but irrelevant column to test if the model gets confused by extra columns."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Sheet1": "ProductData"
+    },
+    "row_shifts": {
+      "ProductData": 1
+    },
+    "col_inserts": {}
+  }
+}

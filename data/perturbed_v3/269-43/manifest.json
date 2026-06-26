@@ -1,0 +1,34 @@
+{
+  "task_id": "269-43",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "15230.88",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "Given the risk flags (task_deletes_or_inserts_rows, task_references_specific_cell_addresses, task_depends_on_blank_row_positions, header_not_in_row_1), inserting blank rows is extremely risky because: (1) the task references specific cell addresses like I8/H8, (2) the task deletes rows based on blank cell detection, and (3) any row shift would invalidate the example cell references in the instruction. The previous attempt failed precisely because of blank row insertion shifting data. Instead, I use a distractor column inserted after column I (as column J). This tests whether the agent hardcodes the last column index or correctly identifies column I as the relevant column. The distractor column name '15230.88' is a numeric value similar in style to the existing header '14862.42' in column I, making it plausibly confusable. I avoid renaming columns because the headers are cryptic codes/dates/numbers that don't have obvious rename targets without changing descriptiveness level, and the instruction references columns by letter (H, I) not by name. No blank rows are inserted to avoid the documented failure mode."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}

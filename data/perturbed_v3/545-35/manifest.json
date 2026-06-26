@@ -1,0 +1,60 @@
+{
+  "task_id": "545-35",
+  "spec": {
+    "anchor_types_used": [
+      "lexical",
+      "positional_title_row",
+      "distractor_column"
+    ],
+    "rename": {
+      "column_rename_map": {
+        "Opening Stock": "Initial Inventory",
+        "Total Sales": "Aggregate Sales",
+        "Bulk Cancelled Sales": "Mass Voided Sales",
+        "Total Loans done": "Total Loans Issued",
+        "Leads Received": "Inbound Leads",
+        "Bulk Cancelled Leads ": "Mass Voided Leads",
+        "Conversion": "Converted Deals",
+        "Lost to competitors": "Lost to Rivals",
+        "Sales to Leads received ratio": "Sales to Inbound Leads Ratio",
+        "Loans to Leads Ratio": "Loans to Inbound Leads Ratio",
+        "Leads received to conversion ratio": "Inbound Leads to Converted Deals Ratio",
+        "Conversion to Sales ratio": "Converted Deals to Sales Ratio",
+        "Conversion to Loans ratio": "Converted Deals to Loans Ratio",
+        "Lost to competitors to Sales ratio": "Lost to Rivals to Sales Ratio",
+        "Lost to competitors to Loans ratio": "Lost to Rivals to Loans Ratio"
+      },
+      "sheet_rename_map": {
+        "Data": "Records"
+      },
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "title_row_insert",
+      "target_sheets": [
+        "Records"
+      ],
+      "params": {
+        "title_text": "Sales & Loans Performance Dashboard",
+        "merge_range": "A1:AI1"
+      }
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Net Adjusted Sales",
+      "target_sheet": "Records",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "The task is a VBA script task that operates on a selected range to replace non-numeric cell contents with zero. The instruction does not reference any specific column names, sheet names, or cell addresses — it asks for a general VBA solution. Therefore, renaming columns (lexical) and the sheet name is safe and won't affect the task logic. Inserting a title row (positional_title_row) shifts the header from row 2 to row 3 and data from U3:AI20 to U4:AI21, which tests whether the solution hardcodes row references. Since the instruction doesn't mention specific cell addresses, this is safe. Adding a distractor column 'Net Adjusted Sales' (plausibly similar to existing sales columns but clearly distinct) tests whether the model incorrectly includes it in processing. None of these changes alter the underlying logic of writing a VBA script to replace non-numeric cells with zeros."
+  },
+  "coord_map": {
+    "sheet_map": {
+      "Data": "Records"
+    },
+    "row_shifts": {
+      "Records": 1
+    },
+    "col_inserts": {}
+  }
+}

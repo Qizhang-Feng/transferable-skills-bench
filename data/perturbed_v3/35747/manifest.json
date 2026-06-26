@@ -1,0 +1,34 @@
+{
+  "task_id": "35747",
+  "spec": {
+    "anchor_types_used": [
+      "distractor_column",
+      "instruction_paraphrase"
+    ],
+    "rename": {
+      "column_rename_map": {},
+      "sheet_rename_map": {},
+      "data_value_renames": []
+    },
+    "layout": {
+      "type": "distractor_column",
+      "target_sheets": [
+        "Sheet1"
+      ],
+      "params": {}
+    },
+    "distractor": {
+      "type": "column",
+      "name": "Threshold",
+      "target_sheet": "Sheet1",
+      "position": "after_last_column"
+    },
+    "instruction_paraphrase": false,
+    "reasoning": "This task heavily references absolute cell addresses (B1:J1, B2:J11, A2:A11, M1, N1, L2, M2) and the header row is row 1 containing dates, not traditional column names. The risk flags explicitly warn about instruction_references_absolute_rows and task_references_specific_cell_addresses, meaning any row-shifting perturbation (blank_row_insert or title_row_insert) would break the task unless the instruction is rewritten — but instruction_paraphrase must be false. Column renaming is also not viable because the 'headers' in row 1 are actually date values and numeric values, not semantic column names that can be renamed. The safest perturbation is adding a distractor column ('Threshold') after the last column, which introduces a plausibly relevant but unused column (threshold could be confused with the >100 condition) without affecting any referenced ranges or cell addresses. This tests whether the model ignores irrelevant columns while keeping the task logic and difficulty identical."
+  },
+  "coord_map": {
+    "sheet_map": {},
+    "row_shifts": {},
+    "col_inserts": {}
+  }
+}
